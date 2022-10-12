@@ -1,0 +1,22 @@
+.mobile{
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .mobile{
+        display: inline;
+        width: 100%;
+    }
+}
+
+.bg-img{
+   background: url('./../../../../assets/images/imagen-portada.png') ;
+   height: 45vh;
+   width: 100%;
+   background-position: top;
+   background-size: cover;
+   background-repeat: no-repeat;
+  
+   position: absolute;
+   top: 0;
+}

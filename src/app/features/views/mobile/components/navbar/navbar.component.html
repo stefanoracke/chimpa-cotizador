@@ -1,0 +1,21 @@
+<div class="navbar-mobile">
+    <div class="icon-chimpa" *ngIf="title==undefined">
+        <img src="./../../../../../../assets/svg/Logotipo.svg" alt="">
+    </div>
+    <div class="titles" *ngIf="title">
+        <h2 class="title"><span><img src="./../../../../../../assets/svg/flecha.svg" alt=""></span>{{title}}</h2>
+        <h2>{{subtitle}}</h2>
+    </div>
+    <div class="menu">
+        <div *ngIf="showMenu" class="list-menu">
+            <div>
+                <img src="./../../../../../../assets/svg/exit.svg" (click)="openClose()" alt="">
+                <ul>
+                    <li *ngFor="let item of routes"><a [href]="item.route">{{item.name}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img *ngIf="showMenuDots && title" src="./../../../../../../assets/svg/phone.svg" alt="">
+        <img  *ngIf="showMenuDots " (click)="openClose()" src="./../../../../../../assets/svg/three-dots.svg" alt="">
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="Icono_casa_home" data-name="Icono casa home" transform="translate(-172 -12)">
+    <path id="home" d="M14.282,2.425a.843.843,0,0,0-1.045,0L1.125,11.874,2.17,13.206l1.483-1.164V22.477a1.686,1.686,0,0,0,1.686,1.686H22.2a1.686,1.686,0,0,0,1.686-1.686V12.051l1.483,1.155,1.045-1.323Zm1.172,20.052H12.082V15.734h3.372Zm1.686,0V15.734a1.686,1.686,0,0,0-1.686-1.686H12.082A1.686,1.686,0,0,0,10.4,15.734v6.743H5.339V10.728l8.429-6.566L22.2,10.736V22.477Z" transform="translate(173.875 14.797)" fill="#fff"/>
+    <rect id="Rectángulo_1977" data-name="Rectángulo 1977" width="32" height="32" transform="translate(172 12)" fill="none"/>
+  </g>
+</svg>

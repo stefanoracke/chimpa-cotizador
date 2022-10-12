@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    --mainBlue:#00214B;
+    --mainYellow: #FDDB00;
+    --mainLightBlue: #36A9E1;
+    --mainWhite: #ffffff;
+    
+}
+
+@font-face {
+    font-family: "Circular-std";
+    src: local("Circular-std") url("./assets/fonts/Circular/CircularStd-Book.otf");
+}

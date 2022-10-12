@@ -1,0 +1,149 @@
+*{
+    --i: 0s;
+}
+
+.animation-container{
+    width: 100%;
+    min-height: 100vh;
+    background: #34ace4;
+    z-index: 10;
+    display: none
+}
+
+app-animation-home{
+    animation: fade-out .3s forwards;
+    animation-delay: calc( var(--i) + .3s);
+}
+
+@keyframes fade-out {
+    100%{
+        opacity: 0;
+    }
+}
+
+.text{
+    padding-top: 30vh;
+    
+}
+
+.animation-container h2{
+    text-align: center;
+    font-size: 5vw;
+    color: #eee;
+    text-transform: uppercase;
+}
+
+section{
+    position: relative;
+}
+
+.home-container{
+    position: relative;
+    display: flex;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    min-height: 100vh;
+    
+    opacity: 0;
+    animation: pull-down .3s forwards;
+    animation-delay: calc( var(--i) + .3s);
+}
+
+.home-container .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+.title-container h2{
+    color: #ffffff;
+    padding-top: 20px;
+    font-size: 8vw;
+}
+
+.title-container{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    animation-delay: calc( var(--i) + .3s);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.title-container img{
+    width: 45%;
+}
+
+.blue-container{
+    height: 70%;
+    width: 100%;
+    border-radius: 30px 30px 0 0;
+    background: var(--mainBlue);
+    animation: pull-down 1s ease forwards;
+    animation-delay: calc( var(--i) + .3s);
+    padding-bottom: 40vh;
+    transform: translateY(100%);
+}
+
+.blue-container{
+    padding: 20px;
+}
+
+.name-company{
+    padding-top: 10px;
+    color: var(--mainYellow);
+    font-size: 6vw;
+    font-weight: 400;
+    animation: pull-down 1s ease forwards;
+    animation-delay: calc( var(--i) + .3s);
+}
+
+.title-web{
+    color: var(--mainWhite);
+    font-size: 8vw;
+    animation: pull-down 1s ease forwards;
+    animation-delay: calc( var(--i) + .3s);
+}
+
+.list-route{
+    display: flex;
+    justify-content: center;
+}
+
+.list-route ul{
+    padding: 4vh 0px 0px 0vh;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    gap:1.5vh
+}
+
+.list-route ul li{
+    padding: 8px 0;
+    width: 80%;background: var(--mainLightBlue);
+    border-radius: 20px;
+}
+
+.list-route ul li a{
+    width: 100%;
+    margin: 5px;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 4vw;
+    text-decoration: none;
+    padding: 10px;
+}
+
+@keyframes pull-down {
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
