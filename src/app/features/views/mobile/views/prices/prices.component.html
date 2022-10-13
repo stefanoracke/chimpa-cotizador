@@ -4,13 +4,33 @@
     <div class="mobile bg-img"></div>
 
 
-    <div class="blue-container">
-        <div class="text-center ">
-            <h2 class="name-company">Nombre del Cliente</h2>
-            <h2 class="title-web">Web Institucional</h2>
+    <div class="blue">
+        <div class="menu_prices">
+            <ul>
+                <li (click)="changeView(1)" [ngClass]="{'active': internal_navigation == 1}"> 
+                    <ng-template #preciowhite><i><img src="./../../../../../../assets/svg/precio-white.svg" alt=""></i></ng-template>
+                    <i *ngIf="internal_navigation==1; else preciowhite"><img src="./../../../../../../assets/svg/precio-bluelight.svg" alt=""></i>
+                     Precio
+                </li>
+                <li (click)="changeView(2)" [ngClass]="{'active': internal_navigation == 2}">
+                    <ng-template #dinerowhite><i><img src="./../../../../../../assets/svg/dinero-white.svg" alt=""></i></ng-template>
+                    <i *ngIf="internal_navigation==2; else dinerowhite"><img src="./../../../../../../assets/svg/dinero-bluelight.svg" alt=""></i>
+                    Financiación
+
+                </li>
+                <li (click)="changeView(3)" [ngClass]="{'active': internal_navigation == 3}">
+                    <ng-template #tiempowhite><i ><img src="./../../../../../../assets/svg/tiempo-white.svg" alt=""></i></ng-template>
+                    <i *ngIf="internal_navigation==3; else tiempowhite"><img src="./../../../../../../assets/svg/tiempo-bluelight.svg" alt=""></i>
+                    Tiempos</li>
+            </ul>
         </div>
-
+        <div class="price-content">
+            <app-price1 *ngIf="internal_navigation==1"></app-price1>
+            <app-price2 *ngIf="internal_navigation==2"></app-price2>
+            <app-price3 *ngIf="internal_navigation==3"></app-price3>
+        </div>
     </div>
-
+    
 
 </div>
+<app-footer-mobile></app-footer-mobile>

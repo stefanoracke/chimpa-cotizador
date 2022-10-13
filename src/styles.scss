@@ -11,3 +11,28 @@
     font-family: "Circular-std";
     src: local("Circular-std") url("./assets/fonts/Circular/CircularStd-Book.otf");
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.box-prices{
+    background: var(--mainLightBlue);
+    padding: 1.2rem;
+    border-radius: 1.25rem;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    
+}
+
+.yellow_circle{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--mainYellow);
+}

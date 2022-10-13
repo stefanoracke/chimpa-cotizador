@@ -15,6 +15,13 @@ app-animation-home{
     animation-delay: calc( var(--i) + .3s);
 }
 
+
+app-footer-mobile{
+    position: absolute;
+    bottom: -10vh;
+    width: 100% ;
+}
+
 @keyframes fade-out {
     100%{
         opacity: 0;

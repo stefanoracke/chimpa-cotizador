@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { MobileModule } from './features/views/mobile/mobile.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MobileModule
+    MobileModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

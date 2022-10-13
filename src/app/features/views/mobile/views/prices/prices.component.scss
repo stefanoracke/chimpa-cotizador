@@ -1,6 +1,4 @@
-.home-container{
-    height: 100%;
-}
+
 
 .bg-img{
     background: url('./../../../../../../assets/images/imagen-portada.png') ;
@@ -10,13 +8,74 @@
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
+    z-index: -1;
     top: 0;
  }
 
-.blue-contianer{
-    height: 100vh;
+.blue{
+    margin-top: 20vh;
+    min-height: 100vh;
+    border-radius: 30px 30px 0 0;
     width: 100%;
-    padding: 20vh;
-    display: block;
+    padding-top: 5vh;
+    z-index: 10;
+    color: black;
     background: var(--mainBlue);
+}
+
+app-footer-mobile{
+    position: absolute;
+    bottom: -30vh;
+    z-index: 22;
+    width: 100% ;
+}
+
+.menu_prices{
+    display: flex;
+    width: 100%;
+    padding: 0 5vw;
+    
+}
+
+.menu_prices ul{
+    display: flex;
+    
+    width: 100%;
+    padding-inline-start: 0;
+    font-size: 4.5vw;
+    margin-left: 0;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.menu_prices ul li{
+    color:#ffffff;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    transition: .5s ease;
+}
+
+i{
+    width: 5vw;
+    height: 5vw;
+    justify-content: center;
+    margin-right: 5px;
+    display: flex;
+}
+
+
+
+.active{
+    color: var(--mainLightBlue) !important;
+    line-height: 1.9;
+    border-bottom: 2px solid var(--mainYellow);
+    
+}
+
+
+
+.price-content{
+    color: #ffffff;
+    padding: 0 5vw;
 }
