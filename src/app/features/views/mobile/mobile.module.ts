@@ -15,6 +15,9 @@ import { MaterialModule } from 'src/app/core/modules/material/material.module';
 import { Price1Component } from './views/prices/components/price1/price1.component';
 import { Price2Component } from './views/prices/components/price2/price2.component';
 import { Price3Component } from './views/prices/components/price3/price3.component';
+import { Info1Component } from './views/info/components/info1/info1.component';
+import { Info2Component } from './views/info/components/info2/info2.component';
+import { Info3Component } from './views/info/components/info3/info3.component';
 
 
 
@@ -32,7 +35,10 @@ import { Price3Component } from './views/prices/components/price3/price3.compone
     AnimationHomeComponent,
     Price1Component,
     Price2Component,
-    Price3Component
+    Price3Component,
+    Info1Component,
+    Info2Component,
+    Info3Component
   ],
   imports: [
     CommonModule,

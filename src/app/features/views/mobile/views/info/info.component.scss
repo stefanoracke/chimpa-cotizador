@@ -41,15 +41,12 @@ app-footer-mobile{
     margin: 0 5vw;
 }
 
-.menu{
-    min-width: 1000px;
-    height: 100px;
-}
+
 
 
 .menu-info::-webkit-scrollbar{
     background: #785cf50e;
-    height: 10px;
+    height: 6px;
     border-radius: 20px;
 }
 
@@ -64,4 +61,31 @@ app-footer-mobile{
     transform:rotateX(180deg);
     -ms-transform:rotateX(180deg); /* IE 9 */
     -webkit-transform:rotateX(180deg); /* Safari and Chrome */
+}
+
+.menu ul{
+    
+    position: relative;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding-inline-start: 0px;
+    padding: 7px;
+    
+}
+
+
+
+.menu ul li{
+    padding: 0 7vh 0 0;
+    display: block;
+    box-sizing: border-box;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.contenido_info{
+    margin: 0 5vw;
+    padding:5vw;
+    border-top: 2px #fff solid;
 }

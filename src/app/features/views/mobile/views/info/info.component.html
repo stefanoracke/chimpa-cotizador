@@ -7,10 +7,19 @@
     <div class="blue">
         <div class="menu-info Flipped">
             <div class="menu Content">
-                Hola
+                <ul>
+                    <li (click)="navigate(item.number)" *ngFor = "let item of rutas">
+                        {{item.name}}
+                    </li>
+                </ul>
             </div>
         </div>
-
+        <div class="contenido_info">
+            
+            <app-info1 *ngIf="internal_navigation==1"></app-info1>
+            <app-info2 *ngIf="internal_navigation==2"></app-info2>
+            <app-info3 *ngIf="internal_navigation==3"></app-info3>
+        </div>
     </div>
 
 
