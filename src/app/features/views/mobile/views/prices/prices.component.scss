@@ -39,7 +39,7 @@ app-footer-mobile{
 
 .menu_prices ul{
     display: flex;
-    
+    line-height: 1.9;
     width: 100%;
     padding-inline-start: 0;
     font-size: 4.5vw;
@@ -54,6 +54,7 @@ app-footer-mobile{
     display: flex;
     align-items: center;
     transition: .5s ease;
+    border-bottom: 2px solid transparent; 
 }
 
 i{
@@ -68,8 +69,8 @@ i{
 
 .active{
     color: var(--mainLightBlue) !important;
-    line-height: 1.9;
-    border-bottom: 2px solid var(--mainYellow);
+    
+    border-bottom: 2px solid var(--mainYellow) !important;
     
 }
 

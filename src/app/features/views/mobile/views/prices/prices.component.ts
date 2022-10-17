@@ -14,11 +14,19 @@ export class PricesComponent implements OnInit {
   title= "Precio y"
   subtitle = "Financiación"
   ngOnInit(): void {
+    this.getNavigation()
   }
 
+  getNavigation(){
+    let n= localStorage.getItem("navigation_prices")
+    if(n!=null) this.internal_navigation=parseInt(n)
+    console.log(this.internal_navigation)
+  }
 
   changeView(n:number){
     this.internal_navigation = n
+    
+    localStorage.setItem("navigation_prices", this.internal_navigation.toString())
   }
 
 }
