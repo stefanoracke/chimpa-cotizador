@@ -8,9 +8,11 @@
         <div class="menu-info Flipped">
             <div class="menu Content">
                 <ul>
-                    <li (click)="navigate(item.number)" *ngFor = "let item of rutas">
+                    
+                    <li (click)="navigate(item.number)" [ngClass]="{'active2': internal_navigation === item.number}"  *ngFor = "let item of rutas" >
                         {{item.name}}
                     </li>
+                   
                 </ul>
             </div>
         </div>

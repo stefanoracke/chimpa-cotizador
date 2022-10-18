@@ -25,9 +25,17 @@
     background: var(--mainBlue);
 }
 
+.contenido_optional{
+    padding: 0 7vw;
+}
+
 app-footer-mobile{
     position: absolute;
     bottom: -30vh;
     z-index: 22;
     width: 100% ;
+}
+
+h3{
+    margin-left: 1rem;
 }

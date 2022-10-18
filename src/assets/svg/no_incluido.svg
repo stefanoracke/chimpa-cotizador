@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19.048" height="19.05" viewBox="0 0 19.048 19.05">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_6000" data-name="Rectángulo 6000" width="19.048" height="19.05" fill="#fddb00"/>
+    </clipPath>
+  </defs>
+  <g id="Icono_no_incluido" data-name="Icono no incluido" transform="translate(-2629 111)">
+    <g id="Grupo_6187" data-name="Grupo 6187" transform="translate(2629 -111)" clip-path="url(#clip-path)">
+      <path id="Trazado_19124" data-name="Trazado 19124" d="M8.892,0h1.265c.226.028.452.053.677.086a9.558,9.558,0,0,1,8.1,8c.042.268.074.537.111.806v1.265c-.028.22-.051.441-.084.66a9.367,9.367,0,0,1-3.514,6.15,9.211,9.211,0,0,1-7.22,1.989,9.2,9.2,0,0,1-6.162-3.523A9.267,9.267,0,0,1,.09,8.225,9.152,9.152,0,0,1,2.353,3.267,9.377,9.377,0,0,1,8.087.111C8.354.068,8.623.037,8.892,0M1.741,9.523A7.784,7.784,0,1,0,9.53,1.74,7.793,7.793,0,0,0,1.741,9.523" transform="translate(0)" fill="#fddb00"/>
+    </g>
+    <path id="Trazado_19127" data-name="Trazado 19127" d="M2632.829-107.324,2644.9-95.752" fill="none" stroke="#fddb00" stroke-width="2"/>
+  </g>
+</svg>

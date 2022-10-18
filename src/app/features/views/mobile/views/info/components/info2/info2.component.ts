@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Info2Component implements OnInit {
 
+
+  list = [
+    'Página principal',
+    'Dos páginas secundarias',
+    'Página de contacto formulario + botón de whatsapp'
+  ]
+
+  color = 'white'
+
   constructor() { }
 
   ngOnInit(): void {

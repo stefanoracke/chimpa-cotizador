@@ -43,3 +43,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border-radius: 50%;
     background: var(--mainYellow);
 }
+
+.celeste_circle{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    background: var(--mainLightBlue);
+}

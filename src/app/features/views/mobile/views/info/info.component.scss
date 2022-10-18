@@ -77,7 +77,8 @@ app-footer-mobile{
 
 
 .menu ul li{
-    padding: 0 7vh 0 0;
+    margin-right: 7vh;
+    padding: 0 2vw;
     display: block;
     box-sizing: border-box;
     justify-content: center;
@@ -87,5 +88,15 @@ app-footer-mobile{
 .contenido_info{
     margin: 0 5vw;
     padding:5vw;
-    border-top: 2px #fff solid;
+    
 }
+
+.active2{
+    border-bottom: 2px solid var(--mainYellow);
+}
+
+ul li a{
+    color: #ffffff;
+    border: none;
+}
+

@@ -18,6 +18,7 @@ import { Price3Component } from './views/prices/components/price3/price3.compone
 import { Info1Component } from './views/info/components/info1/info1.component';
 import { Info2Component } from './views/info/components/info2/info2.component';
 import { Info3Component } from './views/info/components/info3/info3.component';
+import { SharedModule } from '../../shared/shared.module';
 
 
 
@@ -43,7 +44,8 @@ import { Info3Component } from './views/info/components/info3/info3.component';
   imports: [
     CommonModule,
     MobileRoutingModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ],
   exports: [
     AppChimpanceComponent,

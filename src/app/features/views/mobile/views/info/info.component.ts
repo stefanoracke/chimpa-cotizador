@@ -42,7 +42,7 @@ export class InfoComponent implements OnInit {
 
   navigate(n:number){
     this.internal_navigation = n
-    
+    console.log(this.internal_navigation)
     localStorage.setItem("navigation_info", this.internal_navigation.toString())
   }
 
