@@ -2,9 +2,11 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AppChimpanceComponent } from "../app-chimpance/app-chimpance.component";
 import { InfoComponent } from "./views/info/info.component";
+import { OptionalComponentsComponent } from "./views/optional-components/optional-components.component";
 import { OptionalComponent } from "./views/optional/optional.component";
 import { PricesComponent } from "./views/prices/prices.component";
 import { ProjectsComponent } from "./views/projects/projects.component";
+import { QuestionsComponent } from "./views/questions/questions.component";
 import { WorkMethodologyComponent } from "./views/work-methodology/work-methodology.component";
 
 const routes: Routes = [
@@ -25,7 +27,18 @@ const routes: Routes = [
         },
         {
             path:"optional",
-            component: OptionalComponent
+            
+            children: [
+              {
+                path: '',
+                component: OptionalComponent,
+              },
+              {
+                
+                path: ':id',
+                component:OptionalComponentsComponent
+              }
+            ]
         },
         {
             path:"projects",
@@ -34,6 +47,10 @@ const routes: Routes = [
         {
           path:"methodology",
           component: WorkMethodologyComponent
+        },
+        {
+          path:"questions",
+          component: QuestionsComponent
         }
       ]
     }

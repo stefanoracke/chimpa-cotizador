@@ -4,13 +4,29 @@
     <div class="mobile bg-img"></div>
 
 
-    <div class="blue-container">
-        <div class="text-center ">
-            <h2 class="name-company">Nombre del Cliente</h2>
-            <h2 class="title-web">Web Institucional</h2>
+    <div class="blue">
+        <img src="assets/images/our_works.png" alt="">
+        
+        <div class="navigation-lines d-flex w-100 justify-content-center" >
+            <span *ngFor="let work of works;index as i" (click)="n_line=i" [ngClass]="{'activeLink':i == n_line}"></span>
         </div>
+        <div class="contenido_projects">
+            <div class="bg-jg-lb">
+                <div class="container_works">
+                    
+                        <h3>Plataforma de soluciones logísticas</h3>
+                        <p class="mt-2">Cliente: Logitrader - Marcas y Mercados</p>
+                        <p class="description">Un sitio de logística accesible, enfocado en a oferta de servicios y con un formulario inteligente que facilita la cotización.</p>
+                        <div class=" d-flex caracteristicas flex-wrap">
+                            <p class="caract">UX</p>
+                            <p class="caract">UI</p>
+                        </div>
+                </div>
 
+            </div>
+            
+            <app-footer-mobile></app-footer-mobile>
+        </div>
+        
     </div>
-
-
 </div>

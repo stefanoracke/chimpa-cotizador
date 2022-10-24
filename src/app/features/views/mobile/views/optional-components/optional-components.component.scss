@@ -1,0 +1,45 @@
+.background-selva{
+    background: url('./../../../../../../assets/images/background-optional.svg') ;
+    height:100%;
+    width: 100%;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+ }
+
+
+ .titles{
+    padding-top: 0vh !important;
+ }
+
+ .contenedor{
+    position: relative;
+    min-height: 120vh;
+    height:100%;
+    
+    color: #fff;
+    
+    flex-direction: column;
+ }
+
+ .contenedor img{
+   width: 100%;
+   border-radius: 10px;
+   
+ }
+
+ .contenedor2{
+   padding: 0vh 7vw 10vh 7vw;
+ }
+
+ app-footer-mobile{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+ }

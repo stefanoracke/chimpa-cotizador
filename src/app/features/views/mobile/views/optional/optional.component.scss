@@ -14,28 +14,54 @@
     z-index: -1;
  }
 
- .blue{
-    margin-top: 20vh;
-    height: 100%;
-    border-radius: 30px 30px 0 0;
-    width: 100%;
-    padding-top: 5vh;
-    z-index: 1;
-    color: #ffffff;
-    background: var(--mainBlue);
-}
+
 
 .contenido_optional{
     padding: 0 7vw;
 }
 
+.contenido img{
+    margin-left: 10px;
+    transform: translateY(-5px);
+}
+
+
+.blue{
+    margin-top: 20vh;
+    position: relative;
+    border-radius: 30px 30px 0 0;
+    width: 100%;
+    padding-top: 5vh;
+    padding-bottom: 20vh;
+    z-index: 1;
+    color: #ffffff;
+    background: var(--mainBlue);
+}
+
 app-footer-mobile{
     position: absolute;
-    bottom: -30vh;
+    bottom: 0;
     z-index: 22;
     width: 100% ;
 }
 
+mat-icon{
+    transform: translateY(7px) ;
+}
+
 h3{
     margin-left: 1rem;
+}
+
+.celeste_circle{
+    min-width: 30px;
+    min-height: 30px;
+}
+
+h3{
+    margin-bottom: 0;
+}
+
+.contenido{
+    padding:  0 7vw;
 }

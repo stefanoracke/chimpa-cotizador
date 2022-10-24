@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mobile-home',
   templateUrl: './mobile-home.component.html',
-  styleUrls: ['./mobile-home.component.scss']
+  styleUrls: ['./mobile-home.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MobileHomeComponent implements OnInit {
 

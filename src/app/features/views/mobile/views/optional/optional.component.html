@@ -5,15 +5,30 @@
 
 
     <div class="blue">
-        <div class="d-flex align-items-center contenido_optional">
+        <div class="d-flex align-items-center contenido_optional mt-3">
             <div class="celeste_circle">
                 <img src="./../../../../../../../assets/svg/icono_plus.svg" alt="">
             </div>
             <h3>Agranda tu combo</h3>
         </div>
-
+        <div class="mt-4 contenido" >
+            <div *ngFor="let item of cards; index as index" [ngClass]="{'bg-bluesecondary':index%2!=0}"  (click)="navigateTo(item.route, item.object)" class="box-prices mt-2">
+                <div class="d-flex flex-column w-100">
+                    <p>{{item.paragraph}}</p>
+                    <div class="d-flex"><h2 class="mt-2">{{item.title}}</h2>
+                    <img *ngIf="item.star" src="./../../../../../../assets/svg/star.svg" alt="">
+                    </div>
+                    
+                    <h2>{{item.price}} <small>/{{item.currency}}</small></h2>
+                    <div class="d-flex justify-content-between w-100 align-items-baseline">
+                        <small class="mt-2">{{item.interest}}</small>
+                        <mat-icon>chevron_right</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <app-footer-mobile></app-footer-mobile>
     </div>
 
 
 </div>
-<app-footer-mobile></app-footer-mobile>

@@ -19,6 +19,8 @@ import { Info1Component } from './views/info/components/info1/info1.component';
 import { Info2Component } from './views/info/components/info2/info2.component';
 import { Info3Component } from './views/info/components/info3/info3.component';
 import { SharedModule } from '../../shared/shared.module';
+import { QuestionsComponent } from './views/questions/questions.component';
+import { OptionalComponentsComponent } from './views/optional-components/optional-components.component';
 
 
 
@@ -39,7 +41,9 @@ import { SharedModule } from '../../shared/shared.module';
     Price3Component,
     Info1Component,
     Info2Component,
-    Info3Component
+    Info3Component,
+    QuestionsComponent,
+    OptionalComponentsComponent
   ],
   imports: [
     CommonModule,
@@ -57,7 +61,9 @@ import { SharedModule } from '../../shared/shared.module';
     OptionalComponent,
     ProjectsComponent,
     FooterMobileComponent,
-    AnimationHomeComponent
+    AnimationHomeComponent,
+    QuestionsComponent,
+    OptionalComponentsComponent
   ]
 })
 export class MobileModule { }

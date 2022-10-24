@@ -1,0 +1,68 @@
+.home-container{
+    height: 100%;
+}
+
+.bg-img{
+    background: url('./../../../../../../assets/images/imagen-portada.png') ;
+    height: 45vh;
+    width: 100%;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+ }
+
+//  .jng_background{
+    
+//     background: url('./../../../../../../assets/images/jungle_fondo.png') ;
+//     height: auto;
+//     width: 100%;
+//     background-position: top;
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     position: absolute;
+//     bottom: 10vh;
+//     z-index: 999;
+//  }
+
+
+ .blue{
+    margin-top: 25vh;
+    height: 100%;
+    border-radius: 30px 30px 0 0;
+    width: 100%;
+    padding-top: 5vh;
+   
+    z-index: 1;
+    color: #ffffff;
+    background: var(--mainBlue);
+    overflow: hidden;
+    position: relative;
+}
+
+.contenido_question{
+    padding: 0 7vw;
+}
+
+.item{
+    padding-right: 2.3vw;
+}
+
+app-footer-mobile{
+    position: absolute;
+    bottom: 0;
+    z-index: 22;
+    width: 100% ;
+}
+
+app-navbar-mobile{
+    width: 100%;
+    top: 0;
+    position: absolute;
+}
+
+.paragraph-item{
+    padding: 0 1rem;
+}

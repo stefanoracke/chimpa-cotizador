@@ -1,0 +1,15 @@
+
+
+<div class="contenedor d-flex ">
+    <app-navbar-mobile [title]="title" ></app-navbar-mobile>
+    <div class="background-selva"></div>
+    <div class="contenedor2">
+    <h2 class="mt-3">
+        {{object.title}}
+    </h2>
+    <p [innerHTML]="object.paragraph"></p>
+    <img [src]="object.image" alt="">
+    </div>
+    <app-footer-mobile></app-footer-mobile>
+</div>
+

@@ -1,11 +1,14 @@
 <app-animation-home ></app-animation-home>
 <div class="home-container">
     <div class="title">
+        
         <div class="title-container">
             <img src="./../../../../../assets/svg/Logotipo.svg" alt="">
+            
             <h2 class="text-center">Propuesta Web</h2>
         </div>
         <div class="blue-container">
+            <div class="jng_background"></div>
             <div class="text-center ">
                 <h2 class="name-company">Nombre del Cliente</h2>
                 <h2 class="title-web">Web Institucional</h2>
@@ -15,8 +18,8 @@
                     <li *ngFor="let item of routes" (click)="redirectTo(item.route)"><a [href]="item.route">{{item.name}}</a></li>
                 </ul>
             </div>
+            <app-footer-mobile></app-footer-mobile>
         </div>
     </div>
 
 </div>
-<app-footer-mobile></app-footer-mobile>
