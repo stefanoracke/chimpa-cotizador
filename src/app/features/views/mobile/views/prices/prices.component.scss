@@ -1,6 +1,5 @@
 .home-container{
-    height: 100%;
-    
+    height: 100% 
 }
 
 .bg-img{
@@ -35,60 +34,31 @@ app-navbar-mobile{
 }
 
 app-footer-mobile{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     z-index: 22;
     width: 100% ;
 }
 
-.menu_prices{
-    display: flex;
-    width: 100%;
-    padding: 0 5vw;
-    
-}
-
-.menu_prices ul{
-    display: flex;
-    line-height: 1.9;
-    width: 100%;
-    padding-inline-start: 0;
-    font-size: 4.5vw;
-    margin-left: 0;
-    justify-content: space-between;
-    list-style: none;
-}
-
-.menu_prices ul li{
-    color:#ffffff;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    transition: .5s ease;
-    border-bottom: 2px solid transparent; 
-}
-
-i{
-    width: 5vw;
-    height: 5vw;
-    justify-content: center;
-    margin-right: 5px;
-    display: flex;
+.container{
+    padding: 0 7vw;
 }
 
 
-
-.active{
-    color: var(--mainLightBlue) !important;
-    
-    border-bottom: 2px solid var(--mainYellow) !important;
-    
+.saludo{
+    margin-bottom: 15px;
 }
 
+.saludo img{
+    width: 60px;
+}
 
+.saludo h3{
+    font-size: 8vw;
+    padding-left: 20px;
+    margin:0
+}
 
-.price-content{
-    color: #ffffff;
-    padding: 0 5vw;
-    
+.cliente{
+    color: var(--mainYellow);
 }

@@ -7,7 +7,7 @@
     <div class="blue">
         <div ngSwipe 
          
-        (swipeEnd)="onSwipeEnd($event)" class="img-container">
+        (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="img-container">
             
             <img [src]="works[n_line].image" alt="">
         </div>
@@ -22,7 +22,7 @@
                         <h3>{{works[n_line].title}}</h3>
                         <p class="mt-2">Cliente: {{works[n_line].cliente}}</p>
                         <p class="description">{{works[n_line].description}}</p>
-                        {{n_line}}
+                        
                         <div class=" d-flex caracteristicas flex-wrap">
                             <p *ngFor="let caracteristica of works[n_line].caracteristicas" class="caract">{{caracteristica}}</p>
                             

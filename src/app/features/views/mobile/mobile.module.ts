@@ -22,6 +22,9 @@ import { SharedModule } from '../../shared/shared.module';
 import { QuestionsComponent } from './views/questions/questions.component';
 import { OptionalComponentsComponent } from './views/optional-components/optional-components.component';
 import { SwipeModule } from 'ng-swipe';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+
 
 @NgModule({
   declarations: [
@@ -64,6 +67,7 @@ import { SwipeModule } from 'ng-swipe';
     AnimationHomeComponent,
     QuestionsComponent,
     OptionalComponentsComponent
-  ]
+  ],
+ // use our custom hammerjs config
 })
 export class MobileModule { }
