@@ -21,8 +21,7 @@ import { Info3Component } from './views/info/components/info3/info3.component';
 import { SharedModule } from '../../shared/shared.module';
 import { QuestionsComponent } from './views/questions/questions.component';
 import { OptionalComponentsComponent } from './views/optional-components/optional-components.component';
-
-
+import { SwipeModule } from 'ng-swipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +48,8 @@ import { OptionalComponentsComponent } from './views/optional-components/optiona
     CommonModule,
     MobileRoutingModule,
     MaterialModule,
-    SharedModule
+    SharedModule,
+    SwipeModule
   ],
   exports: [
     AppChimpanceComponent,

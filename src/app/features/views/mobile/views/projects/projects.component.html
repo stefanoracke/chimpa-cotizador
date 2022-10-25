@@ -5,22 +5,28 @@
 
 
     <div class="blue">
-        <img src="assets/images/our_works.png" alt="">
+        <div ngSwipe 
+         
+        (swipeEnd)="onSwipeEnd($event)" class="img-container">
+            
+            <img [src]="works[n_line].image" alt="">
+        </div>
         
         <div class="navigation-lines d-flex w-100 justify-content-center" >
-            <span *ngFor="let work of works;index as i" (click)="n_line=i" [ngClass]="{'activeLink':i == n_line}"></span>
+            <span *ngFor="let work of works" (click)="change(work.i)" [ngClass]="{'activeLink':work.i == n_line}"></span>
         </div>
         <div class="contenido_projects">
             <div class="bg-jg-lb">
                 <div class="container_works">
                     
-                        <h3>Plataforma de soluciones logísticas</h3>
-                        <p class="mt-2">Cliente: Logitrader - Marcas y Mercados</p>
-                        <p class="description">Un sitio de logística accesible, enfocado en a oferta de servicios y con un formulario inteligente que facilita la cotización.</p>
+                        <h3>{{works[n_line].title}}</h3>
+                        <p class="mt-2">Cliente: {{works[n_line].cliente}}</p>
+                        <p class="description">{{works[n_line].description}}</p>
+                        {{n_line}}
                         <div class=" d-flex caracteristicas flex-wrap">
-                            <p class="caract">UX</p>
-                            <p class="caract">UI</p>
-                        </div>
+                            <p *ngFor="let caracteristica of works[n_line].caracteristicas" class="caract">{{caracteristica}}</p>
+                            
+                        </div> 
                 </div>
 
             </div>
