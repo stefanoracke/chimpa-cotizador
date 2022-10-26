@@ -11,5 +11,17 @@
 
         <h4>Financiación</h4>
 
+        <div class=" d-flex flex-column ">
+            <div class="d-flex flex-column  radio-buttons" *ngFor="let item of finaciacionobject">
+                <div class="d-flex"><input type="radio" name="financiacion" id="">{{item.name}}</div>
+                <p [innerHTML]="item.description" >
+                    
+                </p>
+            </div>
+            
+
+            
+        </div>
+        
     </div>
 </div>
