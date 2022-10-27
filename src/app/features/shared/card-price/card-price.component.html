@@ -13,23 +13,33 @@
 
     <div class=" d-flex flex-column ">
       <div class="d-flex flex-column  radio-buttons" *ngFor="let item of finaciacionobject;index as i">
-        <div class="d-flex mb-1 align-items-center"><span (click)="showFin(i)" class="radio_button" [ngClass]="{'radio_button_active':show == item.id_name}"></span><label (click)="showFin(i)" for="">{{item.name}}</label></div>
+        <div class="d-flex mb-1 align-items-center mt-2 radio"><span (click)="showFin(i)" class="radio_button" [ngClass]="{'radio_button_active':show == item.id_name}"></span><label (click)="showFin(i)" for="">{{item.name}}</label></div>
         
         <!-- Contenido oculto -->
-        <div class="acordion" [ngClass]="{'active':show == item.id_name}" *ngIf="show == item.id_name">
+        <div [ngClass]="{'active acordion':show == item.id_name, 'inactive': show != item.id_name}" >
           <div class="acordion_content">
-            <div class="d-flex">
+            <div  class="d-flex">
               <p class="number_cuota description" *ngIf="item.cuotas!=12 && item.cuotas!=0">{{item.cuotas}}</p>
-              <p class="number_cuota description" [innerHTML]="item.description"></p>
+              <p  class="number_cuota description" [innerHTML]="item.description"></p>
             </div>
             <p class="description" [innerHTML]="item.description2"></p>
           </div>
         </div>
+      </div>
 
-        <hr class="mt-2">
-        
-        <!--  Precio   -->
+      <hr class="mt-2">
 
+      <!--  Precio   -->
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="text_total">Total</h3>
+        <h3>${{precio_modificado}} USD</h3>
+      </div>
+
+      <hr class="mt-2">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="text_total">Plazos de entrega</h3>
+        <h3 class="text_total">3 a 4 meses</h3>
       </div>
     </div>
   </div>

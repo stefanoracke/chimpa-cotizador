@@ -1,0 +1,24 @@
+.width_{
+    width: 90px;
+}
+
+span{
+    border-right: 2px solid var(--mainBlue);
+    height: 45px;
+    transform: translateY(-5px);
+    box-sizing: border-box;
+    
+}
+
+h1{
+    margin: 0;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    font-weight: 900;
+    text-shadow: 0 0 2px var(--mainBlue);
+}
+
+small{
+    transform: translateY(-5px);
+    text-shadow: 0 0 1px var(--mainBlue);
+}

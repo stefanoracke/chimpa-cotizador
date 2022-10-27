@@ -16,6 +16,7 @@ hr{
     background-color: #DEE2E6;
     color: #DEE2E6;
     border-bottom: 1px solid #DEE2E6;
+    opacity: .8;
 }
 
 .aclaracion{
@@ -32,6 +33,10 @@ hr{
     transition: .2s linear all;
 }
 
+.radio{
+    z-index: 99;
+}
+
 .radio_button_active{
     border-radius: 50%;
     height: 15px;
@@ -40,9 +45,15 @@ hr{
     display: flex;
     justify-content: center;
     align-items: center;    position: relative;
-    background-color: var(--mainLightBlue);
+    background-color: #0275d8;
     margin-right: 8px;
-    border: 2px solid var(--mainLightBlue);
+    border: 2px solid #0275d8;
+}
+
+
+.text_total{
+    font-weight: 100;
+    font-size: 16px;
 }
 
 .radio_button_active::after{
@@ -73,6 +84,12 @@ hr{
 
 }
 
+.inactive{
+    max-height: 40px;
+    opacity: 0;
+    animation: hide .5s forwards;
+}
+
 .description{
     font-size: 14px;
 }
@@ -80,6 +97,7 @@ hr{
 .acordion_content{
     animation: show .5s forwards;
     transform: translateY(-100%);
+    z-index: -10;
 }
 
 
@@ -89,4 +107,23 @@ hr{
         max-height:40px;
         transition: max-height 5s ease;
     }
+}
+
+@keyframes hide {
+    99%{
+        
+        max-height:0;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: max-height 5s ease;
+
+    }
+    100%{
+        max-height:0;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: max-height 5s ease;
+        display: none;
+    }
+    
 }

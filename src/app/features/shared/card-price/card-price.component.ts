@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class CardPriceComponent implements OnInit {
 
   constructor() { }
-
+  
+  precio=2000
   show = 0
+  precio_modificado = this.precio
 
   finaciacionobject=[
     {
@@ -39,16 +41,27 @@ export class CardPriceComponent implements OnInit {
   ]
 
   showFin(i:number){
-    if(this.show == i+1){this.show = 0;} 
+    if(this.show == i+1){
+      this.show = 0;
+      this.precio_modificado = this.precio  
+    } 
     else{
       this.show = i+1
+      this.changeTotal(i);
     }
     
   }
 
   ngOnInit(): void {
+    
   }
 
-  precio=2000
+  changeTotal(n:number){
+    if(this.finaciacionobject[n].cuotas!=0){
+      this.precio_modificado = Math.round(this.precio/this.finaciacionobject[n].cuotas)
+    }else{
+      this.precio_modificado = this.precio*.8
+    }
+  }
 
 }
