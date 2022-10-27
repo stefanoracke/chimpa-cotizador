@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { CardPriceComponent } from './card-price/card-price.component';
+import { TimerComponent } from './timer/timer.component';
 import { MaterialModule } from 'src/app/core/modules/material/material.module';
 
 
@@ -9,7 +10,8 @@ import { MaterialModule } from 'src/app/core/modules/material/material.module';
 @NgModule({
   declarations: [
     ListComponent,
-    CardPriceComponent
+    CardPriceComponent,
+    TimerComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { MaterialModule } from 'src/app/core/modules/material/material.module';
   ],
   exports: [
     ListComponent,
-    CardPriceComponent
+    CardPriceComponent,
+    TimerComponent
   ]
 })
 export class SharedModule { }
