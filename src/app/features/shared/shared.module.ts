@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
 import { CardPriceComponent } from './card-price/card-price.component';
+import { MaterialModule } from 'src/app/core/modules/material/material.module';
 
 
 
@@ -11,7 +12,8 @@ import { CardPriceComponent } from './card-price/card-price.component';
     CardPriceComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
     ListComponent,

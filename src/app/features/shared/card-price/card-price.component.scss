@@ -20,12 +20,73 @@ hr{
 
 .aclaracion{
     color: #6C757D;
+    font-size: 13px;
 }
 
-.radio-buttons{
-    gap:10px
+.radio_button{
+    border-radius: 50%;
+    height: 15px;
+    margin-right: 8px;
+    width: 15px;
+    border: 1px solid grey;
+    transition: .2s linear all;
+}
+
+.radio_button_active{
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;    position: relative;
+    background-color: var(--mainLightBlue);
+    margin-right: 8px;
+    border: 2px solid var(--mainLightBlue);
+}
+
+.radio_button_active::after{
+    content: '';
+    color: white;
+    width: 7px;
+    height: 7px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fff;
 }
 
 .radio-buttons input{
     margin-right: 8px;
+}
+
+.number_cuota{
+    height: fit-content;
+    margin: 0;
+    padding-right: 4px;
+}
+
+.acordion {
+    max-height: 0;
+    animation: show .5s forwards;
+  overflow: hidden;
+  transition: max-height 5s ease;
+
+}
+
+.description{
+    font-size: 14px;
+}
+
+.acordion_content{
+    animation: show .5s forwards;
+    transform: translateY(-100%);
+}
+
+
+@keyframes show {
+    100%{
+        transform: translateY(0%);
+        max-height:40px;
+        transition: max-height 5s ease;
+    }
 }

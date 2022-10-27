@@ -1,27 +1,36 @@
 <div class="card">
-    <div class="container">
-        <h3>Propuesta Web <br>Institucional</h3>
-        <hr class="mt-2">
+  <div class="container">
+    <h3>Propuesta Web <br>Institucional</h3>
+    <hr class="mt-2">
 
-        <h3>${{precio}} USD</h3>
-        <p class="aclaracion">*Precio variable al alcance del proyecto. <br>
-            *Precio expresado en USD 550 Solidario.</p>
+    <h3>${{precio}} USD</h3>
+    <p class="aclaracion">*Precio variable al alcance del proyecto. <br>
+      *Precio expresado en USD 550 Solidario.</p>
+
+    <hr class="mt-2">
+
+    <h4>Financiación</h4>
+
+    <div class=" d-flex flex-column ">
+      <div class="d-flex flex-column  radio-buttons" *ngFor="let item of finaciacionobject;index as i">
+        <div class="d-flex mb-1 align-items-center"><span (click)="showFin(i)" class="radio_button" [ngClass]="{'radio_button_active':show == item.id_name}"></span><label (click)="showFin(i)" for="">{{item.name}}</label></div>
         
-        <hr class="mt-2">
-
-        <h4>Financiación</h4>
-
-        <div class=" d-flex flex-column ">
-            <div class="d-flex flex-column  radio-buttons" *ngFor="let item of finaciacionobject">
-                <div class="d-flex"><input type="radio" name="financiacion" id="">{{item.name}}</div>
-                <p [innerHTML]="item.description" >
-                    
-                </p>
+        <!-- Contenido oculto -->
+        <div class="acordion" [ngClass]="{'active':show == item.id_name}" *ngIf="show == item.id_name">
+          <div class="acordion_content">
+            <div class="d-flex">
+              <p class="number_cuota description" *ngIf="item.cuotas!=12 && item.cuotas!=0">{{item.cuotas}}</p>
+              <p class="number_cuota description" [innerHTML]="item.description"></p>
             </div>
-            
-
-            
+            <p class="description" [innerHTML]="item.description2"></p>
+          </div>
         </div>
+
+        <hr class="mt-2">
         
+        <!--  Precio   -->
+
+      </div>
     </div>
+  </div>
 </div>
