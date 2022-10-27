@@ -8,9 +8,11 @@ import { MobileModule } from './features/views/mobile/mobile.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
+   
     
     
   ],
