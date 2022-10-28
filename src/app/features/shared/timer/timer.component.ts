@@ -10,7 +10,7 @@ export class TimerComponent implements OnInit {
   currentDate: any;
 	date: Date = new Date();
 	
-	eventDate: any = new Date("Oct 28, 2022 16:40:00").getTime();
+	eventDate: any = new Date("Oct 29, 2022 16:40:00").getTime();
 	timeLeftSeconds = Math.floor((this.eventDate - this.date.getTime()) / 1000);
   	timeLeft={
 		hours : "",
@@ -31,9 +31,14 @@ export class TimerComponent implements OnInit {
 	}
 	calculateTime(timeLeftSeconds: number): any {
 		
-		const hours = Math.floor((timeLeftSeconds / (3600)));
-		const minutes =  Math.floor(((timeLeftSeconds - hours*3600) / (60)));
-		const seconds = Math.floor((timeLeftSeconds - hours*3600 - minutes*60))
+		let hours = Math.floor((timeLeftSeconds / (3600)));
+		let minutes =  Math.floor(((timeLeftSeconds - hours*3600) / (60)));
+		let seconds = Math.floor((timeLeftSeconds - hours*3600 - minutes*60))
+		if(timeLeftSeconds < 0){
+			hours =  0 
+			minutes = 0
+			seconds = 0
+		}  
 		let date = {
 			hours: hours,
 			minutes: minutes,
