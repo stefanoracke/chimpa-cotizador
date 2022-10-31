@@ -4,6 +4,8 @@ import { ListComponent } from './list/list.component';
 import { CardPriceComponent } from './card-price/card-price.component';
 import { TimerComponent } from './timer/timer.component';
 import { MaterialModule } from 'src/app/core/modules/material/material.module';
+import { NavbarpcComponent } from './navbarpc/navbarpc.component';
+import { CuotaspipePipe } from 'src/app/core/pipe/cuotaspipe.pipe';
 
 
 
@@ -11,16 +13,20 @@ import { MaterialModule } from 'src/app/core/modules/material/material.module';
   declarations: [
     ListComponent,
     CardPriceComponent,
-    TimerComponent
+    TimerComponent,
+    NavbarpcComponent,
+    CuotaspipePipe
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    
   ],
   exports: [
     ListComponent,
     CardPriceComponent,
-    TimerComponent
+    TimerComponent,
+    NavbarpcComponent
   ]
 })
 export class SharedModule { }

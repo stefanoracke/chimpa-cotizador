@@ -41,6 +41,22 @@ body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!import
     background: var(--mainYellow);
 }
 
+.clickeable{
+    cursor: pointer;
+}
+
+.btn-yellow{
+    background: var(--mainYellow);
+    color: var(--mainBlue);
+    border-radius: .5rem;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    margin-top: 12px;
+    text-shadow: 0 1px 2px solid var(--mainBlue);
+}
+
 .celeste_circle{
     justify-content: center;
     display: flex;

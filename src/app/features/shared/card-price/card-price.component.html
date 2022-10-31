@@ -13,7 +13,7 @@
 
     <div class=" d-flex flex-column ">
       <div class="d-flex flex-column  radio-buttons" *ngFor="let item of finaciacionobject;index as i">
-        <div class="d-flex mb-1 align-items-center mt-2 radio"><span (click)="showFin(i)" class="radio_button" [ngClass]="{'radio_button_active':show == item.id_name}"></span><label (click)="showFin(i)" for="">{{item.name}}</label></div>
+        <div class="d-flex mb-1 align-items-center mt-2 radio"><span (click)="showFin(i)" class="radio_button clickeable" [ngClass]="{'radio_button_active':show == item.id_name}"></span><label class="clickeable" (click)="showFin(i)" for="">{{item.name}}</label></div>
         
         <!-- Contenido oculto -->
         <div [ngClass]="{'active acordion':show == item.id_name, 'inactive': show != item.id_name}" >
@@ -31,9 +31,15 @@
 
       <!--  Precio   -->
 
+      
+      <div *ngIf="cuotas!=undefined" class="d-flex justify-content-between align-items-center">
+        <h3 class="text_total">{{cuotas|cuotaspipe}} </h3>
+        <h3 class="text_total">${{precio_modificado}} USD</h3>
+      </div>
+
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="text_total">Total</h3>
-        <h3>${{precio_modificado}} USD</h3>
+        <h3 class="text_total">Total </h3>
+        <h3>${{precio_muestra}} USD</h3>
       </div>
 
       <hr class="mt-2">

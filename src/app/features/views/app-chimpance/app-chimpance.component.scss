@@ -2,10 +2,14 @@
     display: none;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 700px) {
     .mobile{
         display: inline;
         width: 100%;
+    }
+    app-navbarpc{
+        display: none;
+
     }
 }
 
@@ -16,7 +20,6 @@
    background-position: top;
    background-size: cover;
    background-repeat: no-repeat;
-  
    position: absolute;
    top: 0;
 }

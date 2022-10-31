@@ -23,6 +23,7 @@ import { QuestionsComponent } from './views/questions/questions.component';
 import { OptionalComponentsComponent } from './views/optional-components/optional-components.component';
 import { SwipeModule } from 'ng-swipe';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { LandingModule } from '../landing/landing.module';
 
 
 
@@ -52,7 +53,8 @@ import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-br
     MobileRoutingModule,
     MaterialModule,
     SharedModule,
-    SwipeModule
+    SwipeModule,
+    LandingModule
   ],
   exports: [
     AppChimpanceComponent,

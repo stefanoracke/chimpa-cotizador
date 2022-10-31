@@ -12,6 +12,8 @@ export class CardPriceComponent implements OnInit {
   precio=2000
   show = 0
   precio_modificado = this.precio
+  precio_muestra = this.precio
+  cuotas!:number | undefined
 
   finaciacionobject=[
     {
@@ -43,9 +45,12 @@ export class CardPriceComponent implements OnInit {
   showFin(i:number){
     if(this.show == i+1){
       this.show = 0;
-      this.precio_modificado = this.precio  
+      this.precio_modificado = this.precio
+      this.precio_muestra = this.precio
+      this.cuotas = undefined
     } 
     else{
+      this.cuotas = this.finaciacionobject[i].cuotas
       this.show = i+1
       this.changeTotal(i);
     }
@@ -59,8 +64,11 @@ export class CardPriceComponent implements OnInit {
   changeTotal(n:number){
     if(this.finaciacionobject[n].cuotas!=0){
       this.precio_modificado = Math.round(this.precio/this.finaciacionobject[n].cuotas)
+      this.precio_muestra = this.precio
     }else{
-      this.precio_modificado = this.precio*.8
+      this.precio_modificado = this.precio*.2
+      this.precio_muestra = this.precio*.8
+      
     }
   }
 
