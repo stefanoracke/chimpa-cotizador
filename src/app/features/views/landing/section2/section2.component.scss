@@ -1,0 +1,23 @@
+.bg-blue{
+    background-color: var(--mainBlue);
+    height: 100%;
+    min-height: 100vh;
+}
+
+.image_con{
+    padding-top: 60px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.image_con img{
+    position: relative;
+    width: auto;
+    height: 43vh;
+    border-radius: 6px;
+}
+
+.text_img{
+    background-color: #001836;
+}
