@@ -12,6 +12,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!important;}
 
+.bg-lightblue{
+    background: var(--mainLightBlue)!important;
+}
 
 .white_boxes{
     padding: 1rem 1.2rem;

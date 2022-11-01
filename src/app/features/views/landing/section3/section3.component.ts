@@ -9,6 +9,31 @@ export class Section3Component implements OnInit {
 
   constructor() { }
 
+  n = 0
+
+  funcionalidades = [
+    {
+      title: 'Sitio web con 4 páginas y 5 secciones cada una.',
+      list: [
+        'Página principal - home', 'Dos páginas secundarias', 'Página de contacto: formulario + botón de whatsapp'
+      ]
+    },
+    {
+      title: 'Funcionalidades especificas.',
+      list: [
+        'Página principal - home', 'Dos páginas secundarias', 'Página de contacto: formulario + botón de whatsapp'
+      ]
+    },
+    {
+      title: 'Distintas herramientas para mejorar tu web.',
+      list: [
+        'Bootstrap', 'Dos páginas secundarias', 'Página de contacto: formulario + botón de whatsapp'
+      ]
+    }
+  ]
+
+
+
   ngOnInit(): void {
   }
 

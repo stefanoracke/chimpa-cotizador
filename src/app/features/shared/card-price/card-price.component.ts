@@ -9,7 +9,7 @@ export class CardPriceComponent implements OnInit {
 
   constructor() { }
   
-  precio=2000
+  precio=3000
   show = 0
   precio_modificado = this.precio
   precio_muestra = this.precio
