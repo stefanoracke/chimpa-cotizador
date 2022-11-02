@@ -6,17 +6,14 @@ import { AppComponent } from './app.component';
 
 import { MobileModule } from './features/views/mobile/mobile.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CuotaspipePipe } from './core/pipe/cuotaspipe.pipe';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
-   
-    
-    
+
   ],
   imports: [
     BrowserModule,

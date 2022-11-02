@@ -13,8 +13,14 @@
 .title_serv{
     color: var(--mainLightBlue);
     margin: 0;
+    font-size: 3.5rem;
 }
 
 .container{
     padding: 50px 5rem 0 5rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

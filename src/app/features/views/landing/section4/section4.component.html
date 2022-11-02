@@ -5,10 +5,19 @@
             <img class="flecha" src="assets/svg/Flecha amarilla.svg" alt="">
             <h1 class="title_serv">Servicios</h1>
         </div>
-        <div class="row servicio">
+        <div class="row servicio mt-5 w-100">
             
-            <div class="col"><app-incluidos></app-incluidos></div>
-            <div class="col"><app-incluidos></app-incluidos></div>
+            <div class="col">
+                <div class="card w-100">
+                    <app-incluidos [list]="incluido" ></app-incluidos>
+                </div>
+                
+            </div>
+            <div class="col">
+                <div class="card w-100">
+                    <app-incluidos [list]="noincluido" [incluido]="false"></app-incluidos>
+                </div>
+            </div>
         </div>
 
         

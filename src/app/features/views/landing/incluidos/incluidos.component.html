@@ -1,3 +1,18 @@
-<div class="card">
-    <h1>Incluidos</h1>
-</div>
+
+    <div class="content">
+        <div class="d-flex w-100 align-items-center">
+            <div class="circle d-flex justify-content-center align-items-center">
+                <img [src]="incluido ? incluido_object.img : no_incluido_object.img" alt="">
+            </div>
+            <h3 *ngIf = "incluido; else noincluido">{{incluido_object.name}}</h3>
+            <ng-template #noincluido>
+                <h3>{{no_incluido_object.name}}</h3>
+            </ng-template>
+        </div>
+
+        <hr class="linea_blue">
+        <ul class="list_incluido">
+            <li *ngFor="let item of list"> <img [src]="incluido ? incluido_object.listimg : no_incluido_object.listimg" alt=""> {{item}}</li>
+        </ul>
+    </div>
+    

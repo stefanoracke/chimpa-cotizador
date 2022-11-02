@@ -1,0 +1,42 @@
+.bg_yellow{
+    background-color: var(--mainYellow);
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+    text-shadow: 0 0 2px var(--mainBlue);
+}
+
+.oferta{
+    font-size: 4rem;
+    font-weight: 900
+}
+
+.contenido{
+    min-height: 100vh;
+    z-index: 10;
+    color: var(--mainBlue);
+}
+
+.pisotimer{
+    background: url('./../../../../../assets/images/Section3.png');
+    z-index: 10000;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.mono{
+    position: absolute;
+    bottom: 0;
+    right: 7vw;
+}
+
+.piso{
+    width: 100%;
+    
+    z-index: 5;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+}

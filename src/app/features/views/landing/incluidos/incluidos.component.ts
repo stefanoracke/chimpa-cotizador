@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-incluidos',
@@ -8,6 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class IncluidosComponent implements OnInit {
 
   constructor() { }
+
+  incluido_object = {
+    name:'Incluídos',
+    img: 'assets/svg/incluidochimpa.svg',
+    listimg: 'assets/svg/ok_yellow.svg'
+  }
+
+  no_incluido_object = {
+    name:'No incluídos',
+    img: 'assets/svg/noincluidochimpa.svg',
+    listimg: 'assets/svg/cruz_yellow.svg'
+  }
+
+  
+  @Input() incluido:boolean = true
+  @Input() list!:Array<any>
 
   ngOnInit(): void {
   }

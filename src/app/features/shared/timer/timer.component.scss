@@ -22,3 +22,18 @@ small{
     transform: translateY(-5px);
     text-shadow: 0 0 1px var(--mainBlue);
 }
+
+@media (min-width:1000px) {
+   .n{
+    font-size: 4rem;
+   }
+
+   .width_{
+    width: 7rem;
+}
+
+small{
+    font-size: 1rem;
+}
+
+}
