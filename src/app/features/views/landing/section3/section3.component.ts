@@ -27,7 +27,7 @@ export class Section3Component implements OnInit {
     {
       title: 'Distintas herramientas para mejorar tu web.',
       list: [
-        'Bootstrap', 'Dos páginas secundarias', 'Página de contacto: formulario + botón de whatsapp'
+        'Bootstrap', 'Dos páginas secundarias','Bootstrap', 'Dos páginas secundarias','Bootstrap', 'Dos páginas secundarias', 'Página de contacto: formulario + botón de whatsapp'
       ]
     }
   ]
