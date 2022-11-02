@@ -30,7 +30,9 @@ import { IncluidosComponent } from './incluidos/incluidos.component';
     Section1Component,
     Section2Component,
     Section3Component,
-    Section4Component
+    Section4Component,
+    Section5Component,
+    Section6Component
   ]
 })
 export class LandingModule { }

@@ -10,7 +10,7 @@ export class TimerComponent implements OnInit {
   currentDate: any;
 	date: Date = new Date();
 	
-	eventDate: any = new Date("Oct 29, 2022 16:40:00").getTime();
+	eventDate: any = new Date("Nov 3, 2022 16:40:00").getTime();
 	timeLeftSeconds = Math.floor((this.eventDate - this.date.getTime()) / 1000);
   	timeLeft={
 		hours : "",
