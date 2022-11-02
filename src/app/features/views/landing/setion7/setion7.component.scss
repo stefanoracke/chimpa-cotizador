@@ -1,0 +1,24 @@
+.container{
+    padding: 5rem 3rem ;
+}
+
+.card-opcional{
+    border: 2px solid var(--mainLightBlue);
+    border-radius: 6px;
+    padding: 30px;
+    position: relative;
+    width: 100%;
+    min-height: 15vh;
+}
+
+.three_dots{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    transform: rotate(90deg);
+}
+
+.price{
+    gap: 15px;
+    margin-bottom: 20px;
+}

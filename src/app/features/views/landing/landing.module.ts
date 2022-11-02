@@ -9,6 +9,9 @@ import { Section4Component } from './section4/section4.component';
 import { Section5Component } from './section5/section5.component';
 import { Section6Component } from './section6/section6.component';
 import { IncluidosComponent } from './incluidos/incluidos.component';
+import { MenuitemsComponent } from './section6/menuitems/menuitems.component';
+import { Setion7Component } from './setion7/setion7.component';
+import { TituloComponent } from './titulo/titulo.component';
 
 
 
@@ -20,7 +23,10 @@ import { IncluidosComponent } from './incluidos/incluidos.component';
     Section4Component,
     Section5Component,
     Section6Component,
-    IncluidosComponent
+    IncluidosComponent,
+    MenuitemsComponent,
+    Setion7Component,
+    TituloComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +38,8 @@ import { IncluidosComponent } from './incluidos/incluidos.component';
     Section3Component,
     Section4Component,
     Section5Component,
-    Section6Component
+    Section6Component,
+    Setion7Component
   ]
 })
 export class LandingModule { }

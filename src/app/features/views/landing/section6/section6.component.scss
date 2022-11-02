@@ -4,3 +4,34 @@
     background: var(--mainBlue);
     
 }
+
+.container{
+    padding: 5rem 3rem ;
+}
+
+.text-lighblue{
+    color: var(--mainLightBlue);
+    font-size: 2rem;
+}
+.text{
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+}
+
+.paragraph-white{
+    width: 70%;
+}
+
+.clickeable{
+    font-size: 2rem;
+    width: fit-content;
+}
+
+.active{
+    border-bottom: 2px solid var(--mainYellow);
+}
+
+.menu{
+    margin-top: 70px;
+}
