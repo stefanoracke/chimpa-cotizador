@@ -1,0 +1,22 @@
+.container{
+    padding: 0;
+}
+
+.img_cont img{
+    width: 100%;
+    background: var(--mainBlue);
+    opacity: 60%;
+}
+
+.col-6{
+    padding: 0;
+}
+
+.contenido{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}

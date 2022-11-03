@@ -77,7 +77,9 @@ body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!import
 .bg-bluesecondary{
     background-color: var(--secondary)!important;
 }
-
+.text-yellow{
+    color: var(--mainYellow);
+}
 
 .jng_background{
     background: url('./assets/images/jungle_fondo.png') ;

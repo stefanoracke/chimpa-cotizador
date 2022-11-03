@@ -6,6 +6,8 @@ import { TimerComponent } from './timer/timer.component';
 import { MaterialModule } from 'src/app/core/modules/material/material.module';
 import { NavbarpcComponent } from './navbarpc/navbarpc.component';
 import { CuotaspipePipe } from 'src/app/core/pipe/cuotaspipe.pipe';
+import { FotterpcComponent } from './fotterpc/fotterpc.component';
+import { SliderComponent } from './slider/slider.component';
 
 
 
@@ -15,7 +17,9 @@ import { CuotaspipePipe } from 'src/app/core/pipe/cuotaspipe.pipe';
     CardPriceComponent,
     TimerComponent,
     NavbarpcComponent,
-    CuotaspipePipe
+    CuotaspipePipe,
+    FotterpcComponent,
+    SliderComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,9 @@ import { CuotaspipePipe } from 'src/app/core/pipe/cuotaspipe.pipe';
     ListComponent,
     CardPriceComponent,
     TimerComponent,
-    NavbarpcComponent
+    NavbarpcComponent,
+    FotterpcComponent,
+    SliderComponent
   ]
 })
 export class SharedModule { }
