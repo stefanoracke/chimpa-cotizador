@@ -1,13 +1,36 @@
 <div class="container">
     <div class="row">
-        <div class="col-6  img_cont">
-            <img src="assets/images/sliderpc/delGredal.png" alt="">
+        <div class="align-items-center col-6 d-flex ">
+            <div class="img_cont">
+                <img src="assets/images/sliderpc/delGredal.png" alt="">
+            
+            </div>  
+            <img src="assets/svg/chevron-left.svg" alt="" class="change left clickeable">
+            
         </div>
         <div class="col-6 d-flex flex-colum ">
+            <img src="assets/svg/chevron-right.svg" alt="" class="change right clickeable">
             <div class="contenido">
                 <h3 class="text-yellow">0.1 Del Gredal </h3>
+                <h2 class="cliente">Cliente: Cinergia producciones </h2>
+                
+                <p>Desarrollamos y diseñamos una web institucional que <br> propone <br>
+                    una narrativa en 
+                    línea con el espíritu y la identidad de la <br> marca.</p>
+
+                <a href="https://www.delgredal.com" target="_blank" class="text-yellow text-yellow-a">www.delgredal.com</a>
+
+                <div class=" d-flex caracteristicas flex-wrap">
+                    <p *ngFor="let caracteristica of works[n_line].caracteristicas" class="caract">{{caracteristica}}</p>
+                    
+                </div> 
+
             </div>
             
         </div>
     </div>
+    
+</div>
+<div class="w-100 d-flex flex-column align-items-center bg-blue">
+    Ver Otros Proyectos
 </div>
