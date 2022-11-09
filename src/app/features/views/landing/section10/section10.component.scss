@@ -1,0 +1,20 @@
+.bg-jungle{
+    background: url('./../../../../../assets/images/jungle_monkeys.png');
+    width: 100%;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    z-index: -1;
+    background-position: center;
+    
+    bottom: 0;
+    top:0;
+    // filter: blur(2px);
+    position: absolute; 
+}
+
+.contenedor{
+    min-height: 100vh;
+    padding-bottom: 10vh;
+}

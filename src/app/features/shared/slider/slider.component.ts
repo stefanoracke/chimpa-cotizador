@@ -9,15 +9,17 @@ export class SliderComponent implements OnInit {
 
   constructor() { }
 
-  
+  span_n = 0;
   n_line = 0;
   works = [
     {
       i : 0,
-      image: 'assets/images/proyecto_efitech.png',
-      title:'Sitio web de soluciones para el agro',
-      cliente: 'Efitech',
-      description: 'Un sitio para facilitar el contacto entre el usuario y la marca, a través de una experiencia de usuario personalizada.',
+      image: 'assets/images/sliderpc/delGredal.png',
+      title:'Del Gredal',
+      url: 'https://www.delgredal.com',
+      
+      cliente: 'Cinergia Estudio Creativo',
+      description: 'Desarrollamos y diseñamos una web institucional que <br> propone <br> una narrativa en línea con el espíritu y la identidad de la <br> marca.',
       caracteristicas:[
         'UX',
         'UI','Wordpress','Blog'
@@ -72,6 +74,40 @@ export class SliderComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+    setInterval(()=>{
+      if(this.span_n ==this.works.length-1) {
+        this.span_n=0
+      }else{
+        this.span_n++;
+      }
+    },6000)
   }
 
+
+  changeActive(i:number){
+    this.span_n= i;
+    console.log(this.span_n)
+  }
+
+  chevronClick(direction:string){
+    if(direction == 'right'){
+      console.log(this.span_n)
+      console.log(this.works.length)
+      if(this.span_n ==this.works.length-1) {
+        this.span_n=0
+      }else{
+        this.span_n++;
+      }
+      console.log(this.span_n)
+    }
+    if(direction == 'left'){
+      console.log(this.span_n)
+      if(this.span_n==0){
+        this.span_n = this.works.length-1
+      }else{
+        this.span_n--;
+      }
+      console.log(this.span_n)
+    }
+  }
 }

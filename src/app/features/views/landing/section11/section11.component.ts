@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class Section11Component implements OnInit {
 
   constructor() { }
-
+  title='Testimonios'
   ngOnInit(): void {
   }
 
