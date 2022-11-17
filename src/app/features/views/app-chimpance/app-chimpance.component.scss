@@ -27,3 +27,21 @@
    top: 0;
 }
 
+.bgblue{
+    position: relative;
+    background: var(--mainBlue);
+    color: var(--mainLightBlue);
+}
+.piso{
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    z-index: 0;
+    
+}
+
+.footer{
+    z-index: 10;
+    min-height: 20rem;
+}
