@@ -17,6 +17,7 @@ import { Section9Component } from './section9/section9.component';
 import { Section10Component } from './section10/section10.component';
 import { Section11Component } from './section11/section11.component';
 import { Section12Component } from './section12/section12.component';
+import { LottieAnimationViewModule } from 'ng-lottie';
 
 
 
@@ -40,7 +41,8 @@ import { Section12Component } from './section12/section12.component';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    LottieAnimationViewModule.forRoot()
   ],
   exports: [
     Section1Component,
