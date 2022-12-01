@@ -21,5 +21,14 @@
     font-style: bold;
 }
 
+@font-face {
+    font-family: 'CircularStd';
+    src: url('CircularStd-BoldItalic.otf');
+    
+    font-weight: 900;
+    font-style: italic;
+}
+
+
 
 
