@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-navbar-mobile',
@@ -42,9 +43,11 @@ export class NavbarMobileComponent implements OnInit {
     this.showMenuDots=!this.showMenuDots
   }
 
-  
+  goBack(){
+    this.location.back();
+  }
 
-  constructor() { }
+  constructor(private location:Location) { }
 
   ngOnInit(): void {
   }

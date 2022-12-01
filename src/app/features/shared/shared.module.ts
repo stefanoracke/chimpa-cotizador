@@ -8,6 +8,9 @@ import { NavbarpcComponent } from './navbarpc/navbarpc.component';
 import { CuotaspipePipe } from 'src/app/core/pipe/cuotaspipe.pipe';
 import { FotterpcComponent } from './fotterpc/fotterpc.component';
 import { SliderComponent } from './slider/slider.component';
+import { UrltopagePipe } from 'src/app/core/pipe/urltopage.pipe';
+import { AccordionComponent } from './accordion/accordion.component';
+import { ClickedOutsideDirective } from 'src/app/core/directives/clicked-outside.directive';
 
 
 
@@ -19,7 +22,10 @@ import { SliderComponent } from './slider/slider.component';
     NavbarpcComponent,
     CuotaspipePipe,
     FotterpcComponent,
-    SliderComponent
+    SliderComponent,
+    UrltopagePipe,
+    AccordionComponent,
+    ClickedOutsideDirective,
   ],
   imports: [
     CommonModule,
@@ -32,7 +38,8 @@ import { SliderComponent } from './slider/slider.component';
     TimerComponent,
     NavbarpcComponent,
     FotterpcComponent,
-    SliderComponent
+    SliderComponent,
+    AccordionComponent
   ]
 })
 export class SharedModule { }

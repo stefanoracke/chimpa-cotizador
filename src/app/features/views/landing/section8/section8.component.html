@@ -1,5 +1,16 @@
 <div class="bg-blue">
     <div class="container">
         <app-titulo [title]="title"></app-titulo>
+        <main class="contenedor">
+            <section class="container_cards d-flex">
+                <div class="card position-relative" *ngFor="let item of metodology">
+                    <img *ngIf="item.number" class="number" [src]="item.number" alt="">
+                    <div class="card_in d-flex flex-column  align-items-center">
+                        <h1 class="text-center p-3 fw-bold fs-4">{{item.name}}</h1>
+                        <img class="card_image" [src]="item.image" alt="">
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 </div>

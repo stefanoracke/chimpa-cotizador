@@ -1,27 +1,25 @@
-<div class="container">
+<div class="contenido_slider">
     <div class="row">
         <div class="align-items-center col-6 d-flex ">
-            <div class="img_cont">
-                <img src="assets/images/sliderpc/delGredal.png" alt="">
+            <div class="img_cont w-100">
+                <img [src]="works[span_n].image" alt="">
             
             </div>  
-            <img src="assets/svg/chevron-left.svg" alt="" class="change left clickeable">
+            <img (click)="chevronClick('left')" src="assets/svg/chevron-left.svg" alt="" class="change left clickeable">
             
         </div>
         <div class="col-6 d-flex flex-colum ">
-            <img src="assets/svg/chevron-right.svg" alt="" class="change right clickeable">
+            <img (click)="chevronClick('right')" src="assets/svg/chevron-right.svg" alt="" class="change right clickeable">
             <div class="contenido">
-                <h3 class="text-yellow">0.1 Del Gredal </h3>
-                <h2 class="cliente">Cliente: Cinergia producciones </h2>
+                <h3 class="text-yellow">0.{{span_n+1}} {{works[span_n].title}} </h3>
+                <h2 class="cliente">Cliente:  </h2>
                 
-                <p>Desarrollamos y diseñamos una web institucional que <br> propone <br>
-                    una narrativa en 
-                    línea con el espíritu y la identidad de la <br> marca.</p>
+                <p [innerHTML]="works[span_n].description"></p>
 
-                <a href="https://www.delgredal.com" target="_blank" class="text-yellow text-yellow-a">www.delgredal.com</a>
+                <a href="{{works[span_n].url}}" target="_blank" class="text-yellow text-yellow-a">{{works[span_n].url | urltopage}}</a>
 
                 <div class=" d-flex caracteristicas flex-wrap">
-                    <p *ngFor="let caracteristica of works[n_line].caracteristicas" class="caract">{{caracteristica}}</p>
+                    <p *ngFor="let caracteristica of works[span_n].caracteristicas" class="caract">{{caracteristica}}</p>
                     
                 </div> 
 
@@ -32,5 +30,10 @@
     
 </div>
 <div class="w-100 d-flex flex-column align-items-center bg-blue">
-    Ver Otros Proyectos
+    <div class="bullets w-100 d-flex justify-content-center">
+        <span *ngFor="let item of works; index as index" class="clickeable" (click)="changeActive(index)" [ngClass]="{'span_active':span_n == index}"></span>
+    </div>
+    <button class="btn btn-outline br-rounded">
+        Ver Otros Proyectos
+    </button>
 </div>

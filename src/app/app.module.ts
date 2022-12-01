@@ -6,20 +6,23 @@ import { AppComponent } from './app.component';
 
 import { MobileModule } from './features/views/mobile/mobile.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UrltopagePipe } from './core/pipe/urltopage.pipe';
 
-
+import { LottieAnimationViewModule } from 'ng-lottie';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MobileModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

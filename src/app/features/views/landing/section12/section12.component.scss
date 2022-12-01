@@ -1,0 +1,31 @@
+.background_jg_celeste{
+    background: url('./../../../../../assets/images/selva_celeste_video.jpg') ;
+    width: 100%;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 70vh;
+    z-index: -1;
+    background-position: center;
+    bottom: 0;
+    top:0;
+    // filter: blur(2px);
+    position: absolute;
+}
+
+.contenido_video{
+    min-height: 70vh;
+}
+
+.contenido_video h1{
+    font-size: clamp(1.8rem, 3vw, 4.3em);
+}
+
+.btn-yellow{
+    background-color: var(--mainYellow);
+    color: var(--mainBlue);
+    padding: 10px 40px;
+    margin: 0;
+    width: fit-content;
+    isolation: isolate;
+}
