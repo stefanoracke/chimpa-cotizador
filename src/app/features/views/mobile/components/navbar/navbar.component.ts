@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-mobile',
@@ -12,23 +13,23 @@ export class NavbarMobileComponent implements OnInit {
   public routes=[
     {
       name: "Precios",
-      route: "/prices"
+      route: "prices"
     },
     {
       name: "Información",
-      route: "/info"
+      route: "info"
     },
     {
       name: "Metodología de trabajo",
-      route: "/methodology"
+      route: "methodology"
     },
     {
       name: "Opcionales",
-      route: "/optional"
+      route: "optional"
     },
     {
       name: "Proyectos",
-      route: "/projects"
+      route: "projects"
     },
   
   ]
@@ -43,12 +44,22 @@ export class NavbarMobileComponent implements OnInit {
     this.showMenuDots=!this.showMenuDots
   }
 
+  
+
   goBack(){
     this.location.back();
   }
 
-  constructor(private location:Location) { }
+  constructor(private location:Location, private router:Router) { }
 
+  redirectTo(ruta:string){
+    
+    this.router.navigate([localStorage.getItem('empresa_url'),ruta])
+    .then(() => {
+      window.location.reload();
+      
+    });  
+  }
   ngOnInit(): void {
   }
 

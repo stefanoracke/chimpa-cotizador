@@ -1,8 +1,8 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 export interface PreguntasI{
-  pregunta:string
-  answer: string
+  question:string
+  response: string
 }
 
 @Component({

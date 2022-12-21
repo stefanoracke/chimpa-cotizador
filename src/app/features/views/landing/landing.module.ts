@@ -32,7 +32,7 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     IncluidosComponent,
     MenuitemsComponent,
     Setion7Component,
-    TituloComponent,
+    
     Section8Component,
     Section9Component,
     Section10Component,
@@ -56,7 +56,8 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     Section9Component,
     Section10Component,
     Section11Component,
-    Section12Component
+    Section12Component,
+    
   ]
 })
 export class LandingModule { }

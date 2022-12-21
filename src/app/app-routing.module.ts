@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:"",
+    path:":id",
     loadChildren: ()=>import("./features/views/mobile/mobile.module").then((m)=>m.MobileModule)
 },
 ];

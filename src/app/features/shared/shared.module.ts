@@ -11,6 +11,8 @@ import { SliderComponent } from './slider/slider.component';
 import { UrltopagePipe } from 'src/app/core/pipe/urltopage.pipe';
 import { AccordionComponent } from './accordion/accordion.component';
 import { ClickedOutsideDirective } from 'src/app/core/directives/clicked-outside.directive';
+import { TasaspipePipe } from 'src/app/core/pipe/tasa.pipe';
+import { TituloComponent } from '../views/landing/titulo/titulo.component';
 
 
 
@@ -26,6 +28,8 @@ import { ClickedOutsideDirective } from 'src/app/core/directives/clicked-outside
     UrltopagePipe,
     AccordionComponent,
     ClickedOutsideDirective,
+    TasaspipePipe,
+    TituloComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,8 @@ import { ClickedOutsideDirective } from 'src/app/core/directives/clicked-outside
     NavbarpcComponent,
     FotterpcComponent,
     SliderComponent,
-    AccordionComponent
+    AccordionComponent,
+    TituloComponent
   ]
 })
 export class SharedModule { }

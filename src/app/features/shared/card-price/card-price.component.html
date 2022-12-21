@@ -1,11 +1,11 @@
 <div class="card">
   <div class="container">
-    <h3>Propuesta Web <br>Institucional</h3>
+    <h3>Propuesta Web <br>{{propuesta?.title}}</h3>
     <hr class="mt-2">
 
-    <h3>${{precio}} USD</h3>
+    <h3>${{precio}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
     <p class="aclaracion">*Precio variable al alcance del proyecto. <br>
-      *Precio expresado en USD 550 Solidario.</p>
+     <span *ngIf="propuesta?.clients.regions_id==1">*Precio expresado en USD <span >{{propuesta?.solidarity_usd}}</span> Solidario.</span> </p>
 
     <hr class="mt-2">
 
@@ -13,16 +13,16 @@
 
     <div class=" d-flex flex-column ">
       <div class="d-flex flex-column  radio-buttons" *ngFor="let item of finaciacionobject;index as i">
-        <div class="d-flex mb-1 align-items-center mt-2 radio"><span (click)="showFin(i)" class="radio_button clickeable" [ngClass]="{'radio_button_active':show == item.id_name}"></span><label class="clickeable" (click)="showFin(i)" for="">{{item.name}}</label></div>
+        <div class="d-flex mb-1 align-items-center mt-2 radio"><span (click)="showFin(item.id)" class="radio_button clickeable" [ngClass]="{'radio_button_active':show == item.id}"></span><label class="clickeable" (click)="showFin(item.id)" for="">{{item.name}}</label></div>
         
         <!-- Contenido oculto -->
-        <div [ngClass]="{'active acordion':show == item.id_name, 'inactive': show != item.id_name}" >
+        <div [ngClass]="{'active acordion':show == item.id, 'inactive': show != item.id}" >
           <div class="acordion_content">
             <div  class="d-flex">
               <p class="number_cuota description" *ngIf="item.cuotas!=12 && item.cuotas!=0">{{item.cuotas}}</p>
-              <p  class="number_cuota description" [innerHTML]="item.description"></p>
             </div>
-            <p class="description" [innerHTML]="item.description2"></p>
+            <p  class="number_cuota description" [innerHTML]="item.description"></p>
+           
           </div>
         </div>
       </div>
@@ -34,18 +34,22 @@
       
       <div *ngIf="cuotas!=undefined" class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">{{cuotas|cuotaspipe}} </h3>
-        <h3 class="text_total">${{precio_modificado}} USD</h3>
+        <h3 class="text_total">${{precio_modificado}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+      </div>
+      <div *ngIf="tasa!=undefined" class="d-flex justify-content-between align-items-center">
+        <h3 class="text_total">{{tasa|tasaspipe}} </h3>
+        <h3 class="text_total">${{precio_modificado}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
       </div>
 
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Total </h3>
-        <h3>${{precio_muestra}} USD</h3>
+        <h3>${{precio_muestra}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
       </div>
 
       <hr class="mt-2">
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Plazos de entrega</h3>
-        <h3 class="text_total">3 a 4 meses</h3>
+        <h3 class="text_total">{{propuesta?.time_lapse}}</h3>
       </div>
       <p class="aclaracion mt-2">El tiempo empieza a correr una vez recibido el pago y toda la infomación.</p>
     </div>

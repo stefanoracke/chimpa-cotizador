@@ -11,7 +11,7 @@
             <div>
                 <img src="./../../../../../../assets/svg/exit.svg" (click)="openClose()" alt="">
                 <ul>
-                    <li *ngFor="let item of routes"><a [href]="item.route">{{item.name}}</a></li>
+                    <li *ngFor="let item of routes"><a (click)="redirectTo(item.route)">{{item.name}}</a></li>
                 </ul>
             </div>
         </div>

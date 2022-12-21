@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SliderComponent implements OnInit {
 
   constructor() { }
-
+  title = "Proyectos"
   span_n = 0;
   n_line = 0;
   works = [

@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UrltopagePipe } from './core/pipe/urltopage.pipe';
 
 import { LottieAnimationViewModule } from 'ng-lottie';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     AppRoutingModule,
     MobileModule,
     BrowserAnimationsModule,
-    
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,7 +15,16 @@ export class FooterMobileComponent implements OnInit {
   }
 
   redirectTo(ruta:string){
-    this.router.navigate([ruta]);
+    if(ruta == '/'){
+      this.router.navigate([ruta,localStorage.getItem('empresa_url')]);
+    }else{
+      this.router.navigate([localStorage.getItem('empresa_url'),ruta])
+      .then(() => {
+        window.location.reload();
+        console.log(this.router.url)
+      });  
+    }
+    
     console.log('Hola')
   }
 

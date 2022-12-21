@@ -1,6 +1,6 @@
 .bg_yellow{
     background-color: var(--mainYellow);
-    min-height: 100vh;
+    min-height: 80vh;
     position: relative;
     width: 100%;
     z-index: -1;
@@ -13,7 +13,7 @@
 }
 
 .contenido{
-    min-height: 100vh;
+    min-height: 80vh;
     z-index: 10;
     color: var(--mainBlue);
 }

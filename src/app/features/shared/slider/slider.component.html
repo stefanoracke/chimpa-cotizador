@@ -8,9 +8,11 @@
             <img (click)="chevronClick('left')" src="assets/svg/chevron-left.svg" alt="" class="change left clickeable">
             
         </div>
-        <div class="col-6 d-flex flex-colum ">
+        <div class="col-6 d-flex flex-column ">
             <img (click)="chevronClick('right')" src="assets/svg/chevron-right.svg" alt="" class="change right clickeable">
+            
             <div class="contenido">
+                <app-titulo [title]="title"></app-titulo>
                 <h3 class="text-yellow">0.{{span_n+1}} {{works[span_n].title}} </h3>
                 <h2 class="cliente">Cliente:  </h2>
                 

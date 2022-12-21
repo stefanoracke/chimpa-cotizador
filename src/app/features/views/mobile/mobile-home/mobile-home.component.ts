@@ -14,29 +14,34 @@ export class MobileHomeComponent implements OnInit {
   public routes=[
     {
       name: "Precios",
-      route: "/prices"
+      route: "prices"
     },
     {
       name: "Información",
-      route: "/info"
+      route: "info"
     },
     {
       name: "Metodología de trabajo",
-      route: "/methodology"
+      route: "methodology"
     },
     {
       name: "Opcionales",
-      route: "/optional"
+      route: "optional"
     },
     {
       name: "Proyectos",
-      route: "/projects"
+      route: "projects"
     },
   
   ]
 
   redirectTo(ruta:string){
-    this.router.navigate(['/',ruta])
+    
+    this.router.navigate([localStorage.getItem('empresa_url'),ruta])
+    .then(() => {
+      window.location.reload();
+      
+    });  
   }
 
   ngOnInit(): void {
