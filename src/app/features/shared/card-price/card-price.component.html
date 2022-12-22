@@ -3,7 +3,7 @@
     <h3>Propuesta Web <br>{{propuesta?.title}}</h3>
     <hr class="mt-2">
 
-    <h3>${{precio}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+    <h3>${{precio| milespipe}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
     <p class="aclaracion">*Precio variable al alcance del proyecto. <br>
      <span *ngIf="propuesta?.clients.regions_id==1">*Precio expresado en USD <span >{{propuesta?.solidarity_usd}}</span> Solidario.</span> </p>
 
@@ -34,16 +34,16 @@
       
       <div *ngIf="cuotas!=undefined" class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">{{cuotas|cuotaspipe}} </h3>
-        <h3 class="text_total">${{precio_modificado}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+        <h3 class="text_total">${{precio_modificado| milespipe}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
       </div>
       <div *ngIf="tasa!=undefined" class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">{{tasa|tasaspipe}} </h3>
-        <h3 class="text_total">${{precio_modificado}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+        <h3 class="text_total">${{precio_modificado| milespipe}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
       </div>
 
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Total </h3>
-        <h3>${{precio_muestra}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+        <h3>${{precio_muestra| milespipe}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
       </div>
 
       <hr class="mt-2">

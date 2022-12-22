@@ -21,6 +21,13 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   propuesta!:any
 
   finaciacionobject!:Array<any>
+  formato = (number:any) => {
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1,';
+    let arr = number.toString().split('.');
+    arr[0] = arr[0].replace(exp,rep);
+    return arr[1] ? arr.join('.'): arr[0];
+  }
 
   showFin(i:number){
     
@@ -49,6 +56,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       let x = 100 - this.tasa
       this.precio_modificado = this.precio*n/100
       this.precio_muestra = this.precio*x/100
+      
     }
     // if(this.show == i){
     //   this.show = 0;

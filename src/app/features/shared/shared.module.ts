@@ -13,6 +13,7 @@ import { AccordionComponent } from './accordion/accordion.component';
 import { ClickedOutsideDirective } from 'src/app/core/directives/clicked-outside.directive';
 import { TasaspipePipe } from 'src/app/core/pipe/tasa.pipe';
 import { TituloComponent } from '../views/landing/titulo/titulo.component';
+import { MilesPipe } from 'src/app/core/pipe/miles.pipe';
 
 
 
@@ -29,7 +30,8 @@ import { TituloComponent } from '../views/landing/titulo/titulo.component';
     AccordionComponent,
     ClickedOutsideDirective,
     TasaspipePipe,
-    TituloComponent
+    TituloComponent,
+    MilesPipe
   ],
   imports: [
     CommonModule,

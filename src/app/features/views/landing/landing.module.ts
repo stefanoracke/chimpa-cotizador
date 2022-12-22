@@ -18,6 +18,7 @@ import { Section10Component } from './section10/section10.component';
 import { Section11Component } from './section11/section11.component';
 import { Section12Component } from './section12/section12.component';
 import { LottieAnimationViewModule } from 'ng-lottie';
+import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
 
 
 
@@ -37,7 +38,8 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     Section9Component,
     Section10Component,
     Section11Component,
-    Section12Component
+    Section12Component,
+    OptionalsPipe
   ],
   imports: [
     CommonModule,

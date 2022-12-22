@@ -1,4 +1,5 @@
 import { Component,NgModule, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 
 @Component({
@@ -11,8 +12,9 @@ export class Section1Component implements OnInit {
   public lottieConfig: Object;
   public anim: any;
   public animationSpeed: number = 1;
+  nameempresa!:any
 
-  constructor() {
+  constructor(private propService:PropuestaService) {
       this.lottieConfig = {
           path: './../../../../../assets/animations/cohete.json',
           renderer: 'svg',
@@ -49,6 +51,10 @@ export class Section1Component implements OnInit {
       autoplay: true,
       loop: true
   };
+
+    this.propService.getPropuesta().subscribe(res=>{
+        this.nameempresa = res.clients.business_name
+    })
   }
 
 }
