@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
@@ -9,8 +10,9 @@ import { PropuestaService } from 'src/app/core/services/propuesta.service';
 })
 export class CardPriceComponent implements OnInit, OnDestroy {
 
-  constructor( private propuestaSvc:PropuestaService) { }
+  constructor( private propuestaSvc:PropuestaService, private router:Router) { }
   
+  @Output() booleanEvent = new EventEmitter<boolean>();
   project_subscription!:Subscription
   precio!:number
   show = 0 
@@ -75,6 +77,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.project_subscription = this.propuestaSvc.getPropuesta().subscribe(res=>{
       this.propuesta=res
+      this.booleanEvent.emit(false)
       
       if(res.clients.regions_id == 1){
         let solidary_usd = res.solidarity_usd
@@ -89,6 +92,9 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       }
       this.finaciacionobject=res.payment_types
       console.log(res)
+    },
+    err=>{
+      this.router.navigate(['not-found'])
     })
   }
   ngOnDestroy(): void {

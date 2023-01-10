@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
   selector: 'app-app-chimpance',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppChimpanceComponent implements OnInit {
 
-  constructor() { }
+  constructor( ) { }
+
+  propuesta= true
+
+  stopCarga(bool:boolean){
+    this.propuesta = bool
+  }
 
   ngOnInit(): void {
+   
+
+
   }
 
 }

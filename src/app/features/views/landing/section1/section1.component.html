@@ -8,7 +8,7 @@
             <h1 class="text-white">Hola <span class="text-yellow">{{nameempresa}}</span></h1>
             
         </div>
-        <app-card-price></app-card-price>
+        <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
     </div>
     <div class="col-md-6 position-relative cohete ">
         <!-- <lottie-animation-view

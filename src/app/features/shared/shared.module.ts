@@ -14,6 +14,8 @@ import { ClickedOutsideDirective } from 'src/app/core/directives/clicked-outside
 import { TasaspipePipe } from 'src/app/core/pipe/tasa.pipe';
 import { TituloComponent } from '../views/landing/titulo/titulo.component';
 import { MilesPipe } from 'src/app/core/pipe/miles.pipe';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
@@ -31,7 +33,9 @@ import { MilesPipe } from 'src/app/core/pipe/miles.pipe';
     ClickedOutsideDirective,
     TasaspipePipe,
     TituloComponent,
-    MilesPipe
+    MilesPipe,
+    NotFoundComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +50,9 @@ import { MilesPipe } from 'src/app/core/pipe/miles.pipe';
     FotterpcComponent,
     SliderComponent,
     AccordionComponent,
-    TituloComponent
+    TituloComponent,
+    LoaderComponent,
+    NotFoundComponent
   ]
 })
 export class SharedModule { }
