@@ -8,15 +8,24 @@ import { PropuestaService } from 'src/app/core/services/propuesta.service';
 })
 export class Section6Component implements OnInit {
 
-  links!:Array<any>
+  services!:Array<any>
+  n_active:number = 0
+  servicio!:any
 
   constructor(private propuestaSvc:PropuestaService) { }
 
   ngOnInit(): void {
     this.propuestaSvc.getPropuesta()
     .subscribe(res=>{
-      this.links = res
+      this.services = res.services
+      this.servicio = this.services[0]
+      console.log(this.services)
     })
   }
 
+  changeActive(index:any){
+    this.n_active = index
+    this.servicio = this.services[index]
+    console.log(index)
+  }
 }

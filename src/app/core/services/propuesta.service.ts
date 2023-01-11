@@ -17,15 +17,19 @@ export class PropuestaService {
   getPropuesta():Observable<any>{
     let id= this.router.url.slice(1,this.router.url.length)
     localStorage.setItem('empresa_url',id)
-    console.log(id.indexOf('/'))
+    
     if(id.indexOf('/')!=-1){
       id = id.slice(0,id.indexOf('/'))
       localStorage.setItem('empresa_url',id)
     }
-
+      
+    let empresa = id.slice(0,id.indexOf('_'))
+    
+    let proyecto = id.slice(id.indexOf('_')+1,id.length)
+    
 
     
-    return this.http.get<any>(`https://cotizador.devtesting.gq/api/api/Projects?id=${id}`)
+    return this.http.get<any>(`https://cotizador.devtesting.gq/api/api/Projects?empresa=${empresa}&proyecto=${proyecto}`)
   }
 
   getFaqs():Observable<any>{

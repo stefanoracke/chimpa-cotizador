@@ -15,13 +15,13 @@
     </div>
 
     <div class="row menu">
-        <div class="col d-flex justify-content-center">
-            <h4 class=" text-white clickeable active">UX/UI Mobile</h4>
+        <div class="col d-flex justify-content-center" *ngFor="let item of services; let i = index">
+            <h4 class="text-white clickeable " [ngClass]="{'active': i == n_active}" (click)="changeActive(i)">{{item.name}}</h4>
         </div>
         
         
         
     </div>
-    <app-menuitems></app-menuitems>
+    <app-menuitems [combos]="servicio"></app-menuitems>
   </div>
 </div>  

@@ -3,7 +3,9 @@
 <app-mobile-home class="mobile"></app-mobile-home>
 <div class="pc" >
     <app-loader *ngIf="propuesta"></app-loader>
+    
     <app-section1 (stopLoad)="stopCarga($event)"></app-section1>
+    
     <app-section2></app-section2>
     <app-section3></app-section3>
     <app-section4></app-section4>
