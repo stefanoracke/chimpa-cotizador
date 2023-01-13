@@ -21,6 +21,19 @@ import { LottieAnimationViewModule } from 'ng-lottie';
 import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
 
 
+import { DragScrollModule } from 'ngx-drag-scroll';
+
+//lotie player
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
+
+
 
 @NgModule({
   declarations: [
@@ -44,7 +57,8 @@ import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
   imports: [
     CommonModule,
     SharedModule,
-    LottieAnimationViewModule.forRoot()
+    LottieModule.forRoot({ player: playerFactory }),
+    DragScrollModule,
   ],
   exports: [
     Section1Component,

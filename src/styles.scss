@@ -1,16 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 *{
     --mainBlue:#00214B;
+    --darkBlue-01: #01253B;
     --mainYellow: #FDDB00;
     --mainLightBlue: #36A9E1;
     --mainWhite: #ffffff;
     --secondary: #136891;
+    box-sizing: border-box;
 }
 
 @import './assets/fonts/Circular/stylesheet.css';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!important;}
+body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!important; overflow-x: hidden; }
 
 .bg-lightblue{
     background: var(--mainLightBlue)!important;
@@ -23,7 +25,7 @@ body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!import
 .white_boxes{
     padding: 1rem 1.2rem;
     border: 1px solid #ffffff;
-    border-radius: 1rem;
+    border-radius: 10px;
     width: 100%;
     min-height: 80px;
     font-size: 3.4vw;
@@ -95,3 +97,21 @@ body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!import
     z-index: 1;
    
 }
+
+// ng-lottie div svg{
+//     transform: scale(1.5);
+// }
+
+// ng-lottie svg g{
+//     transform: translateY(500px);
+    
+// }
+
+.drag-scroll-content::-webkit-scrollbar{
+    display: none;
+}
+
+.slider::-webkit-scrollbar{
+    display: none;
+}
+

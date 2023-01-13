@@ -29,3 +29,16 @@
     width: fit-content;
     isolation: isolate;
 }
+
+.video video{
+    height: 345px;
+    border-radius: 7px;
+    position: absolute;
+    left: 14px;
+    top: 53px;
+}
+
+.video-contenido{
+    width: fit-content;
+    position: relative;
+}

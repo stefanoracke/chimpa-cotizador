@@ -40,3 +40,16 @@
         transform: translateY(-3px);
     }
 }
+
+#ojo1, #ojo2{
+    animation: moverojo .7s .5s  infinite alternate;    
+}
+
+@keyframes moverojo {
+    50%{
+        transform: translate(-3px, 3px);
+    }
+    100%{
+        transform: translate(-3px, 3px);
+    }
+}

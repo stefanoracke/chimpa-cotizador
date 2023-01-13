@@ -14,9 +14,9 @@
             <div class="contenido">
                 <app-titulo [title]="title"></app-titulo>
                 <h3 class="text-yellow">0.{{span_n+1}} {{works[span_n].title}} </h3>
-                <h2 class="cliente">Cliente:  </h2>
+                <h2 class="cliente">Cliente: {{works[span_n].cliente}} </h2>
                 
-                <p [innerHTML]="works[span_n].description"></p>
+                <p class="w-75" [innerHTML]="works[span_n].description"></p>
 
                 <a href="{{works[span_n].url}}" target="_blank" class="text-yellow text-yellow-a">{{works[span_n].url | urltopage}}</a>
 

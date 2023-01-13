@@ -10,7 +10,10 @@
         </div>
         <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
     </div>
-    <div class="col-md-6 position-relative cohete ">
+    <div class="col-md-6  cohete ">
+        <ng-lottie   width="1000px"
+                    [options]="options" 
+                    (animationCreated)="animationCreated($event)"></ng-lottie>
         <!-- <lottie-animation-view
                     [options]="lottieConfig"
                     [width]="300"

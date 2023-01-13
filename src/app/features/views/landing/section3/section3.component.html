@@ -23,9 +23,9 @@
       </ul>
 
       <div class="content mt-4">
-        <h5 class="text-white">{{funcionalidades[n].title}}</h5>
+        <!-- <h5 class="text-white">{{funcionalidades[n]?.title}}</h5> -->
         <ul class="list_description">
-          <li *ngFor="let item of funcionalidades[n].list"><span>-</span>{{item}}</li>
+          <li *ngFor="let item of funcionalidades[n]?.list"><span>-</span>{{item}}</li>
         </ul>
       </div>
     </div>

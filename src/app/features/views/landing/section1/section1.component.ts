@@ -2,6 +2,9 @@ import { Component,EventEmitter,NgModule, OnInit, Output } from '@angular/core';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
+
 @Component({
   selector: 'app-section1',
   templateUrl: './section1.component.html',
@@ -22,6 +25,14 @@ export class Section1Component implements OnInit {
           autoplay: true,
           loop: true
       };
+  }
+
+  options: AnimationOptions = {
+    path: '/assets/animations/cohete.json',
+  };
+
+  animationCreated(animationItem: AnimationItem): void {
+    console.log(animationItem);
   }
 
   handleAnimation(anim: any) {

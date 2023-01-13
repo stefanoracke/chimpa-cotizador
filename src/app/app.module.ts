@@ -12,6 +12,20 @@ import { LottieAnimationViewModule } from 'ng-lottie';
 import { HttpClientModule } from '@angular/common/http';
 
 
+//lotie player
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+import { DragScrollModule } from 'ngx-drag-scroll';
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MobileModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    LottieModule.forRoot({ player: playerFactory }),
+    DragScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

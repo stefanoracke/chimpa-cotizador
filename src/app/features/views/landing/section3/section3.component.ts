@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
   selector: 'app-section3',
@@ -7,16 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Section3Component implements OnInit {
 
-  constructor() { }
+  constructor(private propSvc:PropuestaService) { }
 
   n = 0
 
-  funcionalidades = [
+  funcionalidades:Array<any> =[
     {
       title: 'Sitio web con 4 páginas y 5 secciones cada una.',
-      list: [
-        'Página principal - home', 'Dos páginas secundarias', 'Página de contacto: formulario + botón de whatsapp'
-      ]
+      list: []
     },
     {
       title: 'Funcionalidades especificas.',
@@ -35,6 +34,25 @@ export class Section3Component implements OnInit {
 
 
   ngOnInit(): void {
+    this.propSvc.getPropuesta()
+    .subscribe(res=>{
+      console.log(res.features_type)
+      this.funcionalidades = [{
+        title: 'Sitio web con 4 páginas y 5 secciones cada una.',
+        list: res.features_type[2].content.map((contenido:any)=>contenido.description)
+      },
+      {
+        title: 'Sitio web con 4 páginas y 5 secciones cada una.',
+        list: res.features_type[3].content.map((contenido:any)=>contenido.description)
+      },
+      
+      {
+        title: 'Sitio web con 4 páginas y 5 secciones cada una.',
+        list: res.features_type[0].content.map((contenido:any)=>contenido.description)
+      },
+    ]
+      
+    })
   }
 
 }
