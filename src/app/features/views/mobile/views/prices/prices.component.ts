@@ -20,7 +20,7 @@ export class PricesComponent implements OnInit {
   getNavigation(){
     let n= localStorage.getItem("navigation_prices")
     if(n!=null) this.internal_navigation=parseInt(n)
-    console.log(this.internal_navigation)
+   
   }
 
   changeView(n:number){

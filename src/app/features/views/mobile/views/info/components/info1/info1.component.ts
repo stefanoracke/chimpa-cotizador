@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-info1',
@@ -11,13 +11,13 @@ export class Info1Component implements OnInit {
 
 
   info_estructura = 'Sitio web con 4 páginas y 5 secciones cada una'
-  estructura = [
+  @Input() estructura = [
     'Página principal',
     'Dos páginas secundarias',
     'Página de contacto formulario + botón de whatsapp'
   ]
 
-  funcionalidades = [
+  @Input() funcionalidades = [
     'Mapa de locales',
     'Administrador de slider',
     'Página de contacto formulario + botón de whatsapp',

@@ -36,7 +36,7 @@ export class Section3Component implements OnInit {
   ngOnInit(): void {
     this.propSvc.getPropuesta()
     .subscribe(res=>{
-      console.log(res.features_type)
+      
       this.funcionalidades = [{
         title: 'Sitio web con 4 páginas y 5 secciones cada una.',
         list: res.features_type[2].content.map((contenido:any)=>contenido.description)

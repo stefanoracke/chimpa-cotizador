@@ -117,28 +117,27 @@ export class SliderComponent implements OnInit {
 
   changeActive(i:number){
     this.span_n= i;
-    console.log(this.span_n)
+    
   }
 
   chevronClick(direction:string){
     if(direction == 'right'){
-      console.log(this.span_n)
-      console.log(this.works.length)
+      
       if(this.span_n ==this.works.length-1) {
         this.span_n=0
       }else{
         this.span_n++;
       }
-      console.log(this.span_n)
+     
     }
     if(direction == 'left'){
-      console.log(this.span_n)
+     
       if(this.span_n==0){
         this.span_n = this.works.length-1
       }else{
         this.span_n--;
       }
-      console.log(this.span_n)
+     
     }
   }
 }

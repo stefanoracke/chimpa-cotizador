@@ -19,13 +19,13 @@ export class Section6Component implements OnInit {
     .subscribe(res=>{
       this.services = res.services
       this.servicio = this.services[0]
-      console.log(this.services)
+      
     })
   }
 
   changeActive(index:any){
     this.n_active = index
     this.servicio = this.services[index]
-    console.log(index)
+    
   }
 }

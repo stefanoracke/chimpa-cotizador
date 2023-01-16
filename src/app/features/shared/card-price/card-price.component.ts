@@ -91,7 +91,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
         this.precio_muestra=res.price
       }
       this.finaciacionobject=res.payment_types
-      console.log(res)
+      
     },
     err=>{
       this.router.navigate(['not-found'])

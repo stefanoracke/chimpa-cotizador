@@ -13,6 +13,11 @@ export class InfoComponent implements OnInit {
   title = "Información"
   internal_navigation=1;
 
+  estructura!:any
+  funcionalidades!:any
+  list!:any
+  list_incluidos!:any
+
   rutas = [
    {
     name:"Estructura y Funcionalidades",
@@ -33,7 +38,13 @@ export class InfoComponent implements OnInit {
     this.getNavigation()
     this.propSvc.getPropuesta().subscribe(
       res=>{
-         
+         console.log(res.features_type.filter((item:any)=>{item.name == 'Funcionalidades'}))
+         console.log(res.features_type.filter((item:any)=>{item.name == 'Estructura'}))
+         console.log(res.features_type)
+         this.estructura=res.features_type[2].content.map((resp:any) => resp.description)
+         this.funcionalidades = res.features_type[3].content.map((resp:any) => resp.description)
+         this.list =  res.features_type[0].content.map((resp:any) => resp.description)
+         this.list_incluidos =  res.features_type[1].content.map((resp:any) => resp.description)
       }
     )
   }

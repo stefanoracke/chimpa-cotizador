@@ -18,9 +18,9 @@
         </div>
         <div class="contenido_info">
             
-            <app-info1 *ngIf="internal_navigation==1"></app-info1>
-            <app-info2 *ngIf="internal_navigation==2"></app-info2>
-            <app-info3 *ngIf="internal_navigation==3"></app-info3>
+            <app-info1 [estructura]="estructura" [funcionalidades]="funcionalidades" *ngIf="internal_navigation==1"></app-info1>
+            <app-info2 [list_incluidos]="list_incluidos" *ngIf="internal_navigation==2"></app-info2>
+            <app-info3 [list]="list" *ngIf="internal_navigation==3"></app-info3>
         </div>
         <app-footer-mobile></app-footer-mobile>
     </div>

@@ -21,11 +21,11 @@ export class FooterMobileComponent implements OnInit {
       this.router.navigate([localStorage.getItem('empresa_url'),ruta])
       .then(() => {
         window.location.reload();
-        console.log(this.router.url)
+       
       });  
     }
     
-    console.log('Hola')
+    
   }
 
 }

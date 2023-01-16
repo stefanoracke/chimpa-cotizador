@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-info2',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info2.component.scss']
 })
 export class Info2Component implements OnInit {
-
+ @Input() list_incluidos!:any
 
   list = [
     'Página principal',

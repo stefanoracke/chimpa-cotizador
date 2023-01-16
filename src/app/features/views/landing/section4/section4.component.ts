@@ -29,7 +29,7 @@ export class Section4Component implements OnInit {
     this.propSvc.getPropuesta()
     .subscribe((res)=>{
       this.incluido = res.features_type[1].content.map((respuesta:any)=>respuesta.description)
-      console.log('incluido', this.incluido)
+      
     })
   }
 
