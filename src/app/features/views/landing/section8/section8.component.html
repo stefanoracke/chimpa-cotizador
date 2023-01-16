@@ -12,7 +12,7 @@
                     <span></span>
                     <li class="d-flex position-relative"><img class="img-fluid" src="assets/img/slider-desarrollo/img-circulo.svg" alt=""></li>
                     
-                    <li class="box" >
+                    <li class="box"  drag-scroll-item>
                         <div class="d-flex flex-column align-items-center justify-content-between py-5">
                             <h3 class="fc-darkBlue-01 text-center">Brief</h3>
                             <img src="assets/img/slider-desarrollo/img-brief.svg" class="img-front" width="80%">
@@ -60,16 +60,16 @@
                         </div>
                     </li>
                     <li class="d-flex position-relative"><img class="img-fluid" role="button" src="assets/img/icon-angle-rigth.svg" (click)="moveRight()" alt=""></li>
-    
-                    <li class="box" drag-scroll-item>
+                    <li class="box position-relative" drag-scroll-item >
                         <div class="d-flex flex-column align-items-center justify-content-between py-5">
                             <h3 class="fc-darkBlue-01 text-center">Final</h3>
                             <img src="assets/img/slider-desarrollo/img-05.svg" class="img-number">
                             <img src="assets/img/slider-desarrollo/img-final.svg" class="img-front" width="80%">
                             <h4 class="fc-darkBlue-01"><img src="assets/img/icon-arrow-form.svg" alt=""> Terminamos nuestra labor cuando empiezas a ver tus objetivos realizados.</h4>
                         </div>
+                        
                     </li>
-                    <li class="d-flex position-relative" ><img class="img-fluid" drag-scroll-item src="assets/img/slider-desarrollo/img-circulo-fin.svg"   alt=""></li>
+                    <li class="d-flex position-relative"  drag-scroll-item> <i class="position-absolute" style="width: 150px;"  drag-scroll-item></i><img class="img-fluid" src="assets/img/slider-desarrollo/img-circulo-fin.svg"   alt=""></li>
                     
                 </div>
             </drag-scroll>

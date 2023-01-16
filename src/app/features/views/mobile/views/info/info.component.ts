@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
   selector: 'app-info',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private propSvc:PropuestaService) { }
 
   title = "Información"
   internal_navigation=1;
@@ -30,19 +31,24 @@ export class InfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNavigation()
+    this.propSvc.getPropuesta().subscribe(
+      res=>{
+         
+      }
+    )
   }
 
 
   getNavigation(){
     let n= localStorage.getItem("navigation_info")
     if(n!=null) this.internal_navigation=parseInt(n)
-    console.log(this.internal_navigation)
+    
   }
 
 
   navigate(n:number){
     this.internal_navigation = n
-    console.log(this.internal_navigation)
+   
     localStorage.setItem("navigation_info", this.internal_navigation.toString())
   }
 

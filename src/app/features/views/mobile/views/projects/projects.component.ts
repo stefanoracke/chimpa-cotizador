@@ -110,20 +110,20 @@ swipe(e: TouchEvent, when: string): void {
     
     if(event.direction=='x' && event.distance<-100 && this.n_line<=3){
       this.n_line+=1;    
-      console.log(this.n_line)
+      
       return
     }else if(event.direction=='x' && event.distance<-100){
       this.n_line=0
-      console.log(this.n_line)
+      
       return
     }
 
     if(event.direction=='x' && event.distance>150 && this.n_line>0){
       this.n_line-= 1; 
-      console.log(this.n_line)  
+      
     }else{
       this.n_line=4;  
-      console.log(this.n_line)
+     
     }
   }
 
