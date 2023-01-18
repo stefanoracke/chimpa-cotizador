@@ -1,38 +1,46 @@
-<app-navbar-mobile [title]="title" [subtitle]="subtitle"></app-navbar-mobile>
-<div class="home-container">
-    
-    <div class="mobile bg-img"></div>
 
-
-    <div class="blue">
-        <div ngSwipe 
-         
-        (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="img-container">
-            
-            <img [src]="works[n_line].image" alt="">
-        </div>
+<section class="mobile">
+    <app-navbar-mobile [title]="title" [subtitle]="subtitle"></app-navbar-mobile>
+    <div class="home-container">
         
-        <div class="navigation-lines d-flex w-100 justify-content-center" >
-            <span *ngFor="let work of works" (click)="change(work.i)" [ngClass]="{'activeLink':work.i == n_line}"></span>
-        </div>
-        <div class="contenido_projects">
-            <div class="bg-jg-lb">
-                <div class="container_works">
-                    
-                        <h3>{{works[n_line].title}}</h3>
-                        <p class="mt-2">Cliente: {{works[n_line].cliente}}</p>
-                        <p class="description">{{works[n_line].description}}</p>
-                        
-                        <div class=" d-flex caracteristicas flex-wrap">
-                            <p *ngFor="let caracteristica of works[n_line].caracteristicas" class="caract">{{caracteristica}}</p>
-                            
-                        </div> 
-                </div>
-
+        <div class="mobile bg-img"></div>
+    
+    
+        <div class="blue">
+            <div ngSwipe 
+             
+            (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="img-container">
+                
+                <img [src]="works[n_line].image" alt="">
             </div>
             
-            <app-footer-mobile></app-footer-mobile>
+            <div class="navigation-lines d-flex w-100 justify-content-center" >
+                <span *ngFor="let work of works" (click)="change(work.i)" [ngClass]="{'activeLink':work.i == n_line}"></span>
+            </div>
+            <div class="contenido_projects">
+                <div class="bg-jg-lb">
+                    <div class="container_works">
+                        
+                            <h3>{{works[n_line].title}}</h3>
+                            <p class="mt-2">Cliente: {{works[n_line].cliente}}</p>
+                            <p class="description">{{works[n_line].description}}</p>
+                            
+                            <div class=" d-flex caracteristicas flex-wrap">
+                                <p *ngFor="let caracteristica of works[n_line].caracteristicas" class="caract">{{caracteristica}}</p>
+                                
+                            </div> 
+                    </div>
+    
+                </div>
+                
+                <app-footer-mobile></app-footer-mobile>
+            </div>
+            
         </div>
-        
     </div>
+
+</section>
+
+<div class="pc">
+    <app-not-found></app-not-found>
 </div>

@@ -1,25 +1,32 @@
-<app-navbar-mobile [title]="title" [subtitle]="subtitle"></app-navbar-mobile>
-<div class="home-container">
+<section class="mobile">
+    <app-navbar-mobile [title]="title" [subtitle]="subtitle"></app-navbar-mobile>
+    <div class="home-container">
+        
+        <div class="mobile bg-img"></div>
+        <div class="jng_background"></div>
     
-    <div class="mobile bg-img"></div>
-    <div class="jng_background"></div>
-
-    <div class="blue">
-        <div class="contenido_question">
-            <div *ngFor="let item of questions;index as index" class="d-flex flex-column">
-                <div class="d-flex justify-content-between p-3">
-                    
-                    <div class="item">{{item}}</div>
-                    <div><img (click)="open(index)" src="./../../../../../../assets/svg/circle_plus.svg" alt=""></div>
-                </div>
-                <div class="paragraph-item" *ngIf="item_number == index">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Est neque expedita, omnis repellendus ipsum atque ad molestias, et eius nihil laboriosam aut corporis rerum at ut reprehenderit possimus magni eligendi.
-                   
+        <div class="blue">
+            <div class="contenido_question">
+                <div *ngFor="let item of questions;index as index" class="d-flex flex-column">
+                    <div class="d-flex justify-content-between p-3">
+                        
+                        <div class="item">{{item}}</div>
+                        <div><img (click)="open(index)" src="./../../../../../../assets/svg/circle_plus.svg" alt=""></div>
+                    </div>
+                    <div class="paragraph-item" *ngIf="item_number == index">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est neque expedita, omnis repellendus ipsum atque ad molestias, et eius nihil laboriosam aut corporis rerum at ut reprehenderit possimus magni eligendi.
+                       
+                    </div>
                 </div>
             </div>
+            <app-footer-mobile></app-footer-mobile>
         </div>
-        <app-footer-mobile></app-footer-mobile>
+    
+    
     </div>
 
+</section>
 
+<div class="pc">
+    <app-not-found></app-not-found>
 </div>

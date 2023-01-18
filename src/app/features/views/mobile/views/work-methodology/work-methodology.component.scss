@@ -282,3 +282,16 @@ app-footer-mobile{
 #desarrollo-mapa2 .img-front{
     width: 60%!important;
 }
+
+.pc{
+    display: none;
+}
+
+@media (min-width:1000px) {
+    .pc{
+        display: block;
+    }
+    .mobile{
+        display: none;
+    }
+}

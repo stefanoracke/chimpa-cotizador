@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
+  text!:string
 
   ngOnInit(): void {
+    this.foundUrl()
+  }
+
+  navigateTo(){
+    this.router.navigate([this.foundUrl()])
+  }
+
+  foundUrl(){
+    let url = this.router.url.slice(1,this.router.url.length)
+    let id = url.indexOf('/')
+
+    this.text = url.slice(0,id)
+    console.log(this.text)
+    return url.slice(0,id)
   }
 
 }

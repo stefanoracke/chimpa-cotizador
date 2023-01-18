@@ -63,3 +63,16 @@ h3{
 .contenido{
     padding:  0 7vw;
 }
+
+.pc{
+    display: none;
+}
+
+@media (min-width:1000px) {
+    .pc{
+        display: block;
+    }
+    .mobile{
+        display: none;
+    }
+}
