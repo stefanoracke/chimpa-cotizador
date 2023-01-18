@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
+
 @Component({
   selector: 'app-app-chimpance',
   templateUrl: './app-chimpance.component.html',
@@ -8,17 +9,31 @@ import { PropuestaService } from 'src/app/core/services/propuesta.service';
 })
 export class AppChimpanceComponent implements OnInit {
 
-  constructor( ) { }
+  timeLeftSeconds:any
+    date: Date = new Date();
+  constructor(private propSvc:PropuestaService) { }
 
+ 
   propuesta= true
   pc = true
+  time = false
 
   stopCarga(bool:boolean){
     this.propuesta = bool
   }
 
   ngOnInit(): void {
-   
+    this.propSvc.getPropuesta().subscribe(
+      res=>{
+        
+	  let fecha = Date.parse(res.promotions[0].updated_at) 
+	  let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
+	  this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
+        this.time = this.timeLeftSeconds>0
+      }
+    )
+
+    
 
     if(window.innerWidth<1000){
       this.pc=false

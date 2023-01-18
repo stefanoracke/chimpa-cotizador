@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
   selector: 'app-prices',
@@ -7,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PricesComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private propSvc:PropuestaService) { }
+  timeLeftSeconds:any
   internal_navigation = 1
+  time = false;
+  date:Date = new Date()
 
   title= "Precio y"
   subtitle = "Financiación"
   ngOnInit(): void {
     this.getNavigation()
+
+    this.propSvc.getPropuesta().subscribe(
+      res=>{
+        
+	  let fecha = Date.parse(res.promotions[0].updated_at) 
+	  let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
+	  this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
+        this.time = this.timeLeftSeconds>0
+      }
+    )
   }
 
   getNavigation(){

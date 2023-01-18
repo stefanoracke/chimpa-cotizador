@@ -2,7 +2,9 @@
     background: var(--mainBlue);
     min-height: 100vh;
 }
-
+h3{
+    z-index: 3;
+}
 .container{
     padding-top:55px;
 }
@@ -55,6 +57,9 @@
     color: var(--darkBlue-01);
 }
 // desarrolo mapa
+ul{
+    padding-left: 0;
+}
 
 #desarrollo-mapa ul {
     overflow-y: scroll;

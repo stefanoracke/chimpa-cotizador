@@ -81,12 +81,15 @@
    
 }
 // desarrolo mapa
-
+ul{
+    padding-left: 0;
+}
 #desarrollo-mapa2 ul {
     overflow-y: scroll;
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; 
+    
 }
 
 #desarrollo-mapa2 ::-webkit-scrollbar {
