@@ -12,16 +12,16 @@
             <h3>Agranda tu combo</h3>
         </div>
         <div class="mt-4 contenido" >
-            <div *ngFor="let item of cards; index as index" [ngClass]="{'bg-bluesecondary':index%2!=0}"  (click)="navigateTo(item.route, item.object)" class="box-prices mt-2">
+            <div *ngFor="let item of cards; index as index" [ngClass]="{'bg-bluesecondary':index%2!=0}"  (click)="navigateTo('option', item.image, item.name, item.description)" class="box-prices mt-2">
                 <div class="d-flex flex-column w-100">
-                    <p>{{item.paragraph}}</p>
-                    <div class="d-flex"><h2 class="mt-2">{{item.title}}</h2>
+                    <p>{{item.subname}}</p>
+                    <div class="d-flex"><h2 class="mt-2">{{item.name}}</h2>
                     <img *ngIf="item.star" src="./../../../../../../assets/svg/star.svg" alt="">
                     </div>
                     
-                    <h2>{{item.price}} <small>/{{item.currency}}</small></h2>
+                    <h2>${{item.price}} <small>/USD</small></h2>
                     <div class="d-flex justify-content-between w-100 align-items-baseline">
-                        <small class="mt-2">{{item.interest}}</small>
+                        <small class="mt-2">Me interesa ¿en que consiste?</small>
                         <mat-icon>chevron_right</mat-icon>
                     </div>
                 </div>

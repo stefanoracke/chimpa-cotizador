@@ -64,6 +64,7 @@ export class TimerComponent implements OnInit {
 	  let fecha = Date.parse(res.promotions[0].updated_at) 
 	  let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
 	  this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
+    console.log(this.timeLeftSeconds>0)
 
 	  if(res.clients.regions_id == 1){
         let solidary_usd = res.solidarity_usd

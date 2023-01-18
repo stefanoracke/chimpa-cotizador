@@ -11,7 +11,7 @@ import { Section6Component } from './section6/section6.component';
 import { IncluidosComponent } from './incluidos/incluidos.component';
 import { MenuitemsComponent } from './section6/menuitems/menuitems.component';
 import { Setion7Component } from './section7/setion7.component';
-import { TituloComponent } from './titulo/titulo.component';
+
 import { Section8Component } from './section8/section8.component';
 import { Section9Component } from './section9/section9.component';
 import { Section10Component } from './section10/section10.component';

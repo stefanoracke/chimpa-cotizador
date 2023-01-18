@@ -24,6 +24,7 @@ import { OptionalComponentsComponent } from './views/optional-components/optiona
 import { SwipeModule } from 'ng-swipe';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { LandingModule } from '../landing/landing.module';
+import { DragScrollModule } from 'ngx-drag-scroll';
 
 
 
@@ -54,7 +55,8 @@ import { LandingModule } from '../landing/landing.module';
     MaterialModule,
     SharedModule,
     SwipeModule,
-    LandingModule
+    LandingModule,
+    DragScrollModule,
   ],
   exports: [
     AppChimpanceComponent,

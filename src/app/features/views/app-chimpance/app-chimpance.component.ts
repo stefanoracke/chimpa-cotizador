@@ -11,6 +11,7 @@ export class AppChimpanceComponent implements OnInit {
   constructor( ) { }
 
   propuesta= true
+  pc = true
 
   stopCarga(bool:boolean){
     this.propuesta = bool
@@ -19,7 +20,9 @@ export class AppChimpanceComponent implements OnInit {
   ngOnInit(): void {
    
 
-
+    if(window.innerWidth<1000){
+      this.pc=false
+    }
   }
 
 }

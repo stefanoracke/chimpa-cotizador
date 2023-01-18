@@ -1,10 +1,13 @@
 <div class="bg-blue">
     <div class="container">
+
         <app-titulo [title]="title"></app-titulo>
+    </div>
+    <div class="container-fluid px-0">
 
         
         
-        <section  id="desarrollo-mapa" class="pt-5">
+        <section *ngIf="metodologia==1" id="desarrollo-mapa" class="pt-5">
             
             <ul>
                 <drag-scroll #desarrollo >
@@ -69,6 +72,69 @@
                         </div>
                         
                     </li>
+                    <li class="d-flex position-relative"  drag-scroll-item> <i class="position-absolute" style="width: 150px;"  drag-scroll-item></i><img class="img-fluid" src="assets/img/slider-desarrollo/img-circulo-fin.svg"   alt=""></li>
+                    
+                </div>
+            </drag-scroll>
+            </ul>
+        </section>
+        <section  *ngIf="metodologia==2" id="desarrollo-mapa2" class="pt-5">
+            
+            <ul>
+                <drag-scroll #desarrollo2 >
+                <div class="slider d-flex justify-content-around">
+                    <span></span>
+                    <li class="d-flex position-relative"><img class="img-fluid" src="assets/img/slider-desarrollo/img-circulo.svg" alt=""></li>
+                    
+                    <li class="box"  drag-scroll-item>
+                        <div class="d-flex flex-column align-items-center justify-content-between py-5">
+                            <h3 class="fc-darkBlue-01 text-center">Brief</h3>
+                            <img src="assets/img/branding/branding-1.png" class="img-front" width="80%">
+                            <h4 class="fc-darkBlue-01"><img src="assets/img/icon-arrow-form.svg" alt=""> Definimos juntos de manera estratégica el alcance del proyecto.</h4>   
+                        </div>
+                    </li>
+                    <li class="d-flex position-relative"><img class="img-fluid" role="button" src="assets/img/icon-angle-rigth.svg" alt="" (click)="moveRight2()"></li>
+    
+                    <li class="box" drag-scroll-item>
+                        <div class="d-flex flex-column align-items-center justify-content-between py-5">
+                            <h3 class="fc-darkBlue-01 text-center">Referencias <br>Estéticas</h3>
+                            <img src="assets/img/slider-desarrollo/img-01.svg" class="img-number">
+                            <img src="assets/img/branding/branding-2.png" class="img-front" width="80%">
+                            <h4 class="fc-darkBlue-01"><img src="assets/img/icon-arrow-form.svg" alt=""> Realizamos un mapa del sitio web y app de manera estratégica.</h4>
+                        </div>
+                    </li>
+                    <li class="d-flex position-relative"><img class="img-fluid" role="button" src="assets/img/icon-angle-rigth.svg" (click)="moveRight2()" alt=""></li>
+    
+                    <li class="box" drag-scroll-item>
+                        <div class="d-flex flex-column align-items-center justify-content-between py-5">
+                            <h3 class="fc-darkBlue-01 text-center">Propuesta <br>
+                                de diseño</h3>
+                            <img src="assets/img/slider-desarrollo/img-02.svg" class="img-number">
+                            <img src="assets/img/branding/branding-3.png" class="img-front" width="80%">
+                            <h4 class="fc-darkBlue-01"><img src="assets/img/icon-arrow-form.svg" alt=""> Diseñamos las interfaces visuales para guiar al usuario.</h4>
+                        </div>
+                    </li>
+                    <li class="d-flex position-relative"><img class="img-fluid" role="button" src="assets/img/icon-angle-rigth.svg" (click)="moveRight2()" alt=""></li>
+    
+                    <li class="box" drag-scroll-item>
+                        <div class="d-flex flex-column align-items-center justify-content-between py-5">
+                            <h3 class="fc-darkBlue-01 text-center">Elección</h3>
+                            <img src="assets/img/slider-desarrollo/img-03.svg" class="img-number">
+                            <img src="assets/img/branding/branding-4.png" class="img-front" width="80%">
+                            <h4 class="fc-darkBlue-01"><img src="assets/img/icon-arrow-form.svg" alt=""> Desarrollamos las funciones internas de la web / app.</h4>
+                        </div>
+                    </li>
+                    <li class="d-flex position-relative"><img class="img-fluid" role="button" src="assets/img/icon-angle-rigth.svg" (click)="moveRight2()" alt=""></li>
+                    
+                    <li class="box" drag-scroll-item>
+                        <div class="d-flex flex-column align-items-center justify-content-between py-5">
+                            <h3 class="fc-darkBlue-01 text-center">Trabajo <br> final</h3>
+                            <img src="assets/img/slider-desarrollo/img-04.svg" class="img-number">
+                            <img src="assets/img/branding/branding-5.png" class="img-front" width="80%">
+                            <h4 class="fc-darkBlue-01"><img src="assets/img/icon-arrow-form.svg" alt=""> Hacemos pruebas antes de lanzar tu Sitio y App oficialmente.</h4>
+                        </div>
+                    </li>
+                    
                     <li class="d-flex position-relative"  drag-scroll-item> <i class="position-absolute" style="width: 150px;"  drag-scroll-item></i><img class="img-fluid" src="assets/img/slider-desarrollo/img-circulo-fin.svg"   alt=""></li>
                     
                 </div>
