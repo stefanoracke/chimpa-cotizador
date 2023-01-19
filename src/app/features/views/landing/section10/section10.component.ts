@@ -19,7 +19,7 @@ export class Section10Component implements OnInit {
   preguntas!:any
 
   ngOnInit(): void {
-    this.faqsService.getFaqs().subscribe(res=>console.log(this.preguntas = res.data))
+    this.faqsService.getPropuesta().subscribe(res=>console.log(this.preguntas = res.faqs))
   }
 
 }

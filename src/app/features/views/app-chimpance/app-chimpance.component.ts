@@ -25,10 +25,10 @@ export class AppChimpanceComponent implements OnInit {
   ngOnInit(): void {
     this.propSvc.getPropuesta().subscribe(
       res=>{
-        
-	  let fecha = Date.parse(res.promotions[0].updated_at) 
-	  let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
-	  this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
+        console.log(res)
+	      let fecha = Date.parse(res.promotions[0].updated_at) 
+	      let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
+	      this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
         this.time = this.timeLeftSeconds>0
       }
     )

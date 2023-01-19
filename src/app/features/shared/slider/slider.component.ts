@@ -104,20 +104,25 @@ export class SliderComponent implements OnInit {
     },
   ]
 
+  setintervalHandle!:any
+
   ngOnInit(): void {
-    setInterval(()=>{
-      if(this.span_n ==this.works.length-1) {
-        this.span_n=0
-      }else{
-        this.span_n++;
-      }
-    },6000)
+    this.setintervalHandle= setInterval(()=>this.intervalChange(),6000)
+  }
+
+  intervalChange():void{
+    if(this.span_n ==this.works.length-1) {
+      this.span_n=0
+    }else{
+      this.span_n++;
+    }
   }
 
 
   changeActive(i:number){
     this.span_n= i;
-    
+    clearInterval(this.setintervalHandle)
+    this.setintervalHandle= setInterval(()=>this.intervalChange(),6000)
   }
 
   chevronClick(direction:string){
@@ -139,5 +144,7 @@ export class SliderComponent implements OnInit {
       }
      
     }
+    clearInterval(this.setintervalHandle)
+    this.setintervalHandle= setInterval(()=>this.intervalChange(),6000)
   }
 }
