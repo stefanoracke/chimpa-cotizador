@@ -13,7 +13,8 @@ ul{
 ul li{
     display: flex;
     align-items: baseline;
-    padding: 2px 0;
+    padding: 5px;
+    margin-left: 5px;
 }
 
 p{
@@ -24,10 +25,12 @@ ul li::before {
     content: ''; 
     margin-right: 10px;
     width: 8px;
+    top: 13px;
     height: 8px;
     border-radius: 50%;
+    left: -10px;
     z-index: 210;
-    
+    position: absolute;
     
 }
 
@@ -36,5 +39,5 @@ ul li::before {
 }
 
 .white::before{
-    background-color: var(--mainWhite);
+    background-color: var(--mainYellow);
 }
