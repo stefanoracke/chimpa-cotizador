@@ -1,20 +1,20 @@
-<section class="mobile">
+<section class="mobile d-flex flex-column">
     <app-navbar-mobile [title]="title" [subtitle]="subtitle"></app-navbar-mobile>
-    <div class="home-container">
+    <div class="home-container d-flex flex-column">
         
-        <div class="mobile bg-img"></div>
-        <div class="jng_background"></div>
+        <div class="bg-img"></div>
+        
     
-        <div class="blue">
+        <div class="blue d-flex flex-column">
             <div class="contenido_question">
                 <div *ngFor="let item of questions;index as index" class="d-flex flex-column">
-                    <div class="d-flex justify-content-between p-3">
+                    <div (click)="open(index)" class="d-flex justify-content-between p-3">
                         
-                        <div class="item">{{item}}</div>
-                        <div><img (click)="open(index)" src="./../../../../../../assets/svg/circle_plus.svg" alt=""></div>
+                        <div class="item" >{{item?.question}}</div>
+                        <div><img  src="./../../../../../../assets/svg/circle_plus.svg" alt=""></div>
                     </div>
                     <div class="paragraph-item" *ngIf="item_number == index">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Est neque expedita, omnis repellendus ipsum atque ad molestias, et eius nihil laboriosam aut corporis rerum at ut reprehenderit possimus magni eligendi.
+                        {{item?.response}}
                        
                     </div>
                 </div>

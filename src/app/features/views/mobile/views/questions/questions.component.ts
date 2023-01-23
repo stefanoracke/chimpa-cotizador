@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
   selector: 'app-questions',
@@ -6,29 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./questions.component.scss']
 })
 export class QuestionsComponent implements OnInit {
+  resSub$!:Subscription
 
-  item_number!:number;
+  item_number!:number |undefined;
   title="Preguntas"
   subtitle="Frecuentes"
 
-  questions= [
-    '¿Qué dólar toman de referencia?',
-    '¿Puedo agregar funciones y/o páginas en un futuro a este sitio web?',
-    '¿Puedo modificar mi sitio?',
-    '¿Qué es un hosting?',
-    '¿Necesito si o si un hosting?',
-    '¿Qué es un dominio?'
-  ]
+  questions!:Array<any>
 
-  constructor() { }
+  constructor(private propSvc:PropuestaService) { }
 
   ngOnInit(): void {
+    this.resSub$ = this.propSvc.getPropuesta()
+    .subscribe(res=>{
+      console.log(res.faqs)
+      this.questions= res.faqs
+    })
   }
 
-  open(index:number){
-    if(this.item_number!=index) this.item_number=index;
+  open(index:number|undefined){
+    if(this.item_number!=index &&this.item_number) this.item_number=index;
     else{
-      this.item_number=0.1
+      this.item_number=0.2
     }
   }
 

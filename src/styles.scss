@@ -55,9 +55,10 @@ body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!import
 }
 
 .btn-yellow{
-    background: var(--mainYellow);
-    color: var(--mainBlue);
+    background: var(--mainYellow) !important;
+    color: var(--mainBlue) !important;
     border-radius: .5rem;
+    box-shadow: 0 0 2px gray;
     padding: 10px;
     font-weight: bold;
     font-size: 18px;

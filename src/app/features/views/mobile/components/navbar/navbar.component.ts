@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common'
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
   selector: 'app-navbar-mobile',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarMobileComponent implements OnInit {
-
+  propSub$!:Subscription
 
   public routes=[
     {
@@ -50,7 +52,7 @@ export class NavbarMobileComponent implements OnInit {
     this.location.back();
   }
 
-  constructor(private location:Location, private router:Router) { }
+  constructor(private location:Location, private router:Router, private propSvc:PropuestaService) { }
 
   redirectTo(ruta:string){
     
@@ -61,6 +63,38 @@ export class NavbarMobileComponent implements OnInit {
     });  
   }
   ngOnInit(): void {
+    this.propSub$ = this.propSvc.getPropuesta()
+    .subscribe(res=>{
+      console.log(res.services.length)
+      if(res.services.length==0){
+        this.routes =[
+          {
+            name: "Precios",
+            route: "prices",
+            
+          },
+          {
+            name: "Información",
+            route: "info",
+         
+          },
+          {
+            name: "Metodología de trabajo",
+            route: "methodology",
+          
+          },
+          {
+            name: "Proyectos",
+            route: "projects",
+      
+          },
+        
+        ]
+      }
+    })
   }
 
+  ngOnDestroy(): void {
+    this.propSub$.unsubscribe()
+  }
 }

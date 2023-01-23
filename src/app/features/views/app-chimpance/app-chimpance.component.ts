@@ -12,7 +12,8 @@ export class AppChimpanceComponent implements OnInit {
   timeLeftSeconds:any
     date: Date = new Date();
   constructor(private propSvc:PropuestaService) { }
-
+  services!:any
+  prices!:any
  
   propuesta= true
   pc = true
@@ -26,6 +27,9 @@ export class AppChimpanceComponent implements OnInit {
     this.propSvc.getPropuesta().subscribe(
       res=>{
         console.log(res)
+        console.log(res.services.length)
+        this.prices = res.prices.length
+        this.services = res.services.length
 	      let fecha = Date.parse(res.promotions[0].updated_at) 
 	      let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
 	      this.timeLeftSeconds = Math.floor(((evento) ) / 1000);

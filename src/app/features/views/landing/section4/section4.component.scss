@@ -1,7 +1,7 @@
 .bg-blue{
     background: var(--mainBlue);
     width: 100%;
-    min-height: 100vh;
+    padding: 7vh 0
 }
 
 .flecha{
@@ -18,7 +18,7 @@
 
 .container{
     padding: 50px 5rem 0 5rem;
-    min-height: 100vh;
+    
     display: flex;
     justify-content: center;
     align-items: center;

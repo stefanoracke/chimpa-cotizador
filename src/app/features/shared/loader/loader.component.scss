@@ -35,6 +35,30 @@
     animation: levantarceja .7s .5s  infinite;                                           
 }
 
+
+.animate_dot0{
+    animation: dotanimation 1s  infinite alternate;
+}
+.animate_dot{
+    animation: dotanimation 1s .2s infinite alternate;
+}
+.animate_dot2{
+    animation: dotanimation 1s .4s infinite alternate;
+}
+
+
+
+
+@keyframes dotanimation {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+
 @keyframes levantarceja {
     100%{
         transform: translateY(-3px);
