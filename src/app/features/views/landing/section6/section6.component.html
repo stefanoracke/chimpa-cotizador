@@ -15,7 +15,7 @@
       
     </div>
 
-    <div class="d-flex justify-content-center menu">
+    <div class="d-flex justify-content-start menu">
         <div class="px-5" *ngFor="let item of services; let i = index">
             <h4 class="text-white clickeable " [ngClass]="{'active': i == n_active}" (click)="changeActive(i)">{{item.name}}</h4>
         </div>
