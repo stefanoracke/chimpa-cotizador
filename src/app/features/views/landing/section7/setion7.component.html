@@ -13,11 +13,11 @@
                         <h4 class="m-0 ">${{item.price |optionals:propuesta.solidarity_usd :propuesta.clients.regions_id }} <span *ngIf="propuesta.clients.regions_id!=1">USD</span> </h4>
                         
                     </div>
-                    <p class="m-0">
-                        {{item.description}}
+                    <div [innerHTML]="item.description" class="m-0">
+                        
 
 
-                    </p>
+                    </div>
                 </div>
             </div>
             

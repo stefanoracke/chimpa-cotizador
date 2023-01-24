@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -29,7 +30,7 @@ export class PropuestaService {
     
 
     
-    return this.http.get<any>(`https://cotizador.devtesting.gq/api/api/Projects?empresa=${empresa}&proyecto=${proyecto}`)
+    return this.http.get<any>(environment.api+`empresa=${empresa}&proyecto=${proyecto}`)
   }
 
   getFaqs():Observable<any>{
