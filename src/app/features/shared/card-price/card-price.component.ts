@@ -56,8 +56,8 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       this.tasa = element.descont
       let n = this.tasa 
       let x = 100 - this.tasa
-      this.precio_modificado = this.precio*n/100
-      this.precio_muestra = this.precio*x/100
+      this.precio_modificado = -this.precio*n/100
+      this.precio_muestra =  this.precio*x/100
       
     }
     // if(this.show == i){

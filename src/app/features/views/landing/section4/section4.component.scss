@@ -17,10 +17,16 @@
 }
 
 .container{
-    padding: 50px 5rem 0 5rem;
+    padding: 0 5rem;
     
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+@media (max-width:1200px) {
+    .container{
+        padding: 0;
+    }
 }
