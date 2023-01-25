@@ -38,6 +38,9 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
   
   ]
 
+  nameEmpresa!:any
+  namePropuesta!:any
+
   redirectTo(ruta:string){
     
     this.router.navigate([localStorage.getItem('empresa_url'),ruta])
@@ -50,6 +53,9 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.propSub$ = this.propSvc.getPropuesta()
     .subscribe(res=>{
+      
+      this.nameEmpresa= res.clients.business_name
+      this.namePropuesta=res.title
       if(res.services.length>0){
         this.routes =[
           {
