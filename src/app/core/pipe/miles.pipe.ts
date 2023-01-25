@@ -13,13 +13,18 @@ export class MilesPipe implements PipeTransform {
         const rep = '$1.';
         let arr = number.toString().split('.');
         arr[0] = arr[0].replace(exp,rep);
-        return arr[1] ? arr.join('.'): arr[0];
+        
+        return arr[1] ? arr.join(','): arr[0];
       }
 
      
-        
+     if(region_id!=1){
+      return formato(precio)
+     }else{
+      return formato(precio.toFixed(2))
+     }
     
-     return formato(precio.toFixed(2))
+     
     
     
   }

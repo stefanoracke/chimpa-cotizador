@@ -52,7 +52,9 @@ import { LoaderComponent } from './loader/loader.component';
     AccordionComponent,
     TituloComponent,
     LoaderComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UrltopagePipe,
+   MilesPipe,
   ]
 })
 export class SharedModule { }

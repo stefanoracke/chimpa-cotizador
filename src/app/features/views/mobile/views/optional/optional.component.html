@@ -1,4 +1,4 @@
-<section class="mobile">
+<section class="mobile d-flex flex-column">
 
     <app-navbar-mobile [title]="title" ></app-navbar-mobile>
     <div class="home-container">
@@ -6,7 +6,7 @@
         <div class="mobile bg-img"></div>
     
     
-        <div class="blue">
+        <div class="blue d-flex flex-column">
             <div class="d-flex align-items-center contenido_optional mt-3">
                 <div class="celeste_circle">
                     <img src="./../../../../../../../assets/svg/icono_plus.svg" alt="">
@@ -21,7 +21,7 @@
                         <img *ngIf="item.star" src="./../../../../../../assets/svg/star.svg" alt="">
                         </div>
                         
-                        <h2>${{item.price}} </h2>
+                        <h2>{{item.price | currency}} </h2>
                         <div class="d-flex justify-content-between w-100 align-items-baseline">
                             <small class="mt-2">Me interesa ¿en que consiste?</small>
                             <mat-icon>chevron_right</mat-icon>
