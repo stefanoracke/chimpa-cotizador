@@ -18,7 +18,7 @@ export class AppChimpanceComponent implements OnInit {
   propuesta= true
   pc = true
   time = false
-
+ 
   stopCarga(bool:boolean){
     this.propuesta = bool
   }

@@ -40,6 +40,7 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
 
   nameEmpresa!:any
   namePropuesta!:any
+  carga=true;
 
   redirectTo(ruta:string){
     
@@ -86,7 +87,14 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
         
         ]
       }
-    })
+
+    },
+    ((err)=>{
+      console.log(err)
+    }),
+    (()=>{
+      this.carga=false
+    }))
   }
 
   ngOnDestroy(): void {
