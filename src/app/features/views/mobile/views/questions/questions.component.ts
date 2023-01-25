@@ -21,13 +21,13 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.resSub$ = this.propSvc.getPropuesta()
     .subscribe(res=>{
-      console.log(res.faqs)
+      console.log(res)
       this.questions= res.faqs
     })
   }
 
   open(index:number|undefined){
-    if(this.item_number!=index &&this.item_number) this.item_number=index;
+    if(this.item_number!=index && this.item_number) this.item_number=index;
     else{
       this.item_number=0.2
     }
