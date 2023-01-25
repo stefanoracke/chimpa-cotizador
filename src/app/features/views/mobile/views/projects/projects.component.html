@@ -1,12 +1,12 @@
 
 <section class="mobile">
     <app-navbar-mobile [title]="title" [subtitle]="subtitle"></app-navbar-mobile>
-    <div class="home-container">
+    <div class="home-container d-flex flex-column">
         
-        <div class="mobile bg-img"></div>
+        <div class="bg-img"></div>
     
     
-        <div class="blue">
+        <div class="blue flex-column">
             <div ngSwipe 
              
             (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')" class="img-container">

@@ -20,8 +20,9 @@
     width: 100%;
     z-index: 1;
     color: #ffffff;
-    background: transparent;
+    background: var(--mainBlue);
     position: relative;
+    display: flex;
 }
 
 .img-container{
@@ -54,7 +55,7 @@
 .contenido_projects{
     position: relative;
     min-height: 80%;
-    
+   
 }
 
 .navigation-lines{
@@ -78,19 +79,16 @@
 }
 
 .bg-jg-lb{
-    background: url('./../../../../../../assets/images/jng_light_blue.svg') ;
-    height: 100%;
+    background: url('./../../../../../../assets/images/jng_light_blue.svg');
     width: 100%;
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
-    position: absolute;
-    
-    top: 0;
+    padding-bottom: 100px;
 }
 
 app-footer-mobile{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     z-index: 22;
     width: 100% ;
