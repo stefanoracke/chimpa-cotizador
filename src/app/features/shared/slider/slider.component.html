@@ -1,26 +1,26 @@
 <div class="contenido_slider">
-    <div class="row">
-        <div class="align-items-center col-6 d-flex ">
-            <div class="img_cont w-100">
+    <div class="row" (mouseover)="stopInterval()" (mouseout)="playInterval()">
+        <div class="align-items-center col-6 d-flex " (mouseover)="stopInterval()" >
+            <div (mouseover)="stopInterval()"  class="img_cont w-100">
                 <img [src]="works[span_n].image" alt="">
             
             </div>  
             <img (click)="chevronClick('left')" src="assets/svg/chevron-left.svg" alt="" class="change left clickeable">
             
         </div>
-        <div class="col-6 d-flex flex-column ">
+        <div class="col-6 d-flex flex-column " (mouseover)="stopInterval()" >
             <img (click)="chevronClick('right')" src="assets/svg/chevron-right.svg" alt="" class="change right clickeable">
             
-            <div class="contenido">
-                <app-titulo [title]="title"></app-titulo>
-                <h3 class="text-yellow">0.{{span_n+1}} {{works[span_n].title}} </h3>
-                <h2 class="cliente">Cliente: {{works[span_n].cliente}} </h2>
+            <div (mouseover)="stopInterval()"  class="contenido">
+                <app-titulo (mouseover)="stopInterval()"  [title]="title"></app-titulo>
+                <h3 (mouseover)="stopInterval()"  class="text-yellow">0.{{span_n+1}} {{works[span_n].title}} </h3>
+                <!-- <h2 class="cliente">Cliente: {{works[span_n].cliente}} </h2> -->
                 
-                <p class="w-75" [innerHTML]="works[span_n].description"></p>
+                <p (mouseover)="stopInterval()"  class="w-75" [innerHTML]="works[span_n].description"></p>
 
-                <a href="{{works[span_n].url}}" target="_blank" class="text-yellow text-yellow-a">{{works[span_n].url | urltopage}}</a>
+                <a (mouseover)="stopInterval()"  href="{{works[span_n].url}}" target="_blank" class="text-yellow text-yellow-a">{{works[span_n].url | urltopage}}</a>
 
-                <div class=" d-flex caracteristicas flex-wrap">
+                <div (mouseover)="stopInterval()"  class=" d-flex caracteristicas flex-wrap">
                     <p *ngFor="let caracteristica of works[span_n].caracteristicas" class="caract">{{caracteristica}}</p>
                     
                 </div> 

@@ -16,10 +16,10 @@ export class SliderComponent implements OnInit {
       i : 0,
       image: 'assets/images/sliderspc/singulares.png',
       title:'Singulares',
-      url: 'https://www.delgredal.com',
+      url: 'https://singulares.com/',
       
       cliente: '  Cinergia Producciones',
-      description: 'Desarrollamos y diseñamos una web institucional que <br> propone <br> una narrativa en línea con el espíritu y la identidad de la <br> marca.',
+      description: 'Singulares es una empresa líder en soluciones de recursos humanos y coaching para empresas en Chile y en todo el mundo. Con el objetivo de mostrar su innovación y trayectoria, decidieron desarrollar un nuevo sitio web que reflejara su nuevo branding. El resultado es una página web moderna y atractiva, con un toque innovador que transmite el espíritu de la empresa. Además, cuenta con un blog autoadministrable y varias interacciones que mejoran la experiencia del usuario.',
       caracteristicas:[
         'UX',
         'UI','Customizadas','Bootstrap'
@@ -29,9 +29,9 @@ export class SliderComponent implements OnInit {
       i : 1,
       image: 'assets/images/sliderspc/gustavoSpada.jpg',
       title:'Gustavo Spada',
-      url: 'https://www.delgredal.com',
+      url: 'https://gusespada.com/',
       cliente: '  Cinergia Producciones',
-      description: 'Una plataforma que muestra todas las obras de un artista cordobés, pensada para cargar rápidamente imágenes y videos de alta calidad.',
+      description: 'Gustavo Espada, un profesor y director de coros, nos presentó el desafío de crear una plataforma de contenido de suscripción para satisfacer sus necesidades. Esta plataforma ofrece una amplia biblioteca de arreglos corales y consejos sobre dirección coral a usuarios de todo el mundo. Los usuarios pueden acceder a estos recursos mediante una suscripción mensual que se renueva automáticamente. Además, se integraron diferentes opciones de pago para facilitar el proceso de suscripción. Gustavo tiene la capacidad de gestionar la plataforma y comunicarse con los usuarios, lo que permite la creación, modificación y eliminación de cursos y partituras. Actualmente, cientos de directores de coro de todo el mundo utilizan arreglos a través de la plataforma <strong>gusespada.com</strong>.',
       caracteristicas:[
         'UX',
         'UI','Wordpress'
@@ -42,7 +42,7 @@ export class SliderComponent implements OnInit {
       image: 'assets/images/sliderspc/rentauto.jpg',
       title:'Rentauto',
       cliente: 'Cinergia Producciones',
-      description: 'Diseñamos una plataforma minimalista y fácil de navegar, sintetizando toda la dinámica de las consultas en un solo lugar. El sistema contempla un administrador donde los usuarios pueden gestionar los autos, precios, puntos de retiro y devolución; y hacer reservas pagando por la plataforma sin tener que contactar a un representante. ',
+      description: 'Rentauto es una empresa de alquiler de autos, y servicios de movilidad en toda Argentina.<br><br> Inglobe nos buscó para desarrollar un sitio web que sea accesible en diferentes idiomas y monedas para sus clientes.<br><br>Diseñamos una plataforma minimalista y fácil de navegar, sintetizando toda la dinámica de las consultas en un solo lugar. El sistema contempla un administrador donde los usuarios pueden gestionar los autos, precios, puntos de retiro y devolución; y hacer reservas pagando por la plataforma sin tener que contactar a un representante. <br><br> Ahora Rentauto puede ofrecer sus servicios de alquier de autos para cualquier usuario.',
       
       url:'https://www.rentautoargentina.com.ar/cordoba',
       caracteristicas:[
@@ -107,7 +107,7 @@ export class SliderComponent implements OnInit {
   setintervalHandle!:any
 
   ngOnInit(): void {
-    this.setintervalHandle= setInterval(()=>this.intervalChange(),6000)
+    this.setintervalHandle= setInterval(()=>this.intervalChange(),4000)
   }
 
   intervalChange():void{
@@ -118,11 +118,20 @@ export class SliderComponent implements OnInit {
     }
   }
 
+  stopInterval(){
+
+    clearInterval(this.setintervalHandle)
+  }
+
+  playInterval(){
+ 
+    this.setintervalHandle= setInterval(()=>this.intervalChange(),4000)
+  }
+
 
   changeActive(i:number){
     this.span_n= i;
-    clearInterval(this.setintervalHandle)
-    this.setintervalHandle= setInterval(()=>this.intervalChange(),6000)
+    
   }
 
   chevronClick(direction:string){
@@ -144,7 +153,6 @@ export class SliderComponent implements OnInit {
       }
      
     }
-    clearInterval(this.setintervalHandle)
-    this.setintervalHandle= setInterval(()=>this.intervalChange(),6000)
+   
   }
 }

@@ -26,7 +26,7 @@ export class AppChimpanceComponent implements OnInit {
   ngOnInit(): void {
     this.propSvc.getPropuesta().subscribe(
       res=>{  
-        console.log(res)
+        
         this.prices = res.prices.length
         this.services = res.services.length
 	      let fecha = Date.parse(res.promotions[0].updated_at) 
