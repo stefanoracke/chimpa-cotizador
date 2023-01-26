@@ -17,6 +17,7 @@ export class InfoComponent implements OnInit {
   funcionalidades!:any
   list!:any
   list_incluidos!:any
+  list_noincluidos!:any
 
   rutas = [
    {
@@ -43,6 +44,7 @@ export class InfoComponent implements OnInit {
          this.funcionalidades = res.features_type[3].content.map((resp:any) => resp.description)
          this.list =  res.features_type[0].content.map((resp:any) => resp.description)
          this.list_incluidos =  res.features_type[1].content.map((resp:any) => resp.description)
+         this.list_noincluidos =  res.features_type[4].content.map((resp:any) => resp.description)
       }
     )
   }

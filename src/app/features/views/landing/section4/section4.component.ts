@@ -18,18 +18,14 @@ export class Section4Component implements OnInit {
     'Contrato de trabajo'
   ]
   noincluido = [
-    'Producción de fotos y videos',
-    'Redacción de textos y traducción',
-    'Hosting y dominio',
-    'Edición de logo y fotoproducto',
-    'Mantenimiento y actualizaciones'
+    
   ]
 
   ngOnInit(): void {
     this.propSvc.getPropuesta()
     .subscribe((res)=>{
       this.incluido = res.features_type[1].content.map((respuesta:any)=>respuesta.description)
-      
+      this.noincluido = res.features_type[4].content.map((respuesta:any)=>respuesta.description)
     })
   }
 

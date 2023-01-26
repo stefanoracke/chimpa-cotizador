@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class Info2Component implements OnInit {
  @Input() list_incluidos!:any
 
-  list = [
+  @Input() list = [
     'Página principal',
     'Dos páginas secundarias',
     'Página de contacto formulario + botón de whatsapp'
