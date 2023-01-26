@@ -43,12 +43,22 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
   carga=true;
 
   redirectTo(ruta:string){
+   
+    let nuevaruta = localStorage.getItem('empresa_url')
+    console.log(nuevaruta)
+    if(ruta == '/'){
+      if(nuevaruta)
+      this.router.navigateByUrl(nuevaruta);
+    }else{
+      if(nuevaruta)
+      this.router.navigateByUrl(nuevaruta+'/'+ruta)
+      .then(() => {
+        window.location.reload();
+       
+      });  
+    }
     
-    this.router.navigate([localStorage.getItem('empresa_url'),ruta])
-    .then(() => {
-      window.location.reload();
-      
-    });  
+    
   }
 
   ngOnInit(): void {

@@ -55,13 +55,21 @@ export class NavbarMobileComponent implements OnInit {
   constructor(private location:Location, private router:Router, private propSvc:PropuestaService) { }
 
   redirectTo(ruta:string){
-    
-    this.router.navigate([localStorage.getItem('empresa_url'),ruta])
-    .then(() => {
-      window.location.reload();
-      
-    });  
+    let nuevaruta = localStorage.getItem('empresa_url')
+    console.log(nuevaruta)
+    if(ruta == '/'){
+      if(nuevaruta)
+      this.router.navigateByUrl(nuevaruta);
+    }else{
+      if(nuevaruta)
+      this.router.navigateByUrl(nuevaruta+'/'+ruta)
+      .then(() => {
+        window.location.reload();
+       
+      });  
+    }
   }
+  
   ngOnInit(): void {
     this.propSub$ = this.propSvc.getPropuesta()
     .subscribe(res=>{

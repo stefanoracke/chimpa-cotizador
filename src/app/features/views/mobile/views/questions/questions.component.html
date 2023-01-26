@@ -13,8 +13,8 @@
                         <div class="item" >{{item?.question}}</div>
                         <div><img  src="./../../../../../../assets/svg/circle_plus.svg" alt=""></div>
                     </div>
-                    <div class="paragraph-item" *ngIf="item_number == index">
-                        {{item?.response}}
+                    <div class="paragraph-item" *ngIf="item_number == index" [innerHTML]="item?.response">
+                        
                        
                     </div>
                 </div>

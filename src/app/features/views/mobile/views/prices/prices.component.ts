@@ -13,6 +13,7 @@ export class PricesComponent implements OnInit {
   internal_navigation = 1
   time = false;
   date:Date = new Date()
+  empresa!:any
 
   title= "Precio y"
   subtitle = "Financiación"
@@ -21,7 +22,7 @@ export class PricesComponent implements OnInit {
 
     this.propSvc.getPropuesta().subscribe(
       res=>{
-        
+        this.empresa = res.clients.business_name
 	  let fecha = Date.parse(res.promotions[0].updated_at) 
 	  let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
 	  this.timeLeftSeconds = Math.floor(((evento) ) / 1000);

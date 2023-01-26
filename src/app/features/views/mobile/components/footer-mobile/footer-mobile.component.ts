@@ -15,10 +15,15 @@ export class FooterMobileComponent implements OnInit {
   }
 
   redirectTo(ruta:string){
+   
+    let nuevaruta = localStorage.getItem('empresa_url')
+    console.log(nuevaruta)
     if(ruta == '/'){
-      this.router.navigate([ruta,localStorage.getItem('empresa_url')]);
+      if(nuevaruta)
+      this.router.navigateByUrl(nuevaruta);
     }else{
-      this.router.navigate([localStorage.getItem('empresa_url'),ruta])
+      if(nuevaruta)
+      this.router.navigateByUrl(nuevaruta+'/'+ruta)
       .then(() => {
         window.location.reload();
        
