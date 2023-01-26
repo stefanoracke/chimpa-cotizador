@@ -21,7 +21,7 @@
                         <img *ngIf="item.star" src="./../../../../../../assets/svg/star.svg" alt="">
                         </div>
                         
-                        <h2>{{item.price | currency}} </h2> 
+                        <h2>{{item.price | milespipe: 1}} </h2> 
                         <div class="d-flex justify-content-between w-100 align-items-baseline">
                             <small class="mt-2">Me interesa ¿en que consiste?</small>
                             <mat-icon>chevron_right</mat-icon>

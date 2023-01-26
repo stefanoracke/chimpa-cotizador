@@ -94,7 +94,7 @@ export class OptionalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription$= this.propSvc.getPropuesta()
     .subscribe(res=>{
-      console.log(res.services)
+
       this.cards = res.services
 
       

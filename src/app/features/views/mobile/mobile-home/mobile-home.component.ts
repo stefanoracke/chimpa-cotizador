@@ -45,7 +45,7 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
   redirectTo(ruta:string){
    
     let nuevaruta = localStorage.getItem('empresa_url')
-    console.log(nuevaruta)
+
     if(ruta == '/'){
       if(nuevaruta)
       this.router.navigateByUrl(nuevaruta);

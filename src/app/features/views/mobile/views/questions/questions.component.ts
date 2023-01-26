@@ -21,7 +21,7 @@ export class QuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.resSub$ = this.propSvc.getPropuesta()
     .subscribe(res=>{
-      console.log(res)
+
       this.questions= res.faqs
     })
   }

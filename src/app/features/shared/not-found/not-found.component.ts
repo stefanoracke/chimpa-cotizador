@@ -24,7 +24,7 @@ export class NotFoundComponent implements OnInit {
     let id = url.indexOf('/')
 
     this.text = url.slice(0,id)
-    console.log(this.text)
+ 
     return url.slice(0,id)
   }
 

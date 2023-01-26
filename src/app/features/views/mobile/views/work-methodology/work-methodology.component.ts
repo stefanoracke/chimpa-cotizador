@@ -29,7 +29,7 @@ export class WorkMethodologyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription$ = this.propSvc.getPropuesta()
     .subscribe(res=>{
-      console.log(res.methodology)
+
       this.metodologia = res.methodology.id
     })
   }

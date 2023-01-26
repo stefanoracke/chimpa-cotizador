@@ -17,7 +17,7 @@ export class FooterMobileComponent implements OnInit {
   redirectTo(ruta:string){
    
     let nuevaruta = localStorage.getItem('empresa_url')
-    console.log(nuevaruta)
+
     if(ruta == '/'){
       if(nuevaruta)
       this.router.navigateByUrl(nuevaruta);

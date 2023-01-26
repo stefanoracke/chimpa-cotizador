@@ -56,7 +56,7 @@ export class NavbarMobileComponent implements OnInit {
 
   redirectTo(ruta:string){
     let nuevaruta = localStorage.getItem('empresa_url')
-    console.log(nuevaruta)
+    
     if(ruta == '/'){
       if(nuevaruta)
       this.router.navigateByUrl(nuevaruta);
@@ -73,7 +73,7 @@ export class NavbarMobileComponent implements OnInit {
   ngOnInit(): void {
     this.propSub$ = this.propSvc.getPropuesta()
     .subscribe(res=>{
-      console.log(res.services.length)
+   
       if(res.services.length==0){
         this.routes =[
           {

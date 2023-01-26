@@ -38,9 +38,7 @@ export class InfoComponent implements OnInit {
     this.getNavigation()
     this.propSvc.getPropuesta().subscribe(
       res=>{
-         console.log(res.features_type.filter((item:any)=>{item.name == 'Funcionalidades'}))
-         console.log(res.features_type.filter((item:any)=>{item.name == 'Estructura'}))
-         console.log(res.features_type)
+       
          this.estructura=res.features_type[2].content.map((resp:any) => resp.description)
          this.funcionalidades = res.features_type[3].content.map((resp:any) => resp.description)
          this.list =  res.features_type[0].content.map((resp:any) => resp.description)

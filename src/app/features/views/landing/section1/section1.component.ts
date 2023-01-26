@@ -32,7 +32,7 @@ export class Section1Component implements OnInit {
   };
 
   animationCreated(animationItem: AnimationItem): void {
-    console.log(animationItem);
+    animationItem
   }
 
   handleAnimation(anim: any) {
