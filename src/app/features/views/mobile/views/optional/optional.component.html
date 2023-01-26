@@ -13,7 +13,7 @@
                 </div>
                 <h3>Agranda tu combo</h3>
             </div>
-            <div class="mt-4 contenido" >
+            <div class="mt-4 contenido d-flex flex-column" >
                 <div *ngFor="let item of cards; index as index" [ngClass]="{'bg-bluesecondary':index%2!=0}"  (click)="navigateTo('option', item.image, item.name, item.description)" class="box-prices mt-2">
                     <div class="d-flex flex-column w-100">
                         <p>{{item.subname}}</p>
