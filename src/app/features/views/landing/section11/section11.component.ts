@@ -63,7 +63,7 @@ export class Section11Component implements OnInit {
        image: 'assets/img/avatar6.svg'
     },
     {
-      name: 'Delfina Globo',
+      name: 'Delfina Gobbo',
       testimonio: '<p class="mb2">"Tuve el placer de trabajar como Responsable de Comunicaciones del Colegio de Profesionales de la Agrimensura de la Prov. de Santa Fe - Distrito Sur junto a Chimpancé en el proceso de actualización y modernización del sitio web institucional. Son atentos a cada detalle, súper amables y con tremenda energía (siempre están arriba) 🚀 Es un lujo trabajar con semejante equipo de trabajo 🙌 Los recomiendo una y mil veces 💪"</p>',
       empresa: 'COPA',
        image: 'assets/img/avatar5.svg'

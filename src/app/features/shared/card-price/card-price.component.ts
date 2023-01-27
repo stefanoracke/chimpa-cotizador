@@ -16,7 +16,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   project_subscription!:Subscription
   precio!:number
   show = 0 
-  precio_modificado!:number
+  precio_modificado!:any
   precio_muestra!:number 
   cuotas!:number | undefined
   tasa!:any
@@ -40,7 +40,9 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       this.tasa=undefined
       this.precio_muestra = this.precio
       this.cuotas = element.share
-      this.precio_modificado = this.precio/element.share
+      this.precio_modificado = (this.precio/element.share)
+      this.precio_modificado = this.precio_modificado.toFixed(2)
+      
     } else{
       this.cuotas = undefined
       this.tasa=undefined
