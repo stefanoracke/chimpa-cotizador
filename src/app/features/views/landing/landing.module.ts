@@ -18,7 +18,7 @@ import { Section10Component } from './section10/section10.component';
 import { Section11Component } from './section11/section11.component';
 import { Section12Component } from './section12/section12.component';
 import { LottieAnimationViewModule } from 'ng-lottie';
-import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
+
 
 
 import { DragScrollModule } from 'ngx-drag-scroll';
@@ -26,6 +26,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 //lotie player
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { MaterialModule } from 'src/app/core/modules/material/material.module';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -52,13 +53,14 @@ export function playerFactory() {
     Section10Component,
     Section11Component,
     Section12Component,
-    OptionalsPipe
+    
   ],
   imports: [
     CommonModule,
     SharedModule,
     LottieModule.forRoot({ player: playerFactory }),
     DragScrollModule,
+    MaterialModule
   ],
   exports: [
     Section1Component,

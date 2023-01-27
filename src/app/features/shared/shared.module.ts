@@ -16,6 +16,7 @@ import { TituloComponent } from '../views/landing/titulo/titulo.component';
 import { MilesPipe } from 'src/app/core/pipe/miles.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
+import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
 
 
 
@@ -35,7 +36,8 @@ import { LoaderComponent } from './loader/loader.component';
     TituloComponent,
     MilesPipe,
     NotFoundComponent,
-    LoaderComponent
+    LoaderComponent,
+    OptionalsPipe
   ],
   imports: [
     CommonModule,
@@ -54,7 +56,8 @@ import { LoaderComponent } from './loader/loader.component';
     LoaderComponent,
     NotFoundComponent,
     UrltopagePipe,
-   MilesPipe,
+    MilesPipe,
+    OptionalsPipe
   ]
 })
 export class SharedModule { }

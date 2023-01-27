@@ -15,7 +15,7 @@ export class Setion7Component implements OnInit, OnDestroy {
   color = '#ffffff'
   options!:Array<any>
   propuesta!:any
- 
+  price!:any
 
   changePrice(price:number, solidaryUSD:number){
     return price*solidaryUSD
@@ -27,7 +27,12 @@ export class Setion7Component implements OnInit, OnDestroy {
     .subscribe(res=>{
       this.options=res.prices 
       this.propuesta =res
-      
+      if(res.clients.regions_id == 1){
+        let solidary_usd = res.solidarity_usd
+        this.price=res.price*solidary_usd
+      }else{
+        this.price = res.price
+      }
       
       
     })

@@ -57,6 +57,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     SwipeModule,
     LandingModule,
     DragScrollModule,
+    SharedModule
   ],
   exports: [
     AppChimpanceComponent,

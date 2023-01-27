@@ -75,7 +75,7 @@ export class OptionalComponent implements OnInit, OnDestroy {
   cards!: any
  lista!:Array<any>
   subscription$!:Subscription
-
+propuesta!:any
   constructor(public router:Router, private propSvc:PropuestaService) { }
 
   navigateTo(ruta:string, image:string, name:string, description:string){
@@ -94,7 +94,7 @@ export class OptionalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription$= this.propSvc.getPropuesta()
     .subscribe(res=>{
-
+      this.propuesta = res
       this.cards = res.services
 
       
