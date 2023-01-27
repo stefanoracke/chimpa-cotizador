@@ -25,6 +25,7 @@ import { SwipeModule } from 'ng-swipe';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { LandingModule } from '../landing/landing.module';
 import { DragScrollModule } from 'ngx-drag-scroll';
+import { ContactMobileComponent } from './views/contact-mobile/contact-mobile.component';
 
 
 
@@ -47,7 +48,8 @@ import { DragScrollModule } from 'ngx-drag-scroll';
     Info2Component,
     Info3Component,
     QuestionsComponent,
-    OptionalComponentsComponent
+    OptionalComponentsComponent,
+    ContactMobileComponent
   ],
   imports: [
     CommonModule,

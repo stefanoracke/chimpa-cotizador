@@ -21,6 +21,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   cuotas!:number | undefined
   tasa!:any
   propuesta!:any
+  cliente_id!:any
 
   finaciacionobject!:Array<any>
   formato = (number:any) => {
@@ -41,7 +42,10 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       this.precio_muestra = this.precio
       this.cuotas = element.share
       this.precio_modificado = (this.precio/element.share)
-      this.precio_modificado = this.precio_modificado.toFixed(2)
+      if(this.cliente_id!=1){
+
+        this.precio_modificado = this.precio_modificado.toFixed(2)
+      }
       
     } else{
       this.cuotas = undefined
@@ -80,7 +84,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
     this.project_subscription = this.propuestaSvc.getPropuesta().subscribe(res=>{
       this.propuesta=res
       this.booleanEvent.emit(false)
-      
+      this.cliente_id = res.clients.regions_id
       if(res.clients.regions_id == 1){
         let solidary_usd = res.solidarity_usd
         this.precio=res.price*solidary_usd

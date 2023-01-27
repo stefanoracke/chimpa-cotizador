@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AppChimpanceComponent } from "../app-chimpance/app-chimpance.component";
+import { ContactMobileComponent } from "./views/contact-mobile/contact-mobile.component";
 import { InfoComponent } from "./views/info/info.component";
 import { OptionalComponentsComponent } from "./views/optional-components/optional-components.component";
 import { OptionalComponent } from "./views/optional/optional.component";
@@ -51,6 +52,10 @@ const routes: Routes = [
         {
           path:"questions",
           component: QuestionsComponent
+        },
+        {
+          path:"contact",
+          component: ContactMobileComponent
         }
       ]
     }
