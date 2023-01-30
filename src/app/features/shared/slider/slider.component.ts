@@ -53,7 +53,7 @@ export class SliderComponent implements OnInit {
     {
       i : 3,
       image: 'assets/images/sliderspc/cinergia.jpg',
-      title:'Plataforma de soluciones logísticas',
+      title:'Cinergia Estudio Creativo',
       cliente: 'Cinergia',
       description: 'Nos enfocamos en mostrar los proyectos de una forma dinámica, y en resaltar el branding del estudio, explotando todos los recursos gráficos y conceptuales. El resultado fue una web totalmente interactiva, con movimiento y animaciones, cuenta con un blog y gestor de proyectos autoadministrable personalizado. Ahora Cinergia puede mostrarse como una marca líder en desarrollo de marca y estudio audiovisual.',
       url:'https://www.cinergiaestudiocreativo.com/',
@@ -76,18 +76,18 @@ export class SliderComponent implements OnInit {
         'UI','Customizadas','HTML5', 'Bootstrap'
       ]
     },
-    {
-      i : 5,
-      image: 'assets/images/sliderspc/venturi.jpg',
-      title:'Venturi SA',
-      cliente: ' Cinergia Producciones',
-      description: 'Una plataforma institucional interactiva, en 3 idiomas diferentes, con una nueva estética y experiencia de usuario. Cuenta con un buscador inteligente de productos. Así el visitante puede acceder fácilmente al producto que buscaba sin perderse en un mar de páginas y páginas, ofreciendo una experiencia de usuario excepcional.',
-      url: 'https://chimpancedigital.com.ar/venturi/',
-      caracteristicas:[
-        'UX',
-        'UI','Customizadas','HTML5', 'Bootstrap'
-      ]
-    },
+    // {
+    //   i : 5,
+    //   image: 'assets/images/sliderspc/venturi.jpg',
+    //   title:'Venturi SA',
+    //   cliente: ' Cinergia Producciones',
+    //   description: 'Una plataforma institucional interactiva, en 3 idiomas diferentes, con una nueva estética y experiencia de usuario. Cuenta con un buscador inteligente de productos. Así el visitante puede acceder fácilmente al producto que buscaba sin perderse en un mar de páginas y páginas, ofreciendo una experiencia de usuario excepcional.',
+    //   url: 'https://chimpancedigital.com.ar/venturi/',
+    //   caracteristicas:[
+    //     'UX',
+    //     'UI','Customizadas','HTML5', 'Bootstrap'
+    //   ]
+    // },
     {
       i : 6,
       image: 'assets/images/sliderspc/xpress.jpg',

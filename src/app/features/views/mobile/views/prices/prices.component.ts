@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PropuestaService } from 'src/app/core/services/propuesta.service';
 })
 export class PricesComponent implements OnInit {
 
-  constructor(private propSvc:PropuestaService) { }
+  constructor(private propSvc:PropuestaService, private router: Router) { }
   timeLeftSeconds:any
   internal_navigation = 1
   time = false;
@@ -41,6 +42,25 @@ export class PricesComponent implements OnInit {
     this.internal_navigation = n
     
     localStorage.setItem("navigation_prices", this.internal_navigation.toString())
+  }
+
+  redirectTo(ruta:string){
+   
+    let nuevaruta = localStorage.getItem('empresa_url')
+
+    if(ruta == '/'){
+      if(nuevaruta)
+      this.router.navigateByUrl(nuevaruta);
+    }else{
+      if(nuevaruta)
+      this.router.navigateByUrl(nuevaruta+'/'+ruta)
+      .then(() => {
+        window.location.reload();
+       
+      });  
+    }
+    
+    
   }
 
 }

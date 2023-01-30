@@ -13,7 +13,7 @@
             
             <div (mouseover)="stopInterval()"  class="contenido">
                 <app-titulo (mouseover)="stopInterval()"  [title]="title"></app-titulo>
-                <h3 (mouseover)="stopInterval()"  class="text-yellow">0.{{span_n+1}} {{works[span_n].title}} </h3>
+                <h3 (mouseover)="stopInterval()"  class="text-yellow">{{span_n+1}}. {{works[span_n].title}} </h3>
                 <!-- <h2 class="cliente">Cliente: {{works[span_n].cliente}} </h2> -->
                 
                 <p (mouseover)="stopInterval()"  class="w-75" [innerHTML]="works[span_n].description"></p>

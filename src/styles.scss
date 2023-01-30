@@ -17,7 +17,9 @@ body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!import
 .bg-lightblue{
     background: var(--mainLightBlue)!important;
 }
-
+.h-100{
+    min-height: 100vh;
+}
 
 .bg-darkblue{
     background: #001836;

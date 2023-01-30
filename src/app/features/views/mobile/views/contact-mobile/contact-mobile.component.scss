@@ -1,0 +1,45 @@
+.video-cont{
+    width: 100%;
+    height: 74vh;
+    top: 0;
+    left: 0;
+}
+
+.video-cont video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+app-footer-mobile{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.bg-blue{
+    bottom: 0;
+    position: absolute;
+    border-radius: 30px 30px 0 0;    
+    width: 100%;
+    height: 43vh;
+    bottom: 0;
+    padding-top: 5vh;
+    padding-bottom: 20vh;
+    z-index: 1;
+    color: #ffffff;
+    background: var(--mainBlue);
+}
+
+.comenza-nosotros{
+    background-color: var(--mainLightBlue);
+    border-radius: 2rem;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    width: fit-content;
+
+    margin: auto;
+  
+}
