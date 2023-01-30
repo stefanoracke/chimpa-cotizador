@@ -22,13 +22,21 @@ en la jungla digital?
                         
                         
                         <div class="video">
-                            <!-- <div class="conten_play-pause">
+                            <div class="conten_play" *ngIf="start">
 
-                                <span class="d-flex justify-content-center align-items-center">
+                                <span class="d-flex start fs-5 justify-content-center align-items-center" >
                                     <mat-icon>play_arrow</mat-icon>
+                                    
                                 </span>
-                            </div> -->
-                            <video controls src="assets/videos/videocotizador.mp4"></video>
+                            </div>
+                            <div class="conten_play" *ngIf="!start">
+
+                                <span class="d-flex empezado fs-5 justify-content-center align-items-center" [ngClass]="{'play':play}">
+                                    <mat-icon *ngIf="!play">play_arrow</mat-icon>
+                                    <mat-icon *ngIf="play">pause</mat-icon>
+                                </span>
+                            </div>
+                            <video #video id="video" (click)="playVideo()" src="assets/videos/videocotizador.mp4"></video>
                         </div>
                     </div>
                 </div>
