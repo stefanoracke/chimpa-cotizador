@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
   selector: 'app-section5',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Section5Component implements OnInit {
 
-  constructor() { }
+  constructor(private propSvc:PropuestaService) { }
+
+  res:any
 
   ngOnInit(): void {
+    this.propSvc.getPropuesta().subscribe((res)=>{
+      this.res=res
+    })
   }
 
 }
