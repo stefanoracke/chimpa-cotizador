@@ -4,8 +4,7 @@
     <hr class="mt-2">
 
     <h3>${{precio| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
-    <p class="aclaracion">*Precio variable al alcance del proyecto. <br>
-     <span *ngIf="propuesta?.clients.regions_id==1">*Precio expresado en USD <span >{{propuesta?.solidarity_usd}}</span> Solidario.</span> </p>
+    
 
     <hr class="mt-2">
 
@@ -48,8 +47,13 @@
         <h3 class="text_total">Total </h3>
         <h3>${{precio_muestra| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
       </div>
+      
 
       <hr class="mt-2">
+      <div class="d-flex justify-content-end">
+          <p class="aclaracion">*Precio variable al alcance del proyecto. <br>
+          <span *ngIf="propuesta?.clients.regions_id==1">*Precio expresado en USD <span >{{propuesta?.solidarity_usd}}</span> Solidario.</span> </p>
+      </div>
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Plazos de entrega</h3>
         <h3 class="text_total">{{propuesta?.time_lapse}}</h3>

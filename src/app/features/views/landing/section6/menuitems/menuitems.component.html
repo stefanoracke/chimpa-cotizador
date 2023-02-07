@@ -7,10 +7,10 @@
         <h5 class="text-yellow">{{combos?.subname}}</h5>
         <h1>{{combos?.name}}</h1>
 
-        <h4>{{combos?.price | currency}} </h4>
+        <h4>{{combos?.price | optionals: precioUSD : region_id}} </h4>
 
         <div [innerHTML]="combos?.description">
   
         </div>
     </div>
-</div>
+</div> 

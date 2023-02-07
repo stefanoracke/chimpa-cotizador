@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class MenuitemsComponent implements OnInit {
 
   @Input() combos:any
+  @Input() precioUSD:any
+  @Input() region_id:any
   constructor() { }
 
   

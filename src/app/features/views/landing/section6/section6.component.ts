@@ -11,12 +11,14 @@ export class Section6Component implements OnInit {
   services!:Array<any>
   n_active:number = 0
   servicio!:any
+  propuesta:any
 
   constructor(private propuestaSvc:PropuestaService) { }
 
   ngOnInit(): void {
     this.propuestaSvc.getPropuesta()
     .subscribe(res=>{
+      this.propuesta = res
       this.services = res.services
       this.servicio = this.services[0]
       
