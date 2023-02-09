@@ -1,47 +1,30 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Input, Component, OnInit,  } from '@angular/core';
+import { first } from 'rxjs';
+
+export interface Video {
+      title: string;
+     link: string;
+  }
 
 @Component({
   selector: 'app-section12',
   templateUrl: './section12.component.html',
   styleUrls: ['./section12.component.scss'],
 })
-export class Section12Component implements OnInit, AfterViewInit {
-  start = true;
-  play = false;
-  @ViewChild('video') video!: ElementRef;
+export class Section12Component implements OnInit {
+  private apiLoaded = false;
 
-  constructor() {}
-
-  playVideo() {
-    if (this.video.nativeElement.paused){
-
-      this.video.nativeElement.play();
-      this.play=true
-    } 
-    else {
-      this.video.nativeElement.pause();
-      this.play=false
-    }
-    
-    this.start = false;
-  }
-
-  endedVideo(){
-
-    let videoDoc = document.getElementById('video')
-    if(videoDoc)videoDoc.addEventListener('ended', this.handlerVideo, false); //Agregar un listener para detectar cuando termina el video y mandarle la función que debe de ejecutar en ese instante
-  }
-
-  handlerVideo(e:any) {
-    this.video.nativeElement.currentTime=0;
-    this.video.nativeElement.pausue()
-    this.start=true
-}
+  @Input() videoId!: string;
+  constructor() { }
 
   ngOnInit(): void {
-    
+    if(!this.apiLoaded) {
+      this.videoId='2-BYja7fdWE'
+     const tag = document.createElement('script');
+      tag.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(tag);
+     this.apiLoaded = true;
+    }
   }
-  ngAfterViewInit(): void {
-    this.endedVideo()
-  }
+
 }

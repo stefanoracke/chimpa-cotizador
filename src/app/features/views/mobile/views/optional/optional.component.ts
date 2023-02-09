@@ -23,7 +23,7 @@ export interface CardI{
   templateUrl: './optional.component.html',
   styleUrls: ['./optional.component.scss']
 })
-export class OptionalComponent implements OnInit, OnDestroy {
+export class OptionalComponent implements OnInit {
 
   title="Opcionales"
   // cards=[
@@ -92,16 +92,14 @@ propuesta!:any
   }
 
   ngOnInit(): void {
-    this.subscription$= this.propSvc.getPropuesta()
-    .subscribe(res=>{
+    let res = this.propSvc.getLocalProp()
+    
       this.propuesta = res
       this.cards = res.services
 
       
-    })
+    
   }
-  ngOnDestroy(): void {
-    this.subscription$.unsubscribe()
-  }
+  
 
 }

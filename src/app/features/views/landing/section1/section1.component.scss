@@ -1,3 +1,5 @@
+
+
 .background2{
     background: url('./../../../../../assets/images/Section1.png') ;
     top: 0;
@@ -42,5 +44,12 @@
 ng-lottie{
     bottom: 0;  
     right: 0;
+    width: 60%;
     position: absolute
+}
+
+@media (max-width:1700px) {
+    ng-lottie{
+        width: 50%;
+    }
 }

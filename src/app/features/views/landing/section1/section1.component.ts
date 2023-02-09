@@ -11,7 +11,7 @@ import { AnimationOptions } from 'ngx-lottie';
   styleUrls: ['./section1.component.scss']
 })
 export class Section1Component implements OnInit {
-  public widhtcoehete = '60vw'
+  public widhtcoehete = '60%'
   public lottieConfig: Object;
   public anim: any;
   public animationSpeed: number = 1;
@@ -62,9 +62,9 @@ export class Section1Component implements OnInit {
   coheteWidth(){
     if(window.innerWidth > 1800){
 
-      this.widhtcoehete = '60vw'
+      this.widhtcoehete = '60%'
     }else{
-      this.widhtcoehete = '50vw'
+      this.widhtcoehete = '50%'
     }
   }
 

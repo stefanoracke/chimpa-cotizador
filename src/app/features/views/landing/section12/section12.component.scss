@@ -93,6 +93,10 @@
 }
 
 .video-contenido{
-    width: fit-content;
+    overflow: hidden;
+    width: 333px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
     position: relative;
 }

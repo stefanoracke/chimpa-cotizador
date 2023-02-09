@@ -64,7 +64,7 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.propSub$ = this.propSvc.getPropuesta()
     .subscribe(res=>{
-      
+      localStorage.setItem('propuesta',JSON.stringify(res))
       this.nameEmpresa= res.clients.business_name
       this.namePropuesta=res.title
       if(res.services.length>0){

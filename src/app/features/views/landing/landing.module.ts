@@ -19,7 +19,7 @@ import { Section11Component } from './section11/section11.component';
 import { Section12Component } from './section12/section12.component';
 import { LottieAnimationViewModule } from 'ng-lottie';
 
-
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 import { DragScrollModule } from 'ngx-drag-scroll';
 
@@ -60,7 +60,8 @@ export function playerFactory() {
     SharedModule,
     LottieModule.forRoot({ player: playerFactory }),
     DragScrollModule,
-    MaterialModule
+    MaterialModule,
+    YouTubePlayerModule
   ],
   exports: [
     Section1Component,

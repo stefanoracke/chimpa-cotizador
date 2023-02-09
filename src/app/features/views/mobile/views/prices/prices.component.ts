@@ -15,21 +15,23 @@ export class PricesComponent implements OnInit {
   time = false;
   date:Date = new Date()
   empresa!:any
+  prop = localStorage.getItem('propuesta')
 
   title= "Precio y"
   subtitle = "Financiación"
   ngOnInit(): void {
     this.getNavigation()
 
-    this.propSvc.getPropuesta().subscribe(
-      res=>{
+    if(this.prop){let res = JSON.parse(this.prop)
+
+    if(res){
         this.empresa = res.clients.business_name
 	      let fecha = Date.parse(res.promotions[0].updated_at) 
 	      let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
 	      this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
         this.time = this.timeLeftSeconds>0
-      }
-    )
+    }
+  }
   }
 
   getNavigation(){

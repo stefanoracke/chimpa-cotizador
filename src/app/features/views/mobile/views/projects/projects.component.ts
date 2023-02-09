@@ -36,12 +36,11 @@ export class ProjectsComponent implements OnInit {
     {
       i : 2,
       image: 'assets/images/proyecto_singulares_cinergia.png',
-      title:'Falta',
-      cliente: 'Cinergia Estudio Creativo',
-      description: 'Un sitio de logística accesible, enfocado en a oferta de servicios y con un formulario inteligente que facilita la cotización.',
+      title:'Donde las marcas cobran vida',
+      cliente: 'Cinergia',
+      description: '',
       caracteristicas:[
-        'UX',
-        'UI','Bootstrap','Customizadas','HTML5'
+        'Bootstrap','Blog','Autoadmin'
       ]
     },
     {
@@ -60,12 +59,11 @@ export class ProjectsComponent implements OnInit {
     {
       i : 4,
       image: 'assets/images/proyecto_andesat.png',
-      title:'Falta',
-      cliente: 'Cinergia Estudio Creativo',
-      description: 'Un sitio de logística accesible, enfocado en a oferta de servicios y con un formulario inteligente que facilita la cotización.',
+      title:'Millones de peruanos estarán conectados',
+      cliente: 'SATELITE',
+      description: '',
       caracteristicas:[
-        'UX',
-        'UI','Customizadas','HTML5', 'Bootstrap'
+        'Wordpress', 'Onepage'
       ]
     },
   ]

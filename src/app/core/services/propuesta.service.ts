@@ -13,7 +13,11 @@ export class PropuestaService {
   constructor(private http:HttpClient, private router:Router) { }
 
 
-  
+  getLocalProp(){
+    let prop = localStorage.getItem('propuesta')
+    if(prop)
+    return JSON.parse(prop)
+  }
 
   getPropuesta():Observable<any>{
     let id= this.router.url.slice(1,this.router.url.length)

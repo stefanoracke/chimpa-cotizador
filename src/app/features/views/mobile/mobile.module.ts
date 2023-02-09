@@ -27,7 +27,7 @@ import { LandingModule } from '../landing/landing.module';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { ContactMobileComponent } from './views/contact-mobile/contact-mobile.component';
 
-
+import { YouTubePlayerModule } from '@angular/youtube-player';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,8 @@ import { ContactMobileComponent } from './views/contact-mobile/contact-mobile.co
     SwipeModule,
     LandingModule,
     DragScrollModule,
-    SharedModule
+    SharedModule,
+    YouTubePlayerModule
   ],
   exports: [
     AppChimpanceComponent,

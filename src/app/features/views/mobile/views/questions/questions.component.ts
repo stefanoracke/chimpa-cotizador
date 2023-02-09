@@ -19,11 +19,10 @@ export class QuestionsComponent implements OnInit {
   constructor(private propSvc:PropuestaService) { }
 
   ngOnInit(): void {
-    this.resSub$ = this.propSvc.getPropuesta()
-    .subscribe(res=>{
+    let res = this.propSvc.getLocalProp()
 
       this.questions= res.faqs
-    })
+    
   }
 
   open(index:number|undefined){
