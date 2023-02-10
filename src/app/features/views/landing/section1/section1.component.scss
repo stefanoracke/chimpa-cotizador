@@ -47,6 +47,19 @@ ng-lottie{
     width: 60%;
     position: absolute
 }
+@media (max-width:1300px){
+    ng-lottie{
+        width: 100% !important;
+        position: relative;
+    }
+
+    .prices-container{
+        width: 100%!important;
+    }
+
+    
+}
+
 
 @media (max-width:1700px) {
     ng-lottie{

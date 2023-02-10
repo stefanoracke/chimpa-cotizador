@@ -15,6 +15,7 @@ ul li{
     align-items: baseline;
     padding: 5px;
     margin-left: 5px;
+    font-size: clamp(1rem, 4vw, 3rem);
 }
 
 p{

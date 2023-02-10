@@ -100,3 +100,9 @@
  font-weight: bold;
  color: var(--mainYellow);
 }
+
+@media (max-width:1300px) {
+    .container{
+        padding: 0;
+    }
+}

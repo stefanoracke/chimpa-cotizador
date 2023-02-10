@@ -2,7 +2,7 @@
 <div class="background2"></div>
 <div class="container">
 <div class="row padding_especial">
-    <div class="col-md-6">
+    <div class="col-md-6 prices-container">
         <div class="d-flex mb-4">
             <img class="mano" src="./../../../../../assets/svg/mano_chimpa.svg" alt="">
             <h1 class="text-white">Hola <span class="text-yellow">{{nameempresa}}</span></h1>
@@ -10,17 +10,11 @@
         </div>
         <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
     </div>
-    <div class="col-md-6  cohete ">
+    <div class="col-md-6  prices-container cohete ">
         <ng-lottie  
                     [options]="options" 
                     (animationCreated)="animationCreated($event)"></ng-lottie>
-        <!-- <lottie-animation-view
-                    [options]="lottieConfig"
-                    [width]="300"
-                    [height]="600"
-                    (animCreated)="handleAnimation($event)">
-        </lottie-animation-view> -->
-                 
+        
     </div>
 </div>    
 </div>

@@ -98,6 +98,7 @@ app-navbar-mobile{
     box-sizing: border-box;
     justify-content: center;
     white-space: nowrap;
+    font-size: clamp(1rem, 4vw, 3rem);
 }
 
 .contenido_info{
@@ -124,7 +125,7 @@ ul li a{
     display: none;
 }
 
-@media (min-width:1000px) {
+@media (min-width:1001px) {
     .pc{
         display: block;
     }
