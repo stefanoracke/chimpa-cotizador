@@ -67,7 +67,8 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
       localStorage.setItem('propuesta',JSON.stringify(res))
       this.nameEmpresa= res.clients.business_name
       this.namePropuesta=res.title
-      if(res.services.length>0){
+      console.log(res)
+      if(res.services.length>0 || res.prices.length>0){
         this.routes =[
           {
             name: "Precios",
