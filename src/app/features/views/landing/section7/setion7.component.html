@@ -10,7 +10,7 @@
                     <h4 class="title">{{item.name}}</h4>
                     <div class="d-flex price">
                         <img src="assets/svg/yelow_price.svg" alt="">
-                        <h4 class="m-0 ">${{item.price |optionals:propuesta.solidarity_usd :propuesta.clients.regions_id }} <span *ngIf="propuesta.clients.regions_id!=1">USD</span> </h4>
+                        <h4 class="m-0 ">${{item.price |optionals:propuesta?.solidarity_usd :propuesta?.clients.regions_id }} <span *ngIf="propuesta.clients.regions_id!=1">USD</span> </h4>
                         
                     </div>
                     <div [innerHTML]="item.description" class="m-0">

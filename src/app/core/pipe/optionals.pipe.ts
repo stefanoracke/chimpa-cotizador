@@ -5,7 +5,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class OptionalsPipe implements PipeTransform {
 
-  transform( precio: any | undefined, usdSolidary:any, region_id:number ): any {
+  transform( precio: any | undefined, usdSolidary:any, region_id:number|undefined ): any {
+    if(precio){
     const formato = (number:any) => {
         const exp = /(\d)(?=(\d{3})+(?!\d))/g;
         const rep = '$1.';
@@ -21,5 +22,7 @@ export class OptionalsPipe implements PipeTransform {
        }
       
   }
+  else return
+}
 
 }

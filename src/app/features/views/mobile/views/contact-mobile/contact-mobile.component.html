@@ -1,7 +1,8 @@
 <section class="position-relative h-100">
     <app-navbar-mobile ></app-navbar-mobile>
     <div class="video-cont d-flex justify-content-center w-100 position-absolute">
-        <youtube-player [playerVars]="variables" [height]="height"  [videoId]="videoId"></youtube-player>
+        <img class="image-ended position-absolute" [ngClass]="{'op-1':ended}" src="./../../../../../assets/img/Captura_video.png" alt="">
+        <div id="player-mobile" class="video"></div>
     </div>
     <div class="bg-blue">
         <a style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send?phone=+5493516503470&text=Buenos%20d%C3%ADas,%20quiero%20mas%20info%20sobre%20desarrollo%20web">

@@ -15,18 +15,29 @@
                     </a>
                 </div>
                 <div class="col  d-flex justify-content-center align-items-center">
-                    <div class="video-contenido py-4">
+                    <div class="video-contenido position-relative">
+                        
+                        
+                        
+                        <div (mouseover)="hoverPause=true" (mouseout)="hoverPause=false" (click)="pauseVideoYT()" class="filtro_play position-absolute d-flex justify-content-center align-items-center" *ngIf="!pause">
+                            <span (mouseover)="hoverPause=true"  (click)="pauseVideoYT()" [ngClass]="{'buttonplay':hoverPause}" role="button">
+                                <mat-icon>pause</mat-icon>
+                            </span>
+                        </div>
+                        <div class="filtro position-absolute d-flex justify-content-center filtro-pausa align-items-center" *ngIf="pause">
+                            <img (click)="playVideoYT()"  class="position-absolute" src="./../../../../../assets/img/Captura_video.png" alt="">
+                            <span  (click)="playVideoYT()" class="buttonplay" role="button">
 
-                        <div id="player" class="video">
-                            <youtube-player [playerVars]="{'rel':0, 'controls':0}" [height]="600"  [videoId]="videoId"></youtube-player>
-
-                            <!-- <iframe id="video" width="473" height="841" src="https://www.youtube.com/embed/2-BYja7fdWE?controls=0&rel=0&loop=1&autoplay=1" title="Contacto" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; showinfo" allowfullscreen></iframe> -->
+                                <mat-icon>play_arrow</mat-icon>
+                            </span>
+                        </div>
+                        <div id="playerpc" class="video">
+                        
                         </div>
                        
                     </div>
                 </div>
             </div>
         </div>
-    
     
 </main>

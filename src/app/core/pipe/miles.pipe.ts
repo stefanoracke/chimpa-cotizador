@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MilesPipe implements PipeTransform {
 
-  transform( precio: any | undefined, region_id:number ): any {
+  transform( precio: any | undefined, region_id:number |undefined ): any {
     const formato = (number:any) => {
       
       
@@ -17,11 +17,13 @@ export class MilesPipe implements PipeTransform {
         return arr[1] ? arr.join(','): arr[0];
       }
 
-     
-     if(region_id!=1){
-      return formato(precio)
-     }else{
-      return formato(precio.toFixed(2))
+     if(precio){
+
+       if(region_id!=1){
+        return formato(precio)
+       }else{
+        return formato(precio.toFixed(2))
+       }
      }
     
      

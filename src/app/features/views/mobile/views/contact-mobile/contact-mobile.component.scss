@@ -5,6 +5,9 @@
     left: 0;
     overflow: hidden;
 }
+iframe{
+    width: 100%;
+}
 
 .video-cont video{
     height: 100%;
@@ -44,3 +47,15 @@ app-footer-mobile{
     margin: auto;
   
 }
+
+.image-ended{
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+}
+
+.op-1{
+    opacity: 1;
+    transition: .3s ease;
+}
+
