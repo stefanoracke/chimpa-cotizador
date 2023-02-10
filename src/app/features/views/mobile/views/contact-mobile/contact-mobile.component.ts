@@ -24,7 +24,7 @@ export class ContactMobileComponent implements OnInit {
   },14200)
 
   ngOnInit(): void {
-    this.height = innerHeight + 'px'
+    this.height = window.innerHeight 
     if(!this.apiLoaded) {
       
      const tag = document.createElement('script');
@@ -56,7 +56,7 @@ export class ContactMobileComponent implements OnInit {
 
   onYouTubeIframeAPIReady() {    
     this.player = new YT.Player('player-mobile', {
-      height: '600',
+      height: this.height,
       playerVars:{'rel':0, 'controls':0, 'autoplay':1, 'loop':1, 'modestbranding':1},
       videoId: this.videoId,
       events: {
