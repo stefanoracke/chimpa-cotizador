@@ -55,7 +55,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
 
   link = window.location.href
   public downloadAsPDF() {
-    console.log(this.dataToExport.nativeElement);
+ 
     const pdfTable = this.dataToExport.nativeElement;
     var html = htmlToPdfmake(pdfTable.innerHTML);
     const documentDefinition = { content: html, 
@@ -198,20 +198,19 @@ export class DownloadComponent implements OnInit, OnChanges {
   };
 
   ngOnInit(): void {
-    console.log(this.date);
-    console.log('precios:', this.precios);
+    
   }
 
   ngOnChanges() {
-    console.log(this.precios);
+    
     this.updateValue(this.precios);
   }
 
   updateValue(res: any) {
     if (res) {
-      console.log('res', res);
+
       res.features.forEach((element: any) => {
-        console.log(element.features_types_id);
+        
         switch (element.features_types_id) {
           case 1:
             // tecnicas
@@ -237,7 +236,7 @@ export class DownloadComponent implements OnInit, OnChanges {
             break;
         }
       });
-      console.log(this.object);
+     
     }
   }
 }
