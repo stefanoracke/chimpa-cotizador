@@ -8,7 +8,7 @@ import { MobileModule } from './features/views/mobile/mobile.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UrltopagePipe } from './core/pipe/urltopage.pipe';
 
-import { LottieAnimationViewModule } from 'ng-lottie';
+
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { DragScrollModule } from 'ngx-drag-scroll';
+
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -29,7 +30,7 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     AppComponent,
-    
+   
 
   ],
   imports: [

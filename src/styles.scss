@@ -56,6 +56,19 @@ body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!import
     cursor: pointer;
 }
 
+.btn-lightblue{
+    background: var(--mainLightBlue) !important;
+    color: var(--mainLightBlue) !important;
+    border-radius: .5rem;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: auto;
+    margin-top: 12px;
+    text-shadow: 0 1px 2px solid var(--mainBlue);
+}
+
 .btn-yellow{
     background: var(--mainYellow) !important;
     color: var(--mainBlue) !important;

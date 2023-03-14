@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
-import { CardPriceComponent } from './card-price/card-price.component';
+import { CardPriceComponent, DownloadComponent } from './card-price/card-price.component';
 import { TimerComponent } from './timer/timer.component';
 import { MaterialModule } from 'src/app/core/modules/material/material.module';
 import { NavbarpcComponent } from './navbarpc/navbarpc.component';
@@ -17,12 +17,14 @@ import { MilesPipe } from 'src/app/core/pipe/miles.pipe';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoaderComponent } from './loader/loader.component';
 import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
+import { DownloadPipe } from 'src/app/core/pipe/download.pipe';
 
 
 
 @NgModule({
   declarations: [
     ListComponent,
+    DownloadComponent,
     CardPriceComponent,
     TimerComponent,
     NavbarpcComponent,
@@ -37,7 +39,8 @@ import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
     MilesPipe,
     NotFoundComponent,
     LoaderComponent,
-    OptionalsPipe
+    OptionalsPipe,
+    DownloadPipe
   ],
   imports: [
     CommonModule,
@@ -47,6 +50,7 @@ import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
   exports: [
     ListComponent,
     CardPriceComponent,
+    DownloadComponent,
     TimerComponent,
     NavbarpcComponent,
     FotterpcComponent,
@@ -57,7 +61,8 @@ import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
     NotFoundComponent,
     UrltopagePipe,
     MilesPipe,
-    OptionalsPipe
+    OptionalsPipe,
+    DownloadPipe
   ]
 })
 export class SharedModule { }
