@@ -18,6 +18,8 @@ declare var require: any;
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { MatTooltip } from '@angular/material/tooltip';
+
+
 const htmlToPdfmake = require('html-to-pdfmake');
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
@@ -49,11 +51,40 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   @ViewChild('dataToExport') dataToExport!: ElementRef;
   constructor(private propuestaSvc: PropuestaService, private router: Router) {}
 
-  
-  disabled = true
-
+  @ViewChild("myTooltip") myTooltip!: MatTooltip
+  @ViewChild("dialog") dialog2!:ElementRef 
 
   link = window.location.href
+
+  public displayTooltip(){
+    this.myTooltip.disabled = false;
+    this.myTooltip.show()
+    setTimeout(() => {
+      this.myTooltip.disabled = true;
+    }, 1000);
+  }
+
+  $: any;
+  disabled = true
+  showModal() {
+    let modal = document.getElementById('overlay')
+    if(modal)
+    if(modal.style.opacity != '1'){
+      modal.style.display = 'flex'
+      setTimeout(()=>{
+        if(modal)
+        modal.style.opacity = '1'
+      },100)
+    }else{
+      modal.style.opacity = '0'
+      setTimeout(()=>{
+        if(modal)
+        modal.style.display = 'none'
+      },800)
+    }
+  }
+
+  
   public downloadAsPDF() {
  
     const pdfTable = this.dataToExport.nativeElement;
@@ -63,15 +94,9 @@ export class CardPriceComponent implements OnInit, OnDestroy {
     
     pdfMake.createPdf(documentDefinition).download();
   }
-  @ViewChild("myTooltip") myTooltip!: MatTooltip
+ 
 
-public displayTooltip(){
-  this.myTooltip.disabled = false;
-  this.myTooltip.show()
-  setTimeout(() => {
-    this.myTooltip.disabled = true;
-  }, 1000);
-}
+
   // termina funcion pdf
 
   @Output() booleanEvent = new EventEmitter<boolean>();
@@ -94,6 +119,8 @@ public displayTooltip(){
     arr[0] = arr[0].replace(exp, rep);
     return arr[1] ? arr.join('.') : arr[0];
   };
+
+  
 
   showFin(i: number) {
     this.show = i;
@@ -240,3 +267,5 @@ export class DownloadComponent implements OnInit, OnChanges {
     }
   }
 }
+
+

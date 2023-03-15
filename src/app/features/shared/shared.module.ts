@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from './list/list.component';
-import { CardPriceComponent, DownloadComponent } from './card-price/card-price.component';
+import {  CardPriceComponent, DownloadComponent } from './card-price/card-price.component';
 import { TimerComponent } from './timer/timer.component';
 import { MaterialModule } from 'src/app/core/modules/material/material.module';
 import { NavbarpcComponent } from './navbarpc/navbarpc.component';
@@ -19,12 +19,14 @@ import { LoaderComponent } from './loader/loader.component';
 import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
 import { DownloadPipe } from 'src/app/core/pipe/download.pipe';
 
+import { ShareModule } from 'ngx-sharebuttons';
 
 
 @NgModule({
   declarations: [
     ListComponent,
     DownloadComponent,
+    
     CardPriceComponent,
     TimerComponent,
     NavbarpcComponent,
@@ -40,17 +42,20 @@ import { DownloadPipe } from 'src/app/core/pipe/download.pipe';
     NotFoundComponent,
     LoaderComponent,
     OptionalsPipe,
-    DownloadPipe
+    DownloadPipe,
+    
   ],
   imports: [
     CommonModule,
     MaterialModule,
-    
+    ShareModule,
+
   ],
   exports: [
     ListComponent,
     CardPriceComponent,
     DownloadComponent,
+    
     TimerComponent,
     NavbarpcComponent,
     FotterpcComponent,
@@ -62,7 +67,9 @@ import { DownloadPipe } from 'src/app/core/pipe/download.pipe';
     UrltopagePipe,
     MilesPipe,
     OptionalsPipe,
-    DownloadPipe
+    DownloadPipe,
+    ShareModule,
+
   ]
 })
 export class SharedModule { }

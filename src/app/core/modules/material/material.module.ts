@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatIconModule } from '@angular/material/icon'; 
-import {MatExpansionModule} from '@angular/material/expansion';
-import {MatTableModule} from '@angular/material/table';
-import {ClipboardModule} from '@angular/cdk/clipboard';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { ClipboardModule } from '@angular/cdk/clipboard';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatTableModule,
     ClipboardModule,
     MatTooltipModule,
+    MatDialogModule,
   ],
   exports: [
     MatIconModule,
@@ -23,9 +25,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatExpansionModule,
     ClipboardModule,
     MatTooltipModule,
-  ]
+    MatDialogModule,
+  ],
 })
-export class MaterialModule { }
-
+export class MaterialModule {}
 
 //#36a9e1

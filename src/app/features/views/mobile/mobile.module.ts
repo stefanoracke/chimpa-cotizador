@@ -22,7 +22,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { QuestionsComponent } from './views/questions/questions.component';
 import { OptionalComponentsComponent } from './views/optional-components/optional-components.component';
 import { SwipeModule } from 'ng-swipe';
-import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
 import { LandingModule } from '../landing/landing.module';
 import { DragScrollModule } from 'ngx-drag-scroll';
 import { ContactMobileComponent } from './views/contact-mobile/contact-mobile.component';

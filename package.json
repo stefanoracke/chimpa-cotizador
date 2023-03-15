@@ -35,6 +35,7 @@
     "ng-swipe": "^2.0.1",
     "ngx-drag-scroll": "^14.0.1",
     "ngx-lottie": "9.0",
+    "ngx-sharebuttons": "^11.0.0",
     "pdfmake": "^0.2.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
