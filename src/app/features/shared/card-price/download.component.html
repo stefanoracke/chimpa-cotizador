@@ -65,7 +65,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
       
-      <p>*Precio expresado en us$1 = ${{precios?.solidarity_usd}} dolar Turista/Solidario al día {{date|date: 'dd/MM/yy'}}</p>
+      <p  *ngIf="precios?.clients.regions_id==1">*Precio expresado en us$1 = ${{precios?.solidarity_usd}} dolar Turista/Solidario al día {{date|date: 'dd/MM/yy'}}</p>
       <hr>
       <div *ngIf="object?.functionality" class="funcionalidades">
         <h4>Funcionalidades:</h4>
