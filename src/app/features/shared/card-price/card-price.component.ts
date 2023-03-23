@@ -92,7 +92,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
     const documentDefinition = { content: html, 
     };
     
-    pdfMake.createPdf(documentDefinition).download(`Propuesta Web ${namePropuesta} - Chimpance.pdf`);
+    pdfMake.createPdf(documentDefinition).download(`Propuesta Web ${namePropuesta} - Chimpancé.pdf`);
   }
  
 

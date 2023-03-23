@@ -94,4 +94,42 @@
           <li *ngFor="let item of object?.notInclude_svc">{{item.description}}</li>
         </ul>
       </div>
+      <hr>
+      <div *ngIf="precios?.services" class="estructura">
+        <h4>Otros Servicios:</h4>
+        <ul>
+          <li *ngFor="let item of precios?.services">
+            <label style="font-weight:bold; font-size:20px">{{item.name}}: </label> 
+            <span>
+              <span *ngIf="precios?.clients.regions_id!=1">{{precios?.clients.regions_id}}  us</span>$ 
+              {{item.price | download : precios?.solidarity_usd : precios?.clients?.regions_id : null : null | milespipe: precios?.clients.regions_id}}
+
+            </span>
+            <br>
+            <br>
+            <p [innerHTML]="item.description" style="font-size: 13px;">
+              
+            </p>
+          </li>
+        </ul>
+      </div>
+      <hr>
+      <div *ngIf="object?.notInclude_svc" class="estructura">
+        <h4>Otras Opciones:</h4>
+        <ul>
+          <li *ngFor="let item of precios?.prices">
+            <label style="font-weight:bold; font-size:20px">{{item.name}}: </label> 
+            <span>
+              <span *ngIf="precios?.clients.regions_id!=1"> us</span>$
+              {{item.price | download : precios?.solidarity_usd : precios?.clients?.regions_id : null : null | milespipe: precios?.clients.regions_id}}
+
+            </span>
+            <br>
+            <br>
+            <p [innerHTML]="item.description" style="font-size: 13px;">
+              
+            </p>
+          </li>
+        </ul>
+      </div>
 </div> 
