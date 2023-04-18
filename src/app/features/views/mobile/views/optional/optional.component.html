@@ -31,16 +31,24 @@
           </div>
         </div>
         <hr>
+        <div class="d-flex align-items-center pb-2 ">
+          <div class="celeste_circle">
+            <img src="./../../../../../../../assets/svg/icono_plus.svg" alt="">
+          </div>
+          <h3>Otras opciones</h3>
+        </div>
+        
         <div *ngFor="let item of paquetes; index as index" [ngClass]="{'bg-bluesecondary':index%2!=0}"
           class="box-prices mt-2">
           <div class="d-flex flex-column w-100">
-            <div [innerHTML]="item.description"></div>
             <div class="d-flex">
               <h2 class="mt-2">{{item.name}}</h2>
               <img *ngIf="item.star" src="./../../../../../../assets/svg/star.svg" alt="">
             </div>
+          
 
             <h2>${{item.price | optionals:propuesta?.solidarity_usd :propuesta?.clients.regions_id}} </h2>
+            <div [innerHTML]="item.description"></div>
 
           </div>
         </div>

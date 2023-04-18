@@ -18,11 +18,15 @@
     padding: 0 7vw;
 }
 
-
-.contenido img{
-    margin-left: 10px;
-    transform: translateY(-5px);
+.celeste_circle img{
+    transform: translateX(7%);
 }
+
+
+// .contenido img{
+//     margin-left: 10px;
+//     transform: translateY(-5px);
+// }
 
 // .home-container{
 //     height: 100%;
@@ -42,14 +46,16 @@
     
     display: flex;
     flex-direction: column;
-    height: 100%;
     z-index: 1;
     color: #ffffff;
     background: var(--mainBlue);
+    padding-bottom:110px ;
+    min-height: 100%;
 }
 
 .home-container{
     height: 100%;
+    
 }
 app-footer-mobile{
     position: fixed;
