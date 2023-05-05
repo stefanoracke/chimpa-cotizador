@@ -89,7 +89,9 @@ export class CardPriceComponent implements OnInit, OnDestroy {
  
     const pdfTable = this.dataToExport.nativeElement;
     var html = htmlToPdfmake(pdfTable.innerHTML);
-    const documentDefinition = { content: html, 
+    const documentDefinition = { 
+      
+      content: html, 
     };
     
     pdfMake.createPdf(documentDefinition).download(`Propuesta Web ${namePropuesta} - Chimpancé.pdf`);

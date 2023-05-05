@@ -1,5 +1,9 @@
 <div class="w-100 bg-white p-3" >
-
+  <style>
+    .estructura{
+      padding-top: 15px;
+    }
+  </style>
   <svg width="188" height="34" viewBox="0 0 188 34" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="Frame" clip-path="url(#clip0_771_864)">
     <path id="Vector" d="M89.4004 17.4699C89.4004 16.5226 89.6813 15.5965 90.2077 14.8087C90.734 14.021 91.4821 13.4071 92.3573 13.0446C93.2326 12.682 94.1957 12.5871 95.1249 12.772C96.054 12.9568 96.9075 13.413 97.5774 14.0829C98.2473 14.7528 98.7035 15.6063 98.8884 16.5354C99.0732 17.4646 98.9783 18.4277 98.6158 19.303C98.2532 20.1782 97.6393 20.9263 96.8516 21.4527C96.0639 21.979 95.1378 22.2599 94.1904 22.2599C92.92 22.2599 91.7017 21.7553 90.8034 20.857C89.9051 19.9587 89.4004 18.7403 89.4004 17.4699Z" fill="#00214B"/>
@@ -24,7 +28,7 @@
     </defs>
     </svg>
 
-    <h5 style="margin-top: 20px;">
+    <h5 style="color: #01253B;   margin-top: 20px;">
 
        Propuesta: {{precios?.title}}
     </h5>
@@ -68,35 +72,35 @@
       <p  *ngIf="precios?.clients.regions_id==1">*Precio expresado en us$1 = ${{precios?.solidarity_usd}} dolar Turista/Solidario al día {{date|date: 'dd/MM/yy'}}</p>
       <hr>
       <div *ngIf="object?.functionality" class="funcionalidades">
-        <h4>Funcionalidades:</h4>
+        <h4 style="color: #01253B;  margin-top: 20px;">Funcionalidades:</h4>
         <ul>
           <li *ngFor="let item of object?.functionality">{{item.description}}</li>
         </ul>
       </div>
-      <hr>
+      
       <div *ngIf="object?.estructura" class="estructura">
-        <h4>Estructura:</h4>
+        <h4 style="color: #01253B;  margin-top: 20px;">Estructura:</h4>
         <ul>
           <li *ngFor="let item of object?.estructura">{{item.description}}</li>
         </ul>
       </div>
-      <hr>
+ 
       <div *ngIf="object?.include_svc" class="estructura">
-        <h4>Servicios Incluidos:</h4>
+        <h4 style="color: #01253B;  margin-top: 20px;">Servicios Incluidos:</h4>
         <ul>
           <li *ngFor="let item of object?.include_svc">{{item.description}}</li>
         </ul>
       </div>
-      <hr>
+    
       <div *ngIf="object?.notInclude_svc" class="estructura">
-        <h4>Servicios No Incluidos:</h4>
+        <h4 style="color: #01253B;  margin-top: 20px;">Servicios No Incluidos:</h4>
         <ul>
           <li *ngFor="let item of object?.notInclude_svc">{{item.description}}</li>
         </ul>
       </div>
-      <hr>
+    
       <div *ngIf="precios?.services" class="estructura">
-        <h4>Otros Servicios:</h4>
+        <h4 style="color: #01253B;  margin-top: 20px;">Otros Servicios:</h4>
         <ul>
           <li *ngFor="let item of precios?.services">
             <label style="font-weight:bold; font-size:20px">{{item.name}}: </label> 
@@ -113,9 +117,9 @@
           </li>
         </ul>
       </div>
-      <hr>
+   
       <div *ngIf="object?.notInclude_svc" class="estructura">
-        <h4>Otras Opciones:</h4>
+        <h4 style="color: #01253B;  margin-top: 20px;">Otras Opciones:</h4>
         <ul>
           <li *ngFor="let item of precios?.prices">
             <label style="font-weight:bold; font-size:20px">{{item.name}}: </label> 
