@@ -32,14 +32,14 @@ export interface ObjectI {
 }
 
 export interface FeaturesI {
-  created_at: string;
+  created_at?: string;
   description: string;
   features_types_id: number;
   id: number;
   name: string | null;
   pivot: any;
   status_id: number;
-  updated_at: string;
+  updated_at?: string;
 }
 
 @Component({

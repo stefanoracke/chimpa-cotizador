@@ -126,6 +126,15 @@ hr{
     z-index: -10;
 }
 
+.precio_iva{
+    padding-right: 25px;
+}
+.precio_iva .iva{
+    position: absolute;
+    right: 0px;
+    font-size: 10px;
+    top: 0;
+}
 
 @keyframes show {
     100%{

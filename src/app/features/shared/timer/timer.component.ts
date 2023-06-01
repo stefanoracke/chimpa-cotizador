@@ -8,8 +8,8 @@ export interface PromotionI {
   id: string;
   projects_id: string;
   status_id: string;
-  time_duration: string;
-  updated_at: string;
+  time_duration?: string;
+  updated_at?: string;
 }
 
 @Component({
@@ -61,19 +61,23 @@ export class TimerComponent implements OnInit {
   ngOnInit(): void {
     this.propService.getPropuesta().subscribe((res) => {
       this.propuesta=res
-	  let fecha = Date.parse(res.promotions[0].updated_at) 
-	  let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
-	  this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
+      console.log(res.promotions[0].updated_at)
+      if(res.promotions[0].updated_at){
 
-
-	  if(res.clients.regions_id == 1){
-        let solidary_usd = res.solidarity_usd
-        this.precio=res.price*solidary_usd - (res.price*solidary_usd * (res.promotions[0].descont/100))
-        
-      }else{
-
-        this.precio=res.price - (res.price * (res.promotions[0].descont/100))
-        
+        let fecha = Date.parse(res.promotions[0].updated_at) 
+        let evento = fecha + res.promotions[0]?.time_duration*1000 * 60 * 60   - this.date.getTime()
+        this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
+    
+    
+        if(res.clients.regions_id == 1){
+            let solidary_usd = res.solidarity_usd
+            this.precio=res.price*solidary_usd - (res.price*solidary_usd * (res.promotions[0].descont/100))
+            
+          }else{
+    
+            this.precio=res.price - (res.price * (res.promotions[0].descont/100))
+            
+          }
       }
 	  
     });

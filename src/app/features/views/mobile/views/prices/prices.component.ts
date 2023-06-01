@@ -30,10 +30,10 @@ export class PricesComponent implements OnInit {
 
       if (res) {
         this.empresa = res.clients.business_name;
-        let fecha = Date.parse(res.promotions[0].updated_at);
+        let fecha = Date.parse(res.promotions[0]?.updated_at);
         let evento =
           fecha +
-          res.promotions[0].time_duration * 1000 * 60 * 60 -
+          res.promotions[0]?.time_duration * 1000 * 60 * 60 -
           this.date.getTime();
         this.timeLeftSeconds = Math.floor(evento / 1000);
         this.time = this.timeLeftSeconds > 0;

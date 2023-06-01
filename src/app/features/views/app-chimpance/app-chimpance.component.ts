@@ -29,8 +29,8 @@ export class AppChimpanceComponent implements OnInit {
         
         this.prices = res.prices.length
         this.services = res.services.length
-	      let fecha = Date.parse(res.promotions[0].updated_at) 
-	      let evento = fecha + res.promotions[0].time_duration*1000 * 60 * 60   - this.date.getTime()
+	      let fecha = Date.parse(res.promotions[0]?.updated_at) 
+	      let evento = fecha + res.promotions[0]?.time_duration*1000 * 60 * 60   - this.date.getTime()
 	      this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
         this.time = this.timeLeftSeconds>0
       }

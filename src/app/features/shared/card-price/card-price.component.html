@@ -6,6 +6,8 @@
     <h3>${{precio| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
     
     <label *ngIf="propuesta?.clients.regions_id==1"> Precio en dolares: {{ propuesta.price | optionals: propuesta?.solidarity_usd :2 }} USD</label>
+    <br>
+   
     <hr class="mt-2">
 
     <h4>Financiación</h4>
@@ -45,19 +47,29 @@
 
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Total </h3>
-        <h3>${{precio_muestra| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+        <h3 class="precio_iva position-relative">
+          ${{precio_muestra| milespipe: propuesta?.clients.regions_id}} 
+          <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> 
+          <span class="iva" *ngIf="propuesta?.clients.regions_id==1">+IVA</span>
+        </h3>
       </div>
       
 
       <hr class="mt-2">
       <div class="d-flex justify-content-end">
-          <p class="aclaracion">*Precio variable al alcance del proyecto. <br>
-          <span *ngIf="propuesta?.clients.regions_id==1">*Precio expresado en USD <span >{{propuesta?.solidarity_usd}}</span> Solidario.</span> </p>
+        <p class="aclaracion">
+          *Precio variable al alcance del proyecto. 
+          <br>
+          <span *ngIf="propuesta?.clients.regions_id==1">*Precio expresado en USD <span >{{propuesta?.solidarity_usd}}</span> Solidario.</span> 
+          <!-- <br> -->
+          <!-- <span *ngIf="propuesta?.clients.regions_id==1">*No incluye IVA</span> -->
+         </p>
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Plazos de entrega</h3>
         <h3 class="text_total">{{propuesta?.time_lapse}}</h3>
       </div>
+      
       <p class="aclaracion mt-2">El tiempo empieza a correr una vez recibido el pago y toda la infomación.</p>
     </div>
   </div>
