@@ -1,22 +1,24 @@
-<div class="relative">
-<div class="background2"></div>
-<div class="container">
-<div class="row padding_especial">
-    <div class="col-md-6 prices-container">
-        <div class="d-flex mb-4">
-            <img class="mano" src="./../../../../../assets/svg/mano_chimpa.svg" alt="">
-            <h1 class="text-white">Hola <span class="text-yellow">{{nameempresa}}</span></h1>
-            
+<div class="relative background2">
+    <div class="container position-relative main">
+        <div class="row padding_especial">
+            <div class="col-md-6 prices-container">
+                <div class="d-flex mb-4">
+                    <img class="mano" src="assets/svg/mano_chimpa.svg" alt="">
+                    <h1 class="text-white">Hola <span class="text-yellow">{{nameempresa}}</span></h1>
+
+                </div>
+                <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
+            </div>
+            <div class="col-md-6  prices-container cohete ">
+                <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
+
+            </div>
         </div>
-        <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
-    </div>
-    <div class="col-md-6  prices-container cohete ">
-        <ng-lottie  
-                    [options]="options" 
-                    (animationCreated)="animationCreated($event)"></ng-lottie>
         
     </div>
-</div>    
-</div>
-
+    <div class="container pt-5">
+        
+        <app-ampliar-propuesta></app-ampliar-propuesta>
+    
+    </div>
 </div>

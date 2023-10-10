@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 @Component({
-  selector: 'app-section10',
+  selector: 'app-faqs-landing',
   templateUrl: './section10.component.html',
   styleUrls: ['./section10.component.scss']
 })

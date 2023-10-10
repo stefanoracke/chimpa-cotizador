@@ -23,6 +23,7 @@
     "@angular/router": "^14.0.0",
     "@angular/youtube-player": "^14.0.0",
     "@lottiefiles/lottie-player": "^1.6.0",
+    "aos": "^2.3.4",
     "bootstrap": "^5.2.2",
     "dom-to-image": "^2.6.0",
     "firebase": "^9.16.0",

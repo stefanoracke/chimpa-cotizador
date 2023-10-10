@@ -2,24 +2,22 @@
 
 .background2{
     background: url('./../../../../../assets/images/Section1.png') ;
-    top: 0;
+    
+    background: linear-gradient(180deg, rgba(0, 33, 75, 0.00) 69.97%, #00214B 99.91%), url('./../../../../../assets/images/Section1.png'), lightgray 50% / cover no-repeat;
     width: 100%;
-    height: 100%;
-    min-height: 100vh;
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
-    position: absolute;
-    z-index: -1;
    
 }
 
-.relative{
-    position: relative;
+.main{
+    z-index: 1;
 }
 
+
 .padding_especial{
-    padding-top: 80px;
+    padding-top: 110px;
     height: 100%;
     min-height: 100vh;
     padding-bottom: 5vh;

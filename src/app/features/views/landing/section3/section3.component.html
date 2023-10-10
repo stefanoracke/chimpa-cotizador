@@ -1,13 +1,8 @@
 <!-- Background -->
 
 
-<div class="up py-5">
-  <div class="lightselva">
-    <div class="celeste">
-      
-    </div>
-    
-  </div>
+<div class="up py-5 bg-blue">
+ 
   <div class="container d-flex align-items-center flex-column justify-content-center">
     <div class="align-items-center d-flex gap-3 title">
       <img src="assets/svg/Flecha amarilla.svg" class="flecha" alt="">
@@ -17,7 +12,7 @@
     <div class="white_boxes mt-4">
       <p class="x">x</p>
       <ul class="menu ">
-        <li class="clickeable" [ngClass]="{'active':n==0}" (click)="n=0">Estructura</li>
+        <li class="clickeable" [ngClass]="{'active':n==0}" (click)="n=0">Propuesta</li>
         <li class="clickeable" [ngClass]="{'active':n==1}" (click)="n=1">Funcionalidades</li>
         <li class="clickeable" [ngClass]="{'active':n==2}" (click)="n=2">Características</li>
       </ul>
@@ -25,7 +20,13 @@
       <div class="content mt-4">
         <!-- <h5 class="text-white">{{funcionalidades[n]?.title}}</h5> -->
         <ul class="list_description">
-          <li *ngFor="let item of funcionalidades[n]?.list"><span>-</span>{{item}}</li>
+          <li *ngFor="let item of funcionalidades[n]?.list">
+            <div class="d-flex">
+
+              <span>-</span>
+              <div [innerHTML]="item"></div>
+            </div>
+            </li>
         </ul>
       </div>
     </div>

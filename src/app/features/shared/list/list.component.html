@@ -2,7 +2,7 @@
     <p>{{text}} </p>
     <ul class="info_list">
         <li class="py-2  position-relative" *ngFor="let item of list" [ngClass]="color">
-            {{item}}
+            <div [innerHTML]="item"></div>
         </li>
     </ul>
 

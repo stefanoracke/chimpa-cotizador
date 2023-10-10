@@ -16,9 +16,9 @@ export class OptionalsPipe implements PipeTransform {
       }
       
       if(region_id!=1){
-        return formato(precio)
+        return formato(Number(precio).toFixed(0))
        }else{
-        return formato((precio*usdSolidary).toFixed(2))
+        return formato((precio*usdSolidary).toFixed(0))
        }
       
   }

@@ -1,14 +1,10 @@
-<div class="position-relative contenedor">
-<div class="bg-jungle">
-</div>
+<div class="position-relative contenedor bg-blue">
     <div class="container">
         <div class="d-flex justify-content-center pb-5">
             <app-titulo [title]="titulo" [color]="color"></app-titulo>
-            
         </div>
         <div *ngFor="let pregunta of preguntas" class="d-flex justify-content center mb-3">
             <app-accordion [pregunta]="pregunta" class="w-100"></app-accordion>
         </div>
     </div>
-
 </div>

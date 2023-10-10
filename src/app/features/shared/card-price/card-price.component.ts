@@ -227,7 +227,7 @@ export class DownloadComponent implements OnInit, OnChanges {
   };
 
   ngOnInit(): void {
-    
+    console.log(this.precios.services)
   }
 
   ngOnChanges() {
@@ -260,6 +260,7 @@ export class DownloadComponent implements OnInit, OnChanges {
           case 5:
             // Servicios no incluidos
             this.object.notInclude_svc.push(element);
+            console.log(this.object)
             break;
           default:
             break;

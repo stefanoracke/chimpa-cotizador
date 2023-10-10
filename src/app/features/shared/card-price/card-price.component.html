@@ -3,7 +3,7 @@
     <h3>Propuesta Web <br>{{propuesta?.title}}</h3>
     <hr class="mt-2">
 
-    <h3>${{precio| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+    <h3><span *ngIf="propuesta?.clients.regions_id==1">$</span>  {{precio| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
     
     <label *ngIf="propuesta?.clients.regions_id==1"> Precio en dolares: {{ propuesta.price | optionals: propuesta?.solidarity_usd :2 }} USD</label>
     <br>

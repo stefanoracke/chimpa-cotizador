@@ -81,7 +81,13 @@
       <div *ngIf="object?.estructura" class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Estructura:</h4>
         <ul>
-          <li *ngFor="let item of object?.estructura">{{item.description}}</li>
+          <li *ngFor="let item of object?.estructura" [innerHTML] = "item.description"></li>
+        </ul>
+      </div>
+      <div *ngIf="object?.tecnicas" class="estructura">
+        <h4 style="color: #01253B;  margin-top: 20px;">Caracteristicas:</h4>
+        <ul>
+          <li *ngFor="let item of object?.tecnicas" [innerHTML] = "item.description"></li>
         </ul>
       </div>
  
@@ -99,7 +105,7 @@
         </ul>
       </div>
     
-      <div *ngIf="precios?.services" class="estructura">
+      <div *ngIf=" precios?.services?.length >0" class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Otros Servicios:</h4>
         <ul>
           <li *ngFor="let item of precios?.services">
@@ -118,7 +124,7 @@
         </ul>
       </div>
    
-      <div *ngIf="object?.notInclude_svc" class="estructura">
+      <div *ngIf="precios.prices.length > 0 " class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Otras Opciones:</h4>
         <ul>
           <li *ngFor="let item of precios?.prices">

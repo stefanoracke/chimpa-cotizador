@@ -4,6 +4,8 @@ import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
+import { Title, Meta } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-section1',
@@ -18,7 +20,12 @@ export class Section1Component implements OnInit {
   nameempresa!:any
     @Output() stopLoad =  new EventEmitter<boolean>();
 
-  constructor(private propService:PropuestaService) {
+  constructor(
+    private propService:PropuestaService,
+    private route: ActivatedRoute,
+    private titleService: Title,
+    private meta: Meta
+    ) {
       this.lottieConfig = {
           path: './../../../../../assets/animations/cohete.json',
           renderer: 'svg',
@@ -82,7 +89,15 @@ export class Section1Component implements OnInit {
 
     this.propService.getPropuesta().subscribe(res=>{
         this.nameempresa = res.clients.business_name
+        this.updatePageTitle(`Chimpancé Digital | ${this.nameempresa}`);
     })
+  }
+
+  private updateMetaDescription(description: string): void {
+    this.meta.updateTag({ name: 'description', content: description });
+  }
+  private updatePageTitle(title: string): void {
+    this.titleService.setTitle(title);
   }
 
 }

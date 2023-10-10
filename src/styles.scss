@@ -11,8 +11,10 @@
 
 @import './assets/fonts/Circular/stylesheet.css';
 
+
+
 html, body { height: 100%; }
-body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!important; overflow-x: hidden; }
+body { margin: 0;  font-family: 'CircularStd' !important; font-weight: 200!important; overflow-x: hidden; }
 
 .bg-lightblue{
     background: var(--mainLightBlue)!important;
@@ -36,11 +38,15 @@ body { margin: 0; font-family: 'CircularStd' !important; font-weight: 200!import
 .bg-facebook{
     background: #4267B2 !important;
 }
-
+.pc{
+    background-color: var(--mainBlue);
+}
 .bg-link{
     background: gainsboro !important;
 }
-
+.bg-blue{
+    background: var(--mainBlue);
+}
 .bg-darkblue{
     background: #001836;
 }

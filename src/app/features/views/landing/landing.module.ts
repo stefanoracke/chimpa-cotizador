@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Section1Component } from './section1/section1.component';
-import { CardPriceComponent } from '../../shared/card-price/card-price.component';
 import { SharedModule } from '../../shared/shared.module';
-import { Section2Component } from './section2/section2.component';
 import { Section3Component } from './section3/section3.component';
 import { Section4Component } from './section4/section4.component';
 import { Section5Component } from './section5/section5.component';
@@ -27,6 +25,7 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { MaterialModule } from 'src/app/core/modules/material/material.module';
+import { AmpliarPropuestaComponent } from './ampliar-propuesta/ampliar-propuesta.component';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -39,7 +38,6 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     Section1Component,
-    Section2Component,
     Section3Component,
     Section4Component,
     Section5Component,
@@ -47,13 +45,12 @@ export function playerFactory() {
     IncluidosComponent,
     MenuitemsComponent,
     Setion7Component,
-    
     Section8Component,
     Section9Component,
     Section10Component,
     Section11Component,
     Section12Component,
-    
+    AmpliarPropuestaComponent,
   ],
   imports: [
     CommonModule,
@@ -65,7 +62,6 @@ export function playerFactory() {
   ],
   exports: [
     Section1Component,
-    Section2Component,
     Section3Component,
     Section4Component,
     Section5Component,
@@ -76,7 +72,7 @@ export function playerFactory() {
     Section10Component,
     Section11Component,
     Section12Component,
-    
+    AmpliarPropuestaComponent,
   ]
 })
 export class LandingModule { }
