@@ -7,15 +7,15 @@
         </div>
         <div class="row servicio mt-5 w-100">
             
-            <div class="col d-flex">
+            <div class="col d-flex" *ngIf="includes$ | async as includes">
                 <div class="card w-100">
-                    <app-incluidos  [list]="incluido" ></app-incluidos>
+                    <app-incluidos  [list]="includes" ></app-incluidos>
                 </div>
                 
             </div>
-            <div class="col d-flex">
+            <div class="col d-flex" *ngIf="not_includes$ | async as not_includes">
                 <div class="card w-100">
-                    <app-incluidos [list]="noincluido" [incluido]="false"></app-incluidos>
+                    <app-incluidos [list]="not_includes" [incluido]="false"></app-incluidos>
                 </div>
             </div>
         </div>

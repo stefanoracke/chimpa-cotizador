@@ -1,5 +1,6 @@
-<div class="ampliar-propuesta text-white bg-darkBlue">
-    <div class="pt-5">
-        <h2 class="text-white fw-medium text-center">Ampliar propuesta</h2>
-    </div>
+<div class="ampliar-propuesta text-white bg-darkBlue" *ngIf="ampliar$ | async as ampliar ">
+        <ng-container *ngIf="region$ | async as region">
+                <combo-accordion *ngFor="let item of ampliar" [item]="item" [region]="region" (onClick)="dispatchAction($event)"></combo-accordion>
+        </ng-container>
 </div>
+

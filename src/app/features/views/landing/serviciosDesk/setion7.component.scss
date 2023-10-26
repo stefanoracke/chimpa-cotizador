@@ -1,15 +1,17 @@
 .container{
     padding: 5rem 3rem ;
+    align-items: stretch;
 }
 
 .card-opcional{
+    align-items: stretch;
     border: 2px solid var(--mainLightBlue);
     border-radius: 6px;
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     position: relative;
-    width: 100%;
-    min-height: 15vh;
-    max-width: 600px;
 }
 
 .three_dots{
@@ -22,4 +24,8 @@
 .price{
     gap: 15px;
     margin-bottom: 20px;
+}
+
+.border-lightBlue{
+    border:1px solid #36A9E1
 }

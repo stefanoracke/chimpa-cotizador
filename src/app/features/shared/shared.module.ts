@@ -20,6 +20,7 @@ import { OptionalsPipe } from 'src/app/core/pipe/optionals.pipe';
 import { DownloadPipe } from 'src/app/core/pipe/download.pipe';
 
 import { ShareModule } from 'ngx-sharebuttons';
+import { AccordionComboComponent } from './accordion-combo/accordion.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { ShareModule } from 'ngx-sharebuttons';
     LoaderComponent,
     OptionalsPipe,
     DownloadPipe,
+    AccordionComboComponent,
     
   ],
   imports: [
@@ -69,6 +71,7 @@ import { ShareModule } from 'ngx-sharebuttons';
     OptionalsPipe,
     DownloadPipe,
     ShareModule,
+    AccordionComboComponent,
 
   ]
 })

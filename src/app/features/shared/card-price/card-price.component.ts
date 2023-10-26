@@ -10,7 +10,7 @@ import {
   OnChanges,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
 
 declare var require: any;
@@ -18,6 +18,10 @@ declare var require: any;
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 import { MatTooltip } from '@angular/material/tooltip';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/core/store/app.reducer';
+import { selectActual, selectAdded, selectAllPropuesta, selectOptions, selectRegion, selectactalPrice } from 'src/app/core/store/selectors/prices.selector';
+import { quuitarAmpliar, setActual, setActualPrice } from 'src/app/core/store/actions/prices.action';
 
 
 const htmlToPdfmake = require('html-to-pdfmake');
@@ -49,14 +53,34 @@ export interface FeaturesI {
 })
 export class CardPriceComponent implements OnInit, OnDestroy {
   @ViewChild('dataToExport') dataToExport!: ElementRef;
-  constructor(private propuestaSvc: PropuestaService, private router: Router) {}
+  constructor(private propuestaSvc: PropuestaService, private router: Router, private store: Store<AppState>) { }
 
   @ViewChild("myTooltip") myTooltip!: MatTooltip
-  @ViewChild("dialog") dialog2!:ElementRef 
+  @ViewChild("dialog") dialog2!: ElementRef
+
+  added$?: Subscription
+  region$?: Subscription
+  region: any
+  added: any
+  opcionesOb$!:Observable<any>
+  opciones$?: Subscription
+  opciones: any
+  actual$?: Subscription
+  actualPrice$?: Subscription
+  actualPriceOb$!:Observable<any>
+  actualPrice: any
+  propestaTotal$?: Subscription
 
   link = window.location.href
-
-  public displayTooltip(){
+  scrollTo(id: string) {
+    let element = document.getElementById(id)
+    console.log(element)
+    if (element) {
+      // Scroll to the element
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+  public displayTooltip() {
     this.myTooltip.disabled = false;
     this.myTooltip.show()
     setTimeout(() => {
@@ -68,40 +92,41 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   disabled = true
   showModal() {
     let modal = document.getElementById('overlay')
-    if(modal)
-    if(modal.style.opacity != '1'){
-      modal.style.display = 'flex'
-      setTimeout(()=>{
-        if(modal)
-        modal.style.opacity = '1'
-      },100)
-    }else{
-      modal.style.opacity = '0'
-      setTimeout(()=>{
-        if(modal)
-        modal.style.display = 'none'
-      },800)
-    }
+    if (modal)
+      if (modal.style.opacity != '1') {
+        modal.style.display = 'flex'
+        setTimeout(() => {
+          if (modal)
+            modal.style.opacity = '1'
+        }, 100)
+      } else {
+        modal.style.opacity = '0'
+        setTimeout(() => {
+          if (modal)
+            modal.style.display = 'none'
+        }, 800)
+      }
   }
 
-  
-  public downloadAsPDF(namePropuesta:string) {
- 
+
+  public downloadAsPDF(namePropuesta: string) {
+
     const pdfTable = this.dataToExport.nativeElement;
     var html = htmlToPdfmake(pdfTable.innerHTML);
-    const documentDefinition = { 
-      
-      content: html, 
+    const documentDefinition = {
+
+      content: html,
     };
-    
+
     pdfMake.createPdf(documentDefinition).download(`Propuesta Web ${namePropuesta} - Chimpancé.pdf`);
   }
- 
+
 
 
   // termina funcion pdf
 
   @Output() booleanEvent = new EventEmitter<boolean>();
+
   project_subscription!: Subscription;
   precio!: number;
   show = 0;
@@ -112,8 +137,8 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   propuesta!: any;
   cliente_id!: any;
   precios: any;
+  actual!: number
 
-  finaciacionobject!: Array<any>;
   formato = (number: any) => {
     const exp = /(\d)(?=(\d{3})+(?!\d))/g;
     const rep = '$1,';
@@ -122,11 +147,15 @@ export class CardPriceComponent implements OnInit, OnDestroy {
     return arr[1] ? arr.join('.') : arr[0];
   };
 
-  
+  dispatchDelete(ev: any) {
+    this.added = this.added.filter((item: any) => item !== ev);
+    this.store.dispatch(quuitarAmpliar({ added_service: this.added })); // Dispatch action to update the store
+    this.changePriceInclude()
+  }
 
   showFin(i: number) {
     this.show = i;
-    let element = this.finaciacionobject.find((res) => i === res.id);
+    let element = this.actualPrice.payment_types.find((res:any) => i === res.id);
 
     if (element?.share) {
       this.tasa = undefined;
@@ -149,38 +178,81 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       this.precio_muestra = (this.precio * x) / 100;
     }
   }
+  changePriceInclude(){
+    let newPrecio = this.actualPrice
+      const totalPrice = this.added.reduce((accumulator:any, currentObject:any) => {
+        if (currentObject.price !== undefined) {
+          return Number(accumulator) + Number(currentObject.price);
+        }
+        return accumulator;
+      }, 0);
+      const allPrice = totalPrice + Number(newPrecio.prop_price)
+      console.log(allPrice)
+      this.store.dispatch(setActualPrice({actualPrice:{...newPrecio, price:allPrice}}))
+  }
+
+  changePrice(newPrice:any){
+    let newPrecio = {...newPrice,prop_price:newPrice.price}
+      const totalPrice = this.added.reduce((accumulator:any, currentObject:any) => {
+        if (currentObject.price !== undefined) {
+          return Number(accumulator) + Number(currentObject.price);
+        }
+        return accumulator;
+      }, 0);
+      const allPrice = totalPrice + Number(newPrecio.prop_price)
+      console.log(allPrice)
+      this.store.dispatch(setActualPrice({actualPrice:{...newPrecio, price:allPrice}}))
+  }
+
+  changeActual(index: number) {
+    this.store.dispatch(setActual({ actual: index }))
+    this.changePrice(this.opciones[index])
+    
+  }
+
+  changeActualPrice(res: any) {
+    this.cliente_id = this.region.id;
+    if (this.region.id == 1) {
+      let solidary_usd = this.region.solidarity_usd;
+      this.precio = res.price * solidary_usd;
+      this.precio_modificado = res.price * solidary_usd;
+      this.precio_muestra = res.price * solidary_usd;
+    } else {
+      this.precio = res.price;
+      this.precio_modificado = res.price;
+      this.precio_muestra = res.price;
+    }
+  }
 
   ngOnInit(): void {
-    this.project_subscription = this.propuestaSvc.getPropuesta().subscribe(
-      (res) => {
-        this.propuesta = res;
-        this.booleanEvent.emit(false);
-        this.cliente_id = res.clients.regions_id;
-        if (res.clients.regions_id == 1) {
-          let solidary_usd = res.solidarity_usd;
-          this.precio = res.price * solidary_usd;
-          this.precio_modificado = res.price * solidary_usd;
-          this.precio_muestra = res.price * solidary_usd;
-        } else {
-          this.precio = res.price;
-          this.precio_modificado = res.price;
-          this.precio_muestra = res.price;
-        }
-        this.finaciacionobject = res.payment_types;
-      },
-      (err) => {
-        this.router.navigate(['not-found']);
-      }
-    );
+    this.added$ = this.store.select(selectAdded).subscribe(res => this.added = res)
+    this.opcionesOb$ = this.store.select(selectOptions)
+    this.opciones$ = this.store.select(selectOptions).subscribe(res => this.opciones = res)
+    this.actual$ = this.store.select(selectActual).subscribe(res => this.actual = res)
+    this.region$ = this.store.select(selectRegion).subscribe(res => this.region = res)
+    this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res => {
+      this.changeActualPrice(res)
+      this.actualPrice = res
+    }
+    )
+    this.propestaTotal$ = this.store.select(selectAllPropuesta).subscribe(res => this.propuesta = res)
+    this.actualPriceOb$ = this.store.select(selectactalPrice)
+
   }
   ngOnDestroy(): void {
     this.project_subscription.unsubscribe();
+    this.actual$?.unsubscribe()
+    this.added$?.unsubscribe()
+    this.region$?.unsubscribe()
+    this.actualPrice$?.unsubscribe()
+    this.opciones$?.unsubscribe()
+    this.propestaTotal$?.unsubscribe()
   }
 
   changeTotal(n: number) {
-    if (this.finaciacionobject[n].cuotas != 0) {
+    if (this.actualPrice.payment_types[n].cuotas != 0) {
       this.precio_modificado = Math.round(
-        this.precio / this.finaciacionobject[n].cuotas
+        this.precio / this.actualPrice.payment_types[n].cuotas
       );
       this.precio_muestra = this.precio;
     } else {
@@ -231,7 +303,7 @@ export class DownloadComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    
+
     this.updateValue(this.precios);
   }
 
@@ -239,7 +311,7 @@ export class DownloadComponent implements OnInit, OnChanges {
     if (res) {
 
       res.features.forEach((element: any) => {
-        
+
         switch (element.features_types_id) {
           case 1:
             // tecnicas
@@ -266,7 +338,7 @@ export class DownloadComponent implements OnInit, OnChanges {
             break;
         }
       });
-     
+
     }
   }
 }

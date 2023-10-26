@@ -1,0 +1,23 @@
+<section id="comparar">
+    <div class="container text-white">
+        <div class="mb-4">
+            <app-titulo title="Compara las opciones"></app-titulo>
+        </div>
+
+        <div class="grid grid-cols-3 gap-4  w-full" *ngIf="options$ | async as opciones">
+            <div class="flex relative pb-[60px] col-span-1 flex-col w-full h-full border-lightBlue rounded p-6"
+                *ngFor="let item of opciones, let index = index">
+                <h5 class="font-light uppercase text-lightBlue text-[14px]">Opcion {{index+1}}</h5>
+                <h4 class="title">{{item.name}}</h4>
+                <div [innerHTML]="item.description" class="py-4"></div>
+
+                    <h4 class="pt-1 text-yellow text-4xl absolute left-[20px] bottom-[10px]" *ngIf="region$ |async as region">
+                        <span *ngIf="region.id == 1" class="text-2xl">$</span>
+                        <span *ngIf="region.id != 1" class="text-2xl font-light">USD</span>
+                        {{item.price | optionals:region.solidarity_usd:region.id}}
+                    </h4>
+            </div>
+        </div>
+    </div>
+
+</section>

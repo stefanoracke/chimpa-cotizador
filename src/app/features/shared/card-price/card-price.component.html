@@ -1,126 +1,150 @@
-<article class="card">
+<article class="card relative z-10">
   <div class="container">
-    <h3>Propuesta Web <br>{{propuesta?.title}}</h3>
-    <hr class="mt-2">
+    <h3>Propuesta <br>{{propuesta?.title}}</h3>
+    <ng-container *ngIf="opcionesOb$ | async as opciones">
+      <div class="flex gap-2 pt-2">
+        <span *ngFor="opcion of opciones, let index = index" (click)="changeActual(index)"
+          class="cursor-pointer px-2 opciones hover:opacity-60" [ngClass]="{active : index ==actual}">Opcion {{index
+          +1}}</span>
+      </div>
+    </ng-container>
+    <hr class="m-0">
+    <label class="text-xl py-2 font-bold">{{actualPrice?.name}}</label>
 
-    <h3><span *ngIf="propuesta?.clients.regions_id==1">$</span>  {{precio| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
-    
-    <label *ngIf="propuesta?.clients.regions_id==1"> Precio en dolares: {{ propuesta.price | optionals: propuesta?.solidarity_usd :2 }} USD</label>
-    <br>
-   
-    <hr class="mt-2">
+    <h4 class="pt-1">Financiación</h4>
 
-    <h4>Financiación</h4>
+    <div class=" d-flex flex-column " *ngIf="actualPriceOb$ |async as actualPrice2">
+      <div class="d-flex flex-column  radio-buttons" *ngFor="let item of actualPrice2?.payment_types;index as i">
+        <div class="d-flex mb-1 align-items-center mt-2 radio"><span (click)="showFin(item.id)"
+            class="radio_button clickeable" [ngClass]="{'radio_button_active':show == item.id}"></span><label
+            class="clickeable" (click)="showFin(item.id)" for="">{{item.name}}</label></div>
 
-    <div class=" d-flex flex-column ">
-      <div class="d-flex flex-column  radio-buttons" *ngFor="let item of finaciacionobject;index as i">
-        <div class="d-flex mb-1 align-items-center mt-2 radio"><span (click)="showFin(item.id)" class="radio_button clickeable" [ngClass]="{'radio_button_active':show == item.id}"></span><label class="clickeable" (click)="showFin(item.id)" for="">{{item.name}}</label></div>
-        
         <!-- Contenido oculto -->
-        <div [ngClass]="{'active acordion':show == item.id, 'inactive': show != item.id}" >
+        <div [ngClass]="{'active acordion':show == item.id, 'inactive': show != item.id}">
           <div class="acordion_content">
-            <div  class="d-flex">
+            <div class="d-flex">
               <p class="number_cuota description" *ngIf="item.cuotas!=12 && item.cuotas!=0">{{item.cuotas}}</p>
             </div>
-            <p  class="number_cuota description" *ngIf="item.description == 'A convenir'">Financiación Propia </p>
-           
+            <p class="number_cuota description" *ngIf="item.description == 'A convenir'">Financiación Propia </p>
+
           </div>
         </div>
       </div>
 
+
+      <!-- Aumentar propuesta -->
+      <ng-container>
+        <div *ngIf="added.length > 0">
+
+          <div *ngFor="let item of added" class="pt-4 flex items-center justify-between">
+            <p>Adicional: {{item.name}}</p>
+            <div class="flex items-center gap-2">
+              <p>{{item.price |optionals:region.solidarity_usd:region.id}}</p>
+              <span class="hover:text-[#E13636] text-grey transition-all duration-400 cursor-pointer"
+                (click)="dispatchDelete(item)">
+
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g opacity="0.6">
+                    <path
+                      d="M12.2297 19.7707L16.0017 16.0001M16.0017 16.0001L19.7723 12.2294M16.0017 16.0001L12.2297 12.2294M16.0017 16.0001L19.7723 19.7707M16.0003 29.3334C23.3643 29.3334 29.3337 23.3641 29.3337 16.0001C29.3337 8.63608 23.3643 2.66675 16.0003 2.66675C8.63633 2.66675 2.66699 8.63608 2.66699 16.0001C2.66699 23.3641 8.63633 29.3334 16.0003 29.3334Z"
+                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </g>
+                </svg>
+              </span>
+
+            </div>
+          </div>
+        </div>
+      </ng-container>
       <hr class="mt-2">
 
       <!--  Precio   -->
 
-      
+
       <div *ngIf="cuotas!=undefined" class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">{{cuotas|cuotaspipe}} </h3>
-        <div >
+        <div>
 
-          <h3 class="text_total">${{precio_modificado| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+          <h3 class="text_total">${{precio_modificado| milespipe: region.id}} <span *ngIf="region.id!=1">USD</span>
+          </h3>
         </div>
       </div>
       <div *ngIf="tasa!=undefined" class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">{{tasa|tasaspipe}} </h3>
-        <h3 class="text_total">${{precio_modificado| milespipe: propuesta?.clients.regions_id}} <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> </h3>
+        <h3 class="text_total">${{precio_modificado| milespipe: region.id}} <span *ngIf="region.id!=1">USD</span> </h3>
       </div>
 
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Total </h3>
         <h3 class="precio_iva position-relative">
-          ${{precio_muestra| milespipe: propuesta?.clients.regions_id}} 
-          <span *ngIf="propuesta?.clients.regions_id!=1">USD</span> 
-          <span class="iva" *ngIf="propuesta?.clients.regions_id==1">+IVA</span>
+          ${{precio_muestra| milespipe: region.id}}
+          <span *ngIf="region.id!=1">USD</span>
+          <span class="iva" *ngIf="region.id==1">+IVA</span>
         </h3>
       </div>
-      
+
 
       <hr class="mt-2">
       <div class="d-flex justify-content-end">
         <p class="aclaracion">
-          *Precio variable al alcance del proyecto. 
+          *Precio variable al alcance del proyecto.
           <br>
-          <span *ngIf="propuesta?.clients.regions_id==1">*Precio expresado en USD <span >{{propuesta?.solidarity_usd}}</span> Solidario.</span> 
-          <!-- <br> -->
-          <!-- <span *ngIf="propuesta?.clients.regions_id==1">*No incluye IVA</span> -->
-         </p>
+          <span *ngIf="region.id==1">*Precio expresado en USD <span>{{region?.solidarity_usd}}</span>
+            Solidario.</span>
+
+        </p>
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Plazos de entrega</h3>
         <h3 class="text_total">{{propuesta?.time_lapse}}</h3>
       </div>
-      
+
       <p class="aclaracion mt-2">El tiempo empieza a correr una vez recibido el pago y toda la infomación.</p>
     </div>
   </div>
 </article>
-<div class="d-md-flex d-block">
-  <button class="btn btn-yellow me-2"  role="button" (click)="downloadAsPDF(propuesta?.title)">
+<div class="flex gap-4">
+  <button class="btn-yellow " role="button" (click)="downloadAsPDF(propuesta?.title)">
     <img src="assets/svg/downloadblue.svg" alt="" srcset="">
   </button>
-  <button 
-          class="btn btn-lightblue me-2"
-         
-          role="button"
-          (click)="showModal()">
+  <button class="btn-lightblue " role="button" (click)="showModal()">
     <img src="assets/svg/share.svg" alt="" srcset="">
   </button>
-  <a  role="button" href="https://web.whatsapp.com/send?phone=+5493516503470&amp;text=Buenos%20días,%20quiero%20mas%20info%20sobre%20desarrollo%20web" target="_blank" class="btn btn-yellow d-none d-md-block w-100">
-    Contactar
-    <svg _ngcontent-gdj-c51="" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="bi bi-whatsapp">
-      <path _ngcontent-gdj-c51="" d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"></path>
-    </svg>
+  <a (click)="scrollTo('comparar')" target="_blank" class="btn btn-yellow hidden flex w-100">
+    Comparar opciones
+
   </a>
 </div>
 
 <div class="overlay" #dialog id="overlay">
 
   <article class="card position-relative p-5">
-    <i role="button" class="far fa-window-close position-absolute fs-3" style="top:10px; right: 10px;" (click)="showModal()"></i>
+    <i role="button" class="far fa-window-close position-absolute fs-3" style="top:10px; right: 10px;"
+      (click)="showModal()"></i>
     <div class="row ">
-        <h3>Compartí la propuesta</h3>
+      <h3>Compartí la propuesta</h3>
     </div>
     <hr>
-  <div class="d-flex justify-content-center">
-    <button [cdkCopyToClipboard]="link" #myTooltip="matTooltip" (click)="displayTooltip()" [matTooltipDisabled]="true"
-      matTooltip="¡Enlace copiado exitosamente!" shareButton="link" class="btn btn-media bg-link mx-2">
-      <i class="fa-solid fa-link"></i>
-    </button>
-    <button shareButton="facebook" class="btn btn-media bg-facebook text-white mx-2">
-      <i class="fa-brands fa-facebook"></i>
-    </button>
-    <button shareButton="whatsapp" class="btn btn-media bg-whatsapp text-white mx-2">
-      <i class="fa-brands fa-whatsapp"></i>
-    </button>
-    <button shareButton="telegram" class="btn btn-media bg-telegram text-white mx-2 d-flex d-md-none">
-      <i class="fa-brands fa-telegram"></i>
-    </button>
-  
+    <div class="d-flex justify-content-center">
+      <button [cdkCopyToClipboard]="link" #myTooltip="matTooltip" (click)="displayTooltip()" [matTooltipDisabled]="true"
+        matTooltip="¡Enlace copiado exitosamente!" shareButton="link" class="btn btn-media bg-link mx-2">
+        <i class="fa-solid fa-link"></i>
+      </button>
+      <button shareButton="facebook" class="btn btn-media bg-facebook text-white mx-2">
+        <i class="fa-brands fa-facebook"></i>
+      </button>
+      <button shareButton="whatsapp" class="btn btn-media bg-whatsapp text-white mx-2">
+        <i class="fa-brands fa-whatsapp"></i>
+      </button>
+      <button shareButton="telegram" class="btn btn-media bg-telegram text-white mx-2 d-flex d-md-none">
+        <i class="fa-brands fa-telegram"></i>
+      </button>
+
     </div>
   </article>
 </div>
 
 <div #dataToExport id="dataToExport">
 
-  <app-download  class="d-none" [precios]="propuesta"></app-download>
+  <app-download class="d-none" [precios]="propuesta"></app-download>
 </div>

@@ -52,6 +52,11 @@ hr{
     transition: .5s ease;
 }
 
+.opciones.active{
+    border-bottom: 2px solid var(--mainYellow);
+    font-weight: bold;
+}
+
 .btn-media{
     width: 2.8rem;
     height: 2.8rem;

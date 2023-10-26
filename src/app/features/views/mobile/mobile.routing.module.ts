@@ -13,6 +13,7 @@ import { WorkMethodologyComponent } from "./views/work-methodology/work-methodol
 const routes: Routes = [
     {
       path:"",
+      component:AppChimpanceComponent,
       children: [
         {
           path:"",

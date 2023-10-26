@@ -1,17 +1,16 @@
 <div class="mobile bg-img"></div>
 <app-navbarpc></app-navbarpc>
-<app-mobile-home class="mobile"></app-mobile-home>
+<app-mobile-home *ngIf="!pc" class="mobile"></app-mobile-home>
 
 <div class="pc" *ngIf="pc">
-    <app-loader *ngIf="propuesta"></app-loader>
+    <!-- <app-loader *ngIf="propuesta"></app-loader> -->
     
     <app-section1 (stopLoad)="stopCarga($event)"></app-section1>
     <!-- <app-section2></app-section2> -->
     <app-section3></app-section3>
+    <app-section7 *ngIf="prices>0"></app-section7>  
     <app-section4></app-section4>
     <app-section5 *ngIf="time"></app-section5>
-    <app-section6 *ngIf="services >0"></app-section6>
-    <app-section7 *ngIf="prices>0"></app-section7>
     <app-section8></app-section8>
     <app-faqs-landing></app-faqs-landing>
     

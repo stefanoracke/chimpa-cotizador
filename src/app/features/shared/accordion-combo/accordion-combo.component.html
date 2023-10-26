@@ -1,0 +1,67 @@
+<ul class="accordion">
+    <li class="accordion_item items-center">
+        <div class="accordion_name  text-xl text-white fw-bold" (click)="accordionClick()"
+            [ngClass]="{'accordion_active':click}">
+            <div class="flex justify-between items-center w-full">
+
+                <div class="flex gap-4 items-center">
+                    <svg *ngIf="item.unique == 1" xmlns="http://www.w3.org/2000/svg" width="39" height="37"
+                        viewBox="0 0 39 37" fill="none">
+                        <path
+                            d="M13.4412 11.9625L17.9527 2.87495C18.5318 1.70835 20.2051 1.70835 20.7841 2.87495L25.2956 11.9625L35.3847 13.4287C36.6792 13.6168 37.1951 15.199 36.258 16.1065L28.9588 23.1752L30.6814 33.1614C30.9026 34.4439 29.5488 35.4217 28.3905 34.8161L19.3684 30.0987L10.3464 34.8161C9.1881 35.4217 7.83422 34.4439 8.05542 33.1614L9.77802 23.1752L2.47894 16.1065C1.54177 15.199 2.0577 13.6168 3.35217 13.4287L13.4412 11.9625Z"
+                            stroke="#FDDB00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    {{item?.name}}
+                </div>
+                <div class="flex gap-4 items-center">
+                    <div class="text-yellow">
+
+                        <span *ngIf="region.id == 1">$</span>
+                        <span *ngIf="region.id != 1">USD</span>
+                        <span class="text-2xl">{{item?.price| optionals:region.solidarity_usd:region.id}}</span>
+                    </div>
+                    <ng-container *ngIf="added$ | async as added">
+
+                        <button
+                            [ngClass]="added.includes(item) ? 'px-4 py-2 border-outline rounded text-primarychimpa bg-yellow relative z-10 hidden md:block' : 'px-4 py-2 border-outline rounded text-yellow relative z-10 hidden md:block'"
+                            (click)="outputClick(item)">
+                            <span *ngIf="!added.includes(item)">
+                                Sumar al presupuesto
+                            </span>
+                            <span *ngIf="added.includes(item)">
+                                Quitar del presupuesto
+                            </span>
+                        </button>
+                    </ng-container>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-chevron-down" viewBox="0 0 16 16" stroke="currentColor" stroke-width="2">
+                        <path fill-rule="evenodd"
+                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                    </svg>
+                </div>
+            </div>
+            <div #accordionshow class="acordion_hide">
+                <div>
+
+                    <div class="accordion_content pt-5 font-light text-[14px] flex flex-col gap-4"
+                        [innerHTML]="item?.description"></div>
+                    <div class="justify-center flex">
+                        <ng-container *ngIf="added$ | async as added">
+                            <button
+                                class="px-4 py-2 bg-yellow rounded text-[#001836] relative z-10 sm:hidden block w-full"
+                                [ngClass]="added.includes(item) ? '' : ''" (click)="outputClick(item)">
+                                <span *ngIf="!added.includes(item)">
+
+                                    Sumar al presupuesto
+                                </span>
+                                <span *ngIf="added.includes(item)">
+                                    Quitar del presupuesto
+                                </span>
+                            </button>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>

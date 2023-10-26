@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
+import { AppState } from 'src/app/core/store/app.reducer';
+import { selectFaqs } from 'src/app/core/store/selectors/prices.selector';
 
 @Component({
   selector: 'app-faqs-landing',
@@ -8,18 +12,16 @@ import { PropuestaService } from 'src/app/core/services/propuesta.service';
 })
 export class Section10Component implements OnInit {
 
-  constructor( private faqsService:PropuestaService) { }
+  constructor( private faqsService:PropuestaService, private store:Store<AppState>) { }
 
   titulo = "Preguntas frecuentes"
   color ="#ffffff"
 
+  preguntas$!:Observable<any>
 
-  
-
-  preguntas!:any
 
   ngOnInit(): void {
-    this.faqsService.getPropuesta().subscribe(res=>this.preguntas = res.faqs)
+    this.preguntas$ = this.store.select(selectFaqs)
   }
 
 }

@@ -20,19 +20,19 @@ export class PropuestaService {
   }
 
   getPropuesta():Observable<any>{
-    let id= this.router.url.slice(1,this.router.url.length)
-    localStorage.setItem('empresa_url',id)
-    
-    if(id.indexOf('/')!=-1){
-      id = id.slice(0,id.indexOf('/'))
-      localStorage.setItem('empresa_url',id)
-    }
-      
-    let empresa = id.slice(0,id.indexOf('_'))
-    
-    let proyecto = id.slice(id.indexOf('_')+1,id.length)
-    
+    const currentURL = window.location.href;
 
+    // Split the URL by "/" to get the parts
+    const parts = currentURL.split("/");
+
+    // Extract the values of "empresa" and "proyecto" based on their positions in the URL
+    const newParts = parts[parts.length - 1];
+
+    const newParts2  = newParts.split("_");
+
+
+    const empresa = newParts2[newParts2.length - 2]; // "Puro-SRL"
+    const proyecto = newParts2[newParts2.length - 1]; // "One-Page"
     
     return this.http.get<any>(environment.api+`empresa=${empresa}&proyecto=${proyecto}`)
   }
