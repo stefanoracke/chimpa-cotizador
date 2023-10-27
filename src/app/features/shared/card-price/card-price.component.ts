@@ -54,7 +54,6 @@ export interface FeaturesI {
 export class CardPriceComponent implements OnInit, OnDestroy {
   @ViewChild('dataToExport') dataToExport!: ElementRef;
   constructor(private propuestaSvc: PropuestaService, private router: Router, private store: Store<AppState>) { }
-
   @ViewChild("myTooltip") myTooltip!: MatTooltip
   @ViewChild("dialog") dialog2!: ElementRef
 
@@ -139,6 +138,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   precios: any;
   actual!: number
 
+  
   formato = (number: any) => {
     const exp = /(\d)(?=(\d{3})+(?!\d))/g;
     const rep = '$1,';

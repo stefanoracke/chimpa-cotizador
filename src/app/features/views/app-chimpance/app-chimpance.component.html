@@ -1,20 +1,9 @@
 <div class="mobile bg-img"></div>
 <app-navbarpc></app-navbarpc>
-<app-mobile-home *ngIf="!pc" class="mobile"></app-mobile-home>
 
-<div class="pc" *ngIf="pc">
-    <!-- <app-loader *ngIf="propuesta"></app-loader> -->
-    
-    <app-section1 (stopLoad)="stopCarga($event)"></app-section1>
-    <!-- <app-section2></app-section2> -->
-    <app-section3></app-section3>
-    <app-section7 *ngIf="prices>0"></app-section7>  
-    <app-section4></app-section4>
-    <app-section5 *ngIf="time"></app-section5>
-    <app-section8></app-section8>
-    <app-faqs-landing></app-faqs-landing>
-    
-</div>
+<router-outlet></router-outlet>
+
+
 <footer  class="bgblue position-relative pc">
     <img class="piso" src="assets/images/timer_piso.png" alt="">
     <div class="container footer">

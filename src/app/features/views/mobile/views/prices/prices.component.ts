@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
+import { cargarDatos } from 'src/app/core/store/actions/prices.action';
+import { AppState } from 'src/app/core/store/app.reducer';
+import { selectAllPropuesta } from 'src/app/core/store/selectors/prices.selector';
 
 
 @Component({
@@ -8,63 +13,61 @@ import { PropuestaService } from 'src/app/core/services/propuesta.service';
   templateUrl: './prices.component.html',
   styleUrls: ['./prices.component.scss'],
 })
-export class PricesComponent implements OnInit {
-  constructor(private propSvc: PropuestaService, private router: Router) {}
+export class PricesComponent implements OnInit, OnDestroy {
+  constructor(private store: Store<AppState>) { }
   timeLeftSeconds: any;
   internal_navigation = 1;
   time = false;
   date: Date = new Date();
   empresa!: any;
-  prop = localStorage.getItem('propuesta');
+  prop: any;
+  subs$!: Subscription
+  @ViewChild('accordionshow') accordion!: ElementRef<HTMLElement>
+  height = 0 
+  click = false
+  accordionClick() {
+    console.log('click')
+    this.click = !this.click
+    if (this.height == 0) {
+      this.height = this.accordion.nativeElement.scrollHeight
+    } else {
+      this.height = 0
+    }
+    this.accordion.nativeElement.style.maxHeight = `${this.height}px`
+
+  }
+
+  activeView = 'Precios'
 
   title = 'Precio y';
   subtitle = 'Financiación';
 
-  
+
 
   ngOnInit(): void {
-    this.getNavigation();
 
-    if (this.prop) {
-      let res = JSON.parse(this.prop);
+    this.subs$ = this.store.select(selectAllPropuesta).subscribe(res => {
 
-      if (res) {
-        this.empresa = res.clients.business_name;
-        let fecha = Date.parse(res.promotions[0]?.updated_at);
-        let evento =
-          fecha +
-          res.promotions[0]?.time_duration * 1000 * 60 * 60 -
-          this.date.getTime();
-        this.timeLeftSeconds = Math.floor(evento / 1000);
-        this.time = this.timeLeftSeconds > 0;
-      }
+
+      this.empresa = res.clients.business_name;
+      let fecha = Date.parse(res.promotions[0]?.updated_at);
+      let evento =
+        fecha +
+        res.promotions[0]?.time_duration * 1000 * 60 * 60 -
+        this.date.getTime();
+      this.timeLeftSeconds = Math.floor(evento / 1000);
+      this.time = this.timeLeftSeconds > 0;
+
+    },error=>{
+      this.store.dispatch(cargarDatos())
     }
+    )
+  }
+  ngOnDestroy(): void {
+    this.subs$.unsubscribe()
   }
 
-  getNavigation() {
-    let n = localStorage.getItem('navigation_prices');
-    if (n != null) this.internal_navigation = parseInt(n);
-  }
 
-  changeView(n: number) {
-    this.internal_navigation = n;
 
-    localStorage.setItem(
-      'navigation_prices',
-      this.internal_navigation.toString()
-    );
-  }
 
-  redirectTo(ruta: string) {
-    let nuevaruta = localStorage.getItem('empresa_url');
-
-    if (ruta == '/') {
-      if (nuevaruta) this.router.navigateByUrl(nuevaruta);
-    } else {
-      if (nuevaruta)
-        this.router.navigateByUrl(nuevaruta + '/' + ruta).then(() => {
-          window.location.reload();
-        });
-    }
-  }
 }

@@ -1,47 +1,13 @@
-<div class="contenedor_precio1">
-    <div class="box-prices mt-3">
-        <div class="align-items-center d-flex justify-between justify-content-between w-100">
-            <div class="d-flex align-items-baseline"><h2>250.000 </h2><small> / USD</small></div>
-            <div class="yellow_circle">
-                <img src="./../../../../../../../../assets/svg/Icono carrito.svg" alt="">
-            </div>
-        </div>
+<article class="flex gap-4 flex-col mt-4" *ngIf="options$ | async as options">
+    <div class="rounded relative px-4 py-3 border-secondary2" [ngClass]="{'bg-darkblue' : index == actual}" *ngFor="let option of options; let index = index">
+        <span class="text-secondary2">OPCION {{index+1}}</span>
+       
+        <h4>{{option.name}}</h4>
+        <h2 class="flex items-center text-yellow">
+             <span class="text-sm" *ngIf="region.id==1">$</span> 
+             <span class="text-sm" *ngIf="region.id!=1">USD</span> 
+             {{option.price |optionals:region.solidarity_usd:region.id}}
+        </h2>
     </div>
 
-    <p class="mt-3">*Precio variable al alcnace del proyecto</p>
-    <p>*Precio expresado en USD 550 Solidario</p>
-
-    <div class="white_boxes mt-3">
-        <h1 class="text-bold">
-            Página Web
-        </h1>
-
-        <p class="mt-3">La página web es diseñada y desarrollada teniendo en cuenta el usuario</p>
-        <p class="mt-2">El resultado es un sitio ágil, de gran impacto visual y de fácil navegación</p>
-    </div>
-</div>
-
-<!-- <div class="menu_prices">
-    <ul>
-        <li (click)="changeView(1)" [ngClass]="{'active': internal_navigation == 1}"> 
-            <ng-template #preciowhite><i><img src="./../../../../../../assets/svg/precio-white.svg" alt=""></i></ng-template>
-            <i *ngIf="internal_navigation==1; else preciowhite"><img src="./../../../../../../assets/svg/precio-bluelight.svg" alt=""></i>
-             Precio
-        </li>
-        <li (click)="changeView(2)" [ngClass]="{'active': internal_navigation == 2}">
-            <ng-template #dinerowhite><i><img src="./../../../../../../assets/svg/dinero-white.svg" alt=""></i></ng-template>
-            <i *ngIf="internal_navigation==2; else dinerowhite"><img src="./../../../../../../assets/svg/dinero-bluelight.svg" alt=""></i>
-            Financiación
-
-        </li>
-        <li (click)="changeView(3)" [ngClass]="{'active': internal_navigation == 3}">
-            <ng-template #tiempowhite><i ><img src="./../../../../../../assets/svg/tiempo-white.svg" alt=""></i></ng-template>
-            <i *ngIf="internal_navigation==3; else tiempowhite"><img src="./../../../../../../assets/svg/tiempo-bluelight.svg" alt=""></i>
-            Tiempos</li>
-    </ul>
-</div>
-<div class="price-content">
-    <app-price1 *ngIf="internal_navigation==1"></app-price1>
-    <app-price2 *ngIf="internal_navigation==2"></app-price2>
-    <app-price3 *ngIf="internal_navigation==3"></app-price3>
-</div> -->
+</article>

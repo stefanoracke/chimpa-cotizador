@@ -1,28 +1,49 @@
 
-<section class="mobile">
+<section class="mobile h-full">
 
     <div class="home-container">
         <app-navbar-mobile [title]="title" [subtitle]="subtitle"></app-navbar-mobile>
         <div class="mobile bg-img"></div>
     
     
-        <div class="blue">
+        <div class="blue h-full">
             <div class="container">
                 <div class="d-flex align-items-center saludo" >
                     <img src="assets/svg/mano_chimpa.svg" alt="">
                     <h3>Hola!</h3>
                 </div>
                 <h3 class="cliente">{{empresa}}</h3>
-                <app-card-price></app-card-price>
-    
-                <!-- href="https://api.whatsapp.com/send?phone=+5493516503470&text=Buenos%20d%C3%ADas,%20quiero%20mas%20info%20sobre%20desarrollo%20web" -->
-                <a style="text-decoration: none;" target="_blank" (click)="redirectTo('contact')">
 
-                    <div class="align-items-center comenza-nosotros d-flex mt-4 px-4">
-                        <img src="assets/svg/comenza_mobile.svg" class="px-2" alt="">
-                        <span class="fw-bold fs-3">Comenzá ahora</span>
+                <div class="grid grid-cols-2 gap-2 pb-8">
+                    <div class="col-span-1 opacity-60" (click)="activeView='Precios'" [ngClass]="{'opacity-100': activeView == 'Precios'}">
+                        <div class="bg-secondary2 w-full rounded-[10px] flex justify-center items-center py-2">
+                            Precios
+                        </div>
                     </div>
-                </a>
+                    <div class="col-span-1 opacity-60" (click)="activeView='Ampliar'" [ngClass]="{'opacity-100': activeView == 'Ampliar'}">
+                        <div class="bg-secondary2 w-full rounded-[10px] flex justify-center items-center py-2">
+                            Ampliar
+                        </div>
+                    </div>
+                </div>
+
+                <app-card-price></app-card-price>
+
+                    <section class="pt-8" *ngIf="activeView == 'Ampliar'">  
+                        <h4 class="text-white">Maximizá tu combo</h4>
+                        <app-ampliar-propuesta></app-ampliar-propuesta>
+                    </section>
+
+                    <section class="pt-8" *ngIf="activeView == 'Precios'">  
+                        <div (click)="accordionClick()" class="border-yellow rounded mb-4 w-full py-3 font-bold text-yellow text-[18px] flex justify-center gap-2">
+                            <span>Comparar opciones</span>
+                            <span class="transform rotate-90"> ></span>
+                        </div>
+                        <div #accordionshow class="overflow-hidden transition-all duration-600 mt-6" style="max-height: 0;">
+
+                            <app-price1></app-price1>
+                        </div>
+                    </section>
      
                 <div *ngIf="time" class="card-yellow mt-3 p-4">
                     <h1 class="text-center">Oferta limitada</h1>
@@ -38,7 +59,6 @@
         
     
     </div>
-    <app-footer-mobile></app-footer-mobile>
 </section>
 
 <div class="pc">

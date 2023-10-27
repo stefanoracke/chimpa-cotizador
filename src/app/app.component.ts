@@ -12,7 +12,7 @@ import { cargarDatos } from './core/store/actions/prices.action';
 })
 export class AppComponent implements OnInit {
   title = 'chimpa-app';
-
+  pc = true
 
   constructor(private router: Router, private store: Store<AppState>) { }
 
@@ -37,7 +37,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(cargarDatos())
     this.getRoute()
+    this.store.dispatch(cargarDatos())
+    
+    if(window.innerWidth<1000){
+      this.pc=false
+    }
   }
 }

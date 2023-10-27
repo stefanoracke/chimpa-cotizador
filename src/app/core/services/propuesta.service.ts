@@ -10,34 +10,40 @@ import { environment } from 'src/environments/environment';
 })
 export class PropuestaService {
 
-  constructor(private http:HttpClient, private router:Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
 
-  getLocalProp(){
+  getLocalProp() {
     let prop = localStorage.getItem('propuesta')
-    if(prop)
-    return JSON.parse(prop)
+    if (prop)
+      return JSON.parse(prop)
   }
 
-  getPropuesta():Observable<any>{
+  getPropuesta(): Observable<any> {
     const currentURL = window.location.href;
 
-    // Split the URL by "/" to get the parts
-    const parts = currentURL.split("/");
+    const urlSegments = currentURL.split('/');
 
-    // Extract the values of "empresa" and "proyecto" based on their positions in the URL
-    const newParts = parts[parts.length - 1];
+    // Find and extract the desired segment
+    let desiredSegment = '';
 
-    const newParts2  = newParts.split("_");
+    for (const segment of urlSegments) {
+      if (segment.includes('_')) {
+        desiredSegment = segment;
+        break;
+      }
+    }
+
+    const newParts2 = desiredSegment.split("_");
 
 
     const empresa = newParts2[newParts2.length - 2]; // "Puro-SRL"
     const proyecto = newParts2[newParts2.length - 1]; // "One-Page"
-    
-    return this.http.get<any>(environment.api+`empresa=${empresa}&proyecto=${proyecto}`)
+
+    return this.http.get<any>(environment.api + `empresa=${empresa}&proyecto=${proyecto}`)
   }
 
-  getFaqs():Observable<any>{
+  getFaqs(): Observable<any> {
     return this.http.get<any>('https://cotizador.devtesting.gq/api/api/Faqs')
   }
 }

@@ -75,7 +75,16 @@ p{
     display: flex;
     
 }
-
+.border-secondary2{
+    border-width: 1px;
+    border-color: #36A9E1 !important;
+}
+.text-secondary2{
+    color: #36A9E1 !important;
+}
+.bg-secondary2{
+    background-color: #36A9E1 !important;
+}
 .yellow_circle{
     justify-content: center;
     display: flex;
@@ -86,8 +95,14 @@ p{
     background: var(--mainYellow);
 }
 
+
+
 .clickeable{
     cursor: pointer;
+}
+
+.border-yellow{
+    border: 1px solid #FDDB00;
 }
 
 .btn-lightblue{
@@ -98,7 +113,6 @@ p{
     padding: 10px;
     font-weight: bold;
     font-size: 18px;
-    margin: auto;
     margin-top: 12px;
     text-shadow: 0 1px 2px solid var(--mainBlue);
 }
@@ -111,7 +125,6 @@ p{
     padding: 10px;
     font-weight: bold;
     font-size: 18px;
-    margin: auto;
     margin-top: 12px;
     text-shadow: 0 1px 2px solid var(--mainBlue);
 }

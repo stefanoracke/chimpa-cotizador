@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
+import { cargarDatos } from 'src/app/core/store/actions/prices.action';
+import { AppState } from 'src/app/core/store/app.reducer';
 
 
 @Component({
@@ -11,7 +14,7 @@ export class AppChimpanceComponent implements OnInit {
 
   timeLeftSeconds:any
     date: Date = new Date();
-  constructor(private propSvc:PropuestaService) { }
+  constructor(private propSvc:PropuestaService, private store:Store<AppState>) { }
   services!:any
   prices!:any
  
@@ -24,17 +27,8 @@ export class AppChimpanceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.propSvc.getPropuesta().subscribe(
-      res=>{  
-        
-        this.prices = res.prices.length
-        this.services = res.services.length
-	      let fecha = Date.parse(res.promotions[0]?.updated_at) 
-	      let evento = fecha + res.promotions[0]?.time_duration*1000 * 60 * 60   - this.date.getTime()
-	      this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
-        this.time = this.timeLeftSeconds>0
-      }
-    )
+
+   
 
     
 

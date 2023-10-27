@@ -103,14 +103,14 @@
     </div>
   </div>
 </article>
-<div class="flex gap-4">
+<div class="flex gap-4 justify-end">
   <button class="btn-yellow " role="button" (click)="downloadAsPDF(propuesta?.title)">
     <img src="assets/svg/downloadblue.svg" alt="" srcset="">
   </button>
   <button class="btn-lightblue " role="button" (click)="showModal()">
     <img src="assets/svg/share.svg" alt="" srcset="">
   </button>
-  <a (click)="scrollTo('comparar')" target="_blank" class="btn btn-yellow hidden flex w-100">
+  <a (click)="scrollTo('comparar')" target="_blank" class="btn btn-yellow d-none d-lg-flex justify-center w-100">
     Comparar opciones
 
   </a>

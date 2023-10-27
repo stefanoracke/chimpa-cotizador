@@ -1,10 +1,10 @@
 
-<div class="home-container">
-    <app-loader *ngIf="carga" class="mobile"></app-loader>
+<div  *ngIf="!pc" class="home-container">
+    <!-- <app-loader *ngIf="carga" class="mobile"></app-loader> -->
     <div class="title">
         
         <div class="title-container">
-            <img src="./../../../../../assets/svg/Logotipo.svg" alt="">
+            <img src="assets/svg/Logotipo.svg" alt="">
             
             <h2 class="text-center">Propuesta Web</h2>
         </div>
@@ -16,11 +16,24 @@
             </div>
             <div class="list-route text-center">
                 <ul>
-                    <li *ngFor="let item of routes" (click)="redirectTo(item.route)"><a>{{item.name}}</a></li>
+                    <li *ngFor="let item of routes" [routerLink]="[item.route]"><a>{{item.name}}</a></li>
                 </ul>
             </div>
-            <app-footer-mobile></app-footer-mobile>
         </div>
     </div>
 
+</div>
+
+<div class="pc" *ngIf="pc">
+    <!-- <app-loader *ngIf="propuesta"></app-loader> -->
+    
+    <app-section1></app-section1>
+    <!-- <app-section2></app-section2> -->
+    <app-section3></app-section3>
+    <app-section7 *ngIf="prices>0"></app-section7>  
+    <app-section4></app-section4>
+    <app-section5 *ngIf="time"></app-section5>
+    <app-section8></app-section8>
+    <app-faqs-landing></app-faqs-landing>
+    
 </div>

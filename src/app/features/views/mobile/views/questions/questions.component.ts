@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
+import { AppState } from 'src/app/core/store/app.reducer';
+import { selectFaqs } from 'src/app/core/store/selectors/prices.selector';
 
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.scss']
 })
-export class QuestionsComponent implements OnInit {
+export class QuestionsComponent implements OnInit,OnDestroy {
   resSub$!:Subscription
 
   item_number!:number |undefined;
@@ -16,13 +19,19 @@ export class QuestionsComponent implements OnInit {
 
   questions!:Array<any>
 
-  constructor(private propSvc:PropuestaService) { }
+  constructor(private store:Store<AppState>) { }
 
   ngOnInit(): void {
-    let res = this.propSvc.getLocalProp()
+    this.resSub$ = this.store.select(selectFaqs).subscribe( res =>{
 
-      this.questions= res.faqs
+      console.log(res)
+      this.questions = res
+    }
+    )
     
+  }
+  ngOnDestroy(): void {
+      this.resSub$.unsubscribe()
   }
 
   open(index:number|undefined){

@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common'
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
+import { AppState } from 'src/app/core/store/app.reducer';
+import { Store } from '@ngrx/store';
+import { selectAllPropuesta } from 'src/app/core/store/selectors/prices.selector';
 
 @Component({
   selector: 'app-navbar-mobile',
@@ -10,9 +13,9 @@ import { PropuestaService } from 'src/app/core/services/propuesta.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarMobileComponent implements OnInit {
-  propSub$!:Subscription
+  propSub$!: Subscription
 
-  public routes=[
+  public routes = [
     {
       name: "Precios",
       route: "prices"
@@ -33,73 +36,74 @@ export class NavbarMobileComponent implements OnInit {
       name: "Proyectos",
       route: "projects"
     },
-  
+
   ]
-  
+
   @Input() title!: any;
   @Input() subtitle!: any;
   showMenu = false
   showMenuDots = true
 
-  openClose(){
-    this.showMenu=!this.showMenu 
-    this.showMenuDots=!this.showMenuDots
+  openClose() {
+    this.showMenu = !this.showMenu
+    this.showMenuDots = !this.showMenuDots
   }
 
-  
 
-  goBack(){
-    this.location.back();
-  }
 
-  constructor(private location:Location, private router:Router, private propSvc:PropuestaService) { }
+  goBack() {
+    const activatedRoute = this.activatedRoute;
+    const currentURL = window.location.href;
 
-  redirectTo(ruta:string){
-    let nuevaruta = localStorage.getItem('empresa_url')
-    
-    if(ruta == '/'){
-      if(nuevaruta)
-      this.router.navigateByUrl(nuevaruta);
-    }else{
-      if(nuevaruta)
-      this.router.navigateByUrl(nuevaruta+'/'+ruta)
-      .then(() => {
-        window.location.reload();
-       
-      });  
-    }
-  }
-  
-  ngOnInit(): void {
-    this.propSub$ = this.propSvc.getPropuesta()
-    .subscribe(res=>{
-   
-      if(res.services.length==0){
-        this.routes =[
-          {
-            name: "Precios",
-            route: "prices",
-            
-          },
-          {
-            name: "Información",
-            route: "info",
-         
-          },
-          {
-            name: "Metodología de trabajo",
-            route: "methodology",
-          
-          },
-          {
-            name: "Proyectos",
-            route: "projects",
-      
-          },
-        
-        ]
+    const urlSegments = currentURL.split('/');
+
+    // Find and extract the desired segment
+    let desiredSegment = '';
+
+    for (const segment of urlSegments) {
+      if (segment.includes('_')) {
+        desiredSegment = segment;
+        break;
       }
-    })
+    }
+    this.router.navigate(['/', desiredSegment])
+    // Now you can use activatedRoute to navigate to the previous route
+  }
+
+  constructor(private location: Location, private router: Router, private activatedRoute: ActivatedRoute, private store: Store<AppState>) { }
+
+
+
+  ngOnInit(): void {
+    this.propSub$ = this.store.select(selectAllPropuesta)
+      .subscribe(res => {
+
+        if (res.services.length == 0) {
+          this.routes = [
+            {
+              name: "Precios",
+              route: "prices",
+
+            },
+            {
+              name: "Información",
+              route: "info",
+
+            },
+            {
+              name: "Metodología de trabajo",
+              route: "methodology",
+
+            },
+            {
+              name: "Proyectos",
+              route: "projects",
+
+            },
+
+          ]
+        }
+      })
   }
 
   ngOnDestroy(): void {
