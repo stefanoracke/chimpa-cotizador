@@ -59,3 +59,8 @@ export const selectAllPropuesta = createSelector(
     selectPrices,
     (state) => state.propuestaTotal
 )
+
+export const selectLoading = createSelector(
+    selectPrices,
+    (state)=> state.loading
+)

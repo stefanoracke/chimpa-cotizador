@@ -3,34 +3,37 @@
 
 <div class="up py-5 bg-blue relative">
   <img src="assets/img/selva.png" class="absolute bottom-0 right-0" alt="">
- <div class="container">
-   
-   <div class="align-items-center d-flex gap-3 title">
-     <img src="assets/svg/Flecha amarilla.svg" class="flecha" alt="">
-     <h1 class="text-white">{{title}}</h1>
-  
-   </div>
- </div>
-  <div class="container d-flex align-items-center flex-column justify-content-center">
-    <div class="white_boxes ">
-      <ul class="menu ">
-        <li class="clickeable" [ngClass]="{'active':n==0}" (click)="n=0">Propuesta</li>
-        <li class="clickeable" [ngClass]="{'active':n==1}" (click)="n=1">Funcionalidades</li>
-        <li class="clickeable" [ngClass]="{'active':n==2}" (click)="n=2">Características</li>
-      </ul>
+  <section class="container flex flex-col items-center justify-center">
 
-      <div class="content mt-4">
-        <!-- <h5 class="text-white">{{funcionalidades[n]?.title}}</h5> -->
-        <ul class="list_description">
-          <li *ngFor="let item of funcionalidades[n]?.list">
-            <div class="d-flex">
-
-              <span>-</span>
-              <div [innerHTML]="item"></div>
-            </div>
-            </li>
-        </ul>
+    <div class="py-4 w-full">
+      
+      <div class="align-items-center d-flex gap-3 title">
+        <img src="assets/svg/Flecha amarilla.svg" class="flecha" alt="">
+        <h1 class="text-white">{{title}}</h1>
+     
       </div>
     </div>
-  </div>
+     <div class=" max-w-[1100px] w-full d-flex align-items-center flex-column justify-content-center">
+       <div class="white_boxes ">
+         <ul class="menu ">
+           <li class="clickeable" [ngClass]="{'active':n==0}" (click)="n=0">Propuesta</li>
+           <li class="clickeable" [ngClass]="{'active':n==1}" (click)="n=1">Funcionalidades</li>
+           <li class="clickeable" [ngClass]="{'active':n==2}" (click)="n=2">Características</li>
+         </ul>
+   
+         <div class="content mt-4">
+           <!-- <h5 class="text-white">{{funcionalidades[n]?.title}}</h5> -->
+           <ul class="list_description">
+             <li *ngFor="let item of funcionalidades[n]?.list">
+               <div class="d-flex">
+   
+                 <span>-</span>
+                 <div [innerHTML]="item"></div>
+               </div>
+               </li>
+           </ul>
+         </div>
+       </div>
+     </div>
+  </section>
 </div>

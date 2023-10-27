@@ -59,7 +59,7 @@ export class PricesComponent implements OnInit, OnDestroy {
       this.time = this.timeLeftSeconds > 0;
 
     },error=>{
-      this.store.dispatch(cargarDatos())
+      this.store.dispatch(cargarDatos({loading:true}))
     }
     )
   }

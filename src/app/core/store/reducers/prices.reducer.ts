@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { actionAumentarPropuesta, actionClientes, actionIncluidos, actionNoIncluidos, actionOpciones, actionPropsGlobals, actionPropuestaTotal, actionRegion, actionsFaqs, addAmpliar, cargarDatos, quuitarAmpliar, setActual, setActualPrice } from "../actions/prices.action";
+import { actionAumentarPropuesta, actionClientes, actionIncluidos, actionNoIncluidos, actionOpciones, actionPropsGlobals, actionPropuestaTotal, actionRegion, actionsFaqs, addAmpliar, cargarDatos, loadedDatos, quuitarAmpliar, setActual, setActualPrice } from "../actions/prices.action";
 
 
 export interface StatePrices {
@@ -15,9 +15,11 @@ export interface StatePrices {
     added_service: any[]
     actual:number,
     actualPrice?:any
+    loading:boolean
 } 
 
 const initialState:StatePrices = {
+    loading:true,
     aumentarPropuesta:undefined,
     opciones:undefined,
     propsPropeusta:undefined,
@@ -31,7 +33,8 @@ const initialState:StatePrices = {
 
 export const pricesReducer = createReducer(
     initialState,
-    on(cargarDatos, (state) => ({ ...state })),
+    on(cargarDatos, (state, {loading}) => ({ ...state, loading })),
+    on(loadedDatos, (state, {loading}) => ({ ...state, loading })),
     on(actionAumentarPropuesta, (state, { aumentarPropuesta }) => ({ ...state, aumentarPropuesta })),
     on(actionOpciones, (state, { opciones }) => ({ ...state, opciones })),
     on(actionPropsGlobals, (state, { propsPropeusta }) => ({ ...state, propsPropeusta })),

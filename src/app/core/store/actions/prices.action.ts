@@ -3,8 +3,14 @@ import { createAction, props } from "@ngrx/store";
 // action action
 export const loadPrices = createAction('[Prices]  Load');
 
+export const loadedDatos = createAction('[Datos] Carga finalizada',
 
-export const cargarDatos = createAction('[Datos] Triggeando Acciones')
+props<{loading:boolean}>()
+)
+export const cargarDatos = createAction('[Datos] Triggeando Acciones',
+
+props<{loading:boolean}>()
+)
 
 export const actionAumentarPropuesta = createAction('[Prices] Aumentar Propuesta array',
     props<{ aumentarPropuesta: Array<any> }>())

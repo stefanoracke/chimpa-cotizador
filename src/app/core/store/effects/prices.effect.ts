@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { actionAumentarPropuesta, actionClientes, actionErrir, actionIncluidos, actionNoIncluidos, actionOpciones, actionPropuestaTotal, actionRegion, actionsFaqs, addAmpliar, cargarDatos, setActual, setActualPrice } from "../actions/prices.action";
+import { actionAumentarPropuesta, actionClientes, actionErrir, actionIncluidos, actionNoIncluidos, actionOpciones, actionPropuestaTotal, actionRegion, actionsFaqs, addAmpliar, cargarDatos, loadedDatos, setActual, setActualPrice } from "../actions/prices.action";
 import { Subscription, catchError, map, mergeMap, of, switchMap, tap } from "rxjs";
 import { PropuestaService } from "../../services/propuesta.service";
 import { selectAdded, selectOptions, selectactalPrice } from "../selectors/prices.selector";
@@ -38,12 +38,14 @@ export class PricesEffect{
                     price: data.price,
                     prop_price: data.price
                   }
-                })
+                }),
+                loadedDatos({loading:false})
               ]), 
               catchError((err:any)=>{
                 console.log('An error has occurred', err)
                 return of(actionErrir())
-              })
+              }),
+              
             )
           
           )

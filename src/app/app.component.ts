@@ -4,6 +4,7 @@ import { PropuestaService } from './core/services/propuesta.service';
 import { Store } from '@ngrx/store';
 import { AppState } from './core/store/app.reducer';
 import { cargarDatos } from './core/store/actions/prices.action';
+import { selectLoading } from './core/store/selectors/prices.selector';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { cargarDatos } from './core/store/actions/prices.action';
 export class AppComponent implements OnInit {
   title = 'chimpa-app';
   pc = true
+  loading = true
 
   constructor(private router: Router, private store: Store<AppState>) { }
 
@@ -38,8 +40,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getRoute()
-    this.store.dispatch(cargarDatos())
-    
+    this.store.dispatch(cargarDatos({loading:true}))
+    this.store.select(selectLoading).subscribe((res)=>this.loading= res)
     if(window.innerWidth<1000){
       this.pc=false
     }

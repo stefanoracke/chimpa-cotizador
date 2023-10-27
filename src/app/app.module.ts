@@ -21,6 +21,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './core/store/app.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { EffectsArray } from './core/store/effects';
+import { SharedModule } from './features/shared/shared.module';
 
 
 // Note we need a separate function as it's required
@@ -35,7 +36,7 @@ export function playerFactory() {
 @NgModule({
   declarations: [
     AppComponent,
-   
+
 
   ],
   imports: [
@@ -46,10 +47,11 @@ export function playerFactory() {
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
     DragScrollModule,
-
+    SharedModule,
     StoreModule.forRoot(appReducers),
     EffectsModule.forRoot(EffectsArray),
-   
+    // Instrumentation must be imported after importing StoreModule (config is optional)
+
 
   ],
   providers: [],

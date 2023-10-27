@@ -43,7 +43,7 @@ subs!:Subscription
     this.getNavigation()
     
        this.subs = this.store.select(selectAllPropuesta).subscribe(res=>{
-
+        console.log(res)
          this.estructura=res?.features_type[2].content.map((resp:any) => resp.description)
          this.funcionalidades = res?.features_type[3].content.map((resp:any) => resp.description)
          this.list =  res?.features_type[0].content.map((resp:any) => resp.description)

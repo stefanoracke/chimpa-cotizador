@@ -178,15 +178,28 @@ p{
     display: none;
 }
 
+.accordion_content ol li:before{
+    content: '-';
+    font-size: 24px;
+    font-weight: bold;
+    color:#FDDB00;
+    left: 10px;
+    position: absolute;
+}
+.accordion_content ul li:before{
+    content: '-';
+    font-size: 24px;
+    font-weight: bold;
+    color:#FDDB00;
+    left: 10px;
+    position: absolute;
+}
 .accordion_content ul{
-    list-style: disc !important ;
+margin:0;
+position:relative
 }
 
 .accordion_content ol{
-    list-style-type: upper-roman !important;
     margin: 0;
-}
-.accordion_content ol li{
-    list-style-type: upper-roman;
-    padding: 0;
+    position:relative
 }
