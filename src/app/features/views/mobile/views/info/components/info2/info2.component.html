@@ -1,21 +1,24 @@
-<div class="d-flex align-items-center gap-3">
-    <div class="celeste_circle">
-        <img class="incluid_img" src="./../../../../../../../../assets/svg/check.svg" alt="">
+<article data-aos="zoom-in" data-aos-duration="800">
+
+    <div class="d-flex align-items-center gap-3">
+        <div class="celeste_circle">
+            <img class="incluid_img" src="./../../../../../../../../assets/svg/check.svg" alt="">
+        </div>
+        <h3>Servicios Incluidos</h3>
     </div>
-    <h3>Servicios Incluidos</h3>
-</div>
-
-<div class="mt-3 white_boxes specific_padding">
-    <app-list [list]="list_incluidos"></app-list>
-</div>
-
-<div class="d-flex align-items-center mt-3 gap-3">
-    <div class="celeste_circle">
-        <img class="noincluid" src="./../../../../../../../../assets/svg/no_incluido.svg" alt="">
+    
+    <div class="mt-3 white_boxes specific_padding">
+        <app-list [list]="list_incluidos"></app-list>
     </div>
-    <h3>Servicios No Incluidos</h3>
-</div>
-
-<div class="mt-3 white_boxes specific_padding">
-    <app-list [list]="list" [color]="color"></app-list>
-</div>
+    
+    <div class="d-flex align-items-center mt-3 gap-3">
+        <div class="celeste_circle">
+            <img class="noincluid" src="./../../../../../../../../assets/svg/no_incluido.svg" alt="">
+        </div>
+        <h3>Servicios No Incluidos</h3>
+    </div>
+    
+    <div class="mt-3 white_boxes specific_padding">
+        <app-list [list]="list" [color]="color"></app-list>
+    </div>
+</article>

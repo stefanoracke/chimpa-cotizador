@@ -1,7 +1,7 @@
 <!-- Background -->
 
 
-<div class="up py-5 bg-blue relative">
+<div class="up py-5 bg-blue relative" data-aos="fade-left">
   <img src="assets/img/selva.png" class="absolute bottom-0 right-0" alt="">
   <section class="container flex flex-col items-center justify-center">
 
@@ -24,7 +24,7 @@
          <div class="content mt-4">
            <!-- <h5 class="text-white">{{funcionalidades[n]?.title}}</h5> -->
            <ul class="list_description">
-             <li *ngFor="let item of funcionalidades[n]?.list">
+             <li  data-aos="fade-left" data-aos-duration="800"  [attr.data-aos-delay]="200 * (index + 1)" *ngFor="let item of funcionalidades[n]?.list; let index = index">
                <div class="d-flex">
    
                  <span>-</span>

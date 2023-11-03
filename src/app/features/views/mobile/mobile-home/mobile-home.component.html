@@ -14,9 +14,9 @@
                 <h2 class="name-company">{{nameEmpresa}}</h2>
                 <h2 class="title-web">{{namePropuesta}}</h2>
             </div>
-            <div class="list-route text-center">
+            <div  class="list-route text-center">
                 <ul>
-                    <li *ngFor="let item of routes" [routerLink]="[item.route]"><a>{{item.name}}</a></li>
+                    <li *ngFor="let item of routes; let index = index" data-aos="fade-left" data-aos-duration="800"  [attr.data-aos-delay]="200 * (index + 1)" [routerLink]="[item.route]"><a>{{item.name}}</a></li>
                 </ul>
             </div>
         </div>

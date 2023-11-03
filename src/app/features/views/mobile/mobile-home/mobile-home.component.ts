@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
 import { cargarDatos } from 'src/app/core/store/actions/prices.action';
 import { AppState } from 'src/app/core/store/app.reducer';
-import { selectAllPropuesta } from 'src/app/core/store/selectors/prices.selector';
+import { selectAllPropuesta, selectLoading } from 'src/app/core/store/selectors/prices.selector';
 
 @Component({
   selector: 'app-mobile-home',
@@ -17,6 +17,7 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
 
   constructor(private router: Router, private store: Store<AppState>) { }
   propSub$!: Subscription
+  isLoading$!:Observable<any>
   public routes = [
     {
       name: "Precios",
@@ -69,7 +70,7 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-
+    this.isLoading$= this.store.select(selectLoading)
     if (window.innerWidth < 1000) {
       this.pc = false
     }

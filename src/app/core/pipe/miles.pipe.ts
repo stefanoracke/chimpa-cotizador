@@ -20,7 +20,7 @@ export class MilesPipe implements PipeTransform {
      if(precio){
 
        if(region_id!=1){
-        return formato(precio)
+        return formato(Number(precio).toFixed(0))
        }else{
         return formato(precio.toFixed(0))
        }

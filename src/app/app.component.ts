@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from './core/store/app.reducer';
 import { cargarDatos } from './core/store/actions/prices.action';
 import { selectLoading } from './core/store/selectors/prices.selector';
+import * as AOS from 'aos'
 
 @Component({
   selector: 'app-root',
@@ -34,11 +35,10 @@ export class AppComponent implements OnInit {
     const empresa = newParts2[newParts2.length - 2]; // "Puro-SRL"
     const proyecto = newParts2[newParts2.length - 1]; // "One-Page"
 
-    console.log("empresa:", empresa);
-    console.log("proyecto:", proyecto);
   }
 
   ngOnInit() {
+    AOS.init();
     this.getRoute()
     this.store.dispatch(cargarDatos({loading:true}))
     this.store.select(selectLoading).subscribe((res)=>this.loading= res)

@@ -1,11 +1,11 @@
-<article class="card relative z-10">
+<article class="card relative z-40">
   <div class="container">
     <h3>Propuesta <br>{{propuesta?.title}}</h3>
     <ng-container *ngIf="opcionesOb$ | async as opciones">
-      <div class="flex gap-2 pt-2">
+      <div *ngIf="opciones.length>1" class="flex gap-2 pt-2">
         <span *ngFor="opcion of opciones, let index = index" (click)="changeActual(index)"
           class="cursor-pointer px-2 opciones hover:opacity-60" [ngClass]="{active : index ==actual}">Opcion {{index
-          +1}}</span>
+          +1}} </span>
       </div>
     </ng-container>
     <hr class="m-0">
@@ -36,7 +36,7 @@
       <ng-container>
         <div *ngIf="added.length > 0">
 
-          <div *ngFor="let item of added" class="pt-4 flex items-center justify-between">
+          <div *ngFor="let item of added" class="pt-4 relative z-20 flex items-center justify-between">
             <p>Adicional: {{item.name}}</p>
             <div class="flex items-center gap-2">
               <p>{{item.price |optionals:region.solidarity_usd:region.id}}</p>

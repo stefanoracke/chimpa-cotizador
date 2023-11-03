@@ -6,7 +6,7 @@
 
         <div class="grid grid-cols-3 gap-4  w-full" *ngIf="options$ | async as opciones">
             <div class="flex relative pb-[60px] col-span-1 flex-col w-full h-full border-lightBlue rounded p-6 relative"
-                [ngClass]="{'bg-darkblue' : index == actual}" *ngFor="let item of opciones, let index = index">
+                [ngClass]="{'bg-darkblue' : index == actual}" data-aos="fade-left" data-aos-duration="800"  [attr.data-aos-delay]="200 * (index + 1)" *ngFor="let item of opciones, let index = index">
                 <span
                     class="absolute top-0 bg-secondary2 py-2 px-4 right-[10px] transform translate-y-[-50%] rounded text-sm"
                     *ngIf="index==actual">Actual</span>

@@ -7,7 +7,9 @@
                     <h1 class="text-white">Hola <span class="text-yellow">{{nameempresa}}</span></h1>
 
                 </div>
-                <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
+                <div  data-aos="fade-left" data-aos-duration="600">
+                    <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
+                </div>
             </div>
             <div class="col-md-6  prices-container cohete ">
                 <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
@@ -16,11 +18,11 @@
         </div>
         
     </div>
-    <div class="pt-[150px]">
+    <div class="pt-[150px]" data-aos="fade-left" data-aos-duration="600">
         <h2 class="text-white text-[42px] fw-medium text-center">Ampliar propuesta</h2>
     </div>
 </div>
-<div class="container pt-5 text-white">
+<div class="container pt-5 text-white" data-aos="fade-left" data-aos-duration="600">
     <app-ampliar-propuesta></app-ampliar-propuesta>
 
 </div>
