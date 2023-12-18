@@ -86,7 +86,7 @@
         <span 
         *ngIf="region.id==1"
          style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
-        USD {{propuesta.price | milespipe: 2}}
+        USD {{precio_modificado / region.solidarity_usd | milespipe: 2}}
         </span>
       </div>
 
