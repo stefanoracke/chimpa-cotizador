@@ -61,7 +61,6 @@ export class TimerComponent implements OnInit {
   ngOnInit(): void {
     this.propService.getPropuesta().subscribe((res) => {
       this.propuesta=res
-      console.log(res.promotions[0].updated_at)
       if(res.promotions[0].updated_at){
 
         let fecha = Date.parse(res.promotions[0].updated_at) 

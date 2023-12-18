@@ -29,16 +29,13 @@ export class AmpliarPropuestaComponent implements OnInit, OnDestroy{
         return accumulator;
       }, 0);
       const allPrice = totalPrice + Number(newPrecio.prop_price)
-      console.log(allPrice)
       this.store.dispatch(setActualPrice({actualPrice:{...newPrecio, price:allPrice}}))
   }
 
   dispatchAction(ev:any){
-    console.log(this.added.includes(ev))
     if (this.added.includes(ev)) {
       // Item exists in the array, so remove it
       this.added = this.added.filter((item:any) => item !== ev);
-      console.log(this.added)
       this.store.dispatch(quuitarAmpliar({ added_service: this.added })); // Dispatch action to update the store
       this.changePrice()
     } else {

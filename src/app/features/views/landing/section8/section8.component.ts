@@ -39,7 +39,7 @@ export class Section8Component implements OnInit, OnDestroy {
     )
   }
   ngOnDestroy(): void {
-    this.methSub$.unsubscribe()
+    this.methSub$?.unsubscribe()
   }
 
 }

@@ -43,6 +43,10 @@ export class PropuestaService {
     return this.http.get<any>(environment.api + `empresa=${empresa}&proyecto=${proyecto}`)
   }
 
+  getDolars():Observable<any>{
+    return this.http.get<any>('https://dolarapi.com/v1/dolares/oficial')
+  }
+
   getFaqs(): Observable<any> {
     return this.http.get<any>('https://cotizador.devtesting.gq/api/api/Faqs')
   }

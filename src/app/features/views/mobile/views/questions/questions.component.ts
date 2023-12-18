@@ -24,14 +24,13 @@ export class QuestionsComponent implements OnInit,OnDestroy {
   ngOnInit(): void {
     this.resSub$ = this.store.select(selectFaqs).subscribe( res =>{
 
-      console.log(res)
       this.questions = res
     }
     )
     
   }
   ngOnDestroy(): void {
-      this.resSub$.unsubscribe()
+      this.resSub$?.unsubscribe()
   }
 
   open(index:number|undefined){

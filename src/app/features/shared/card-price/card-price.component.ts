@@ -61,12 +61,12 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   region$?: Subscription
   region: any
   added: any
-  opcionesOb$!:Observable<any>
+  opcionesOb$!: Observable<any>
   opciones$?: Subscription
   opciones: any
   actual$?: Subscription
   actualPrice$?: Subscription
-  actualPriceOb$!:Observable<any>
+  actualPriceOb$!: Observable<any>
   actualPrice: any
   propestaTotal$?: Subscription
 
@@ -138,7 +138,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   precios: any;
   actual!: number
 
-  
+
   formato = (number: any) => {
     const exp = /(\d)(?=(\d{3})+(?!\d))/g;
     const rep = '$1,';
@@ -155,7 +155,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
 
   showFin(i: number) {
     this.show = i;
-    let element = this.actualPrice.payment_types.find((res:any) => i === res.id);
+    let element = this.actualPrice.payment_types.find((res: any) => i === res.id);
 
     if (element?.share) {
       this.tasa = undefined;
@@ -178,36 +178,34 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       this.precio_muestra = (this.precio * x) / 100;
     }
   }
-  changePriceInclude(){
+  changePriceInclude() {
     let newPrecio = this.actualPrice
-      const totalPrice = this.added.reduce((accumulator:any, currentObject:any) => {
-        if (currentObject.price !== undefined) {
-          return Number(accumulator) + Number(currentObject.price);
-        }
-        return accumulator;
-      }, 0);
-      const allPrice = totalPrice + Number(newPrecio.prop_price)
-      console.log(allPrice)
-      this.store.dispatch(setActualPrice({actualPrice:{...newPrecio, price:allPrice}}))
+    const totalPrice = this.added.reduce((accumulator: any, currentObject: any) => {
+      if (currentObject.price !== undefined) {
+        return Number(accumulator) + Number(currentObject.price);
+      }
+      return accumulator;
+    }, 0);
+    const allPrice = totalPrice + Number(newPrecio.prop_price)
+    this.store.dispatch(setActualPrice({ actualPrice: { ...newPrecio, price: allPrice } }))
   }
 
-  changePrice(newPrice:any){
-    let newPrecio = {...newPrice,prop_price:newPrice.price}
-      const totalPrice = this.added.reduce((accumulator:any, currentObject:any) => {
-        if (currentObject.price !== undefined) {
-          return Number(accumulator) + Number(currentObject.price);
-        }
-        return accumulator;
-      }, 0);
-      const allPrice = totalPrice + Number(newPrecio.prop_price)
-      console.log(allPrice)
-      this.store.dispatch(setActualPrice({actualPrice:{...newPrecio, price:allPrice}}))
+  changePrice(newPrice: any) {
+    let newPrecio = { ...newPrice, prop_price: newPrice.price }
+    const totalPrice = this.added.reduce((accumulator: any, currentObject: any) => {
+      if (currentObject.price !== undefined) {
+        return Number(accumulator) + Number(currentObject.price);
+      }
+      return accumulator;
+    }, 0);
+    const allPrice = totalPrice + Number(newPrecio.prop_price)
+    this.store.dispatch(setActualPrice({ actualPrice: { ...newPrecio, price: allPrice } }))
   }
 
   changeActual(index: number) {
     this.store.dispatch(setActual({ actual: index }))
     this.changePrice(this.opciones[index])
-    
+
   }
 
   changeActualPrice(res: any) {
@@ -229,12 +227,15 @@ export class CardPriceComponent implements OnInit, OnDestroy {
     this.opcionesOb$ = this.store.select(selectOptions)
     this.opciones$ = this.store.select(selectOptions).subscribe(res => this.opciones = res)
     this.actual$ = this.store.select(selectActual).subscribe(res => this.actual = res)
-    this.region$ = this.store.select(selectRegion).subscribe(res => this.region = res)
-    this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res => {
-      this.changeActualPrice(res)
-      this.actualPrice = res
-    }
-    )
+    this.region$ = this.store.select(selectRegion).subscribe(res => {
+       this.region = res 
+       console.log('region', res)
+       this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res => {
+         this.changeActualPrice(res)
+         this.actualPrice = res
+       }
+       )
+    })
     this.propestaTotal$ = this.store.select(selectAllPropuesta).subscribe(res => this.propuesta = res)
     this.actualPriceOb$ = this.store.select(selectactalPrice)
 
@@ -332,7 +333,6 @@ export class DownloadComponent implements OnInit, OnChanges {
           case 5:
             // Servicios no incluidos
             this.object.notInclude_svc.push(element);
-            console.log(this.object)
             break;
           default:
             break;

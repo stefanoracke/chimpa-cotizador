@@ -31,10 +31,10 @@ export class Price1Component implements OnInit, OnDestroy {
     this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res=>this.actualPrice = res)
   }
   ngOnDestroy(): void {
-    this.actual$.unsubscribe()
-    this.actualPrice$.unsubscribe()
-    this.region$.unsubscribe()
-    this.added$.unsubscribe()
+    this.actual$?.unsubscribe()
+    this.actualPrice$?.unsubscribe()
+    this.region$?.unsubscribe()
+    this.added$?.unsubscribe()
   }
 
 }

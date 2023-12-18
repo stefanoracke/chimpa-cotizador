@@ -62,7 +62,7 @@ export class Section3Component implements OnInit, OnDestroy {
    
   }
   ngOnDestroy(): void {
-      this.subs$.unsubscribe()
+      this.subs$?.unsubscribe()
   }
 
 }

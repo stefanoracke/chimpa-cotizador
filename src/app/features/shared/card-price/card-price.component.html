@@ -82,6 +82,13 @@
           <span class="iva" *ngIf="region.id==1">+IVA</span>
         </h3>
       </div>
+      <div class="w-100 d-flex justify-content-end">
+        <span 
+        *ngIf="region.id==1"
+         style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
+        USD {{propuesta.price | milespipe: 2}}
+        </span>
+      </div>
 
 
       <hr class="mt-2">
@@ -110,7 +117,7 @@
   <button class="btn-lightblue " role="button" (click)="showModal()">
     <img src="assets/svg/share.svg" alt="" srcset="">
   </button>
-  <a (click)="scrollTo('comparar')" target="_blank" class="btn btn-yellow d-none d-lg-flex justify-center w-100">
+  <a *ngIf="opciones.length>1" (click)="scrollTo('comparar')" target="_blank" class="btn btn-yellow d-none d-lg-flex justify-center w-100">
     Comparar opciones
 
   </a>

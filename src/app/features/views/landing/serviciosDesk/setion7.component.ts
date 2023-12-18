@@ -30,9 +30,9 @@ export class Setion7Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.actual$.unsubscribe()
-    this.actualPrice$.unsubscribe()
-    this.added$.unsubscribe()
+    this.actual$?.unsubscribe()
+    this.actualPrice$?.unsubscribe()
+    this.added$?.unsubscribe()
   }
 
 

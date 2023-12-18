@@ -96,7 +96,7 @@ export class Section1Component implements OnInit, OnDestroy {
 
   }
   ngOnDestroy() {
-    this.sub$.unsubscribe()
+    this.sub$?.unsubscribe()
   }
   private updatePageTitle(title: string): void {
     this.titleService.setTitle(title);

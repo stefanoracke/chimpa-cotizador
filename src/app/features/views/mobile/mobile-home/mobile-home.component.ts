@@ -79,7 +79,6 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
         localStorage.setItem('propuesta', JSON.stringify(res))
         this.nameEmpresa = res.clients.business_name
         this.namePropuesta = res.title
-        console.log(res)
         this.prices = res.prices.length
         this.services = res.services.length
         let fecha = Date.parse(res.promotions[0]?.updated_at)
@@ -98,7 +97,7 @@ export class MobileHomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.propSub$.unsubscribe()
+    this.propSub$?.unsubscribe()
   }
 
 }

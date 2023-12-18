@@ -30,7 +30,7 @@ export class FooterMobileComponent implements OnInit, OnDestroy {
     this.id = desiredSegment
   }
   ngOnDestroy(): void {
-    this.routeSus$.unsubscribe()
+    this.routeSus$?.unsubscribe()
   }
   redirectTo(ruta: string) {
 

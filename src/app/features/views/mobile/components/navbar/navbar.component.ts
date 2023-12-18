@@ -107,6 +107,6 @@ export class NavbarMobileComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.propSub$.unsubscribe()
+    this.propSub$?.unsubscribe()
   }
 }

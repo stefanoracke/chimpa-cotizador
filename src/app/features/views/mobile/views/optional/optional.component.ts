@@ -49,7 +49,6 @@ propuesta!:any
 
   ngOnInit(): void {
     let res = this.propSvc.getLocalProp()
-      console.log(res)
       this.propuesta = res
       this.cards = res.services
       this.paquetes = res.prices

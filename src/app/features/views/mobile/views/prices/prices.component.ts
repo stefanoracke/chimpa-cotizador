@@ -26,7 +26,6 @@ export class PricesComponent implements OnInit, OnDestroy {
   height = 0 
   click = false
   accordionClick() {
-    console.log('click')
     this.click = !this.click
     if (this.height == 0) {
       this.height = this.accordion.nativeElement.scrollHeight
@@ -64,7 +63,7 @@ export class PricesComponent implements OnInit, OnDestroy {
     )
   }
   ngOnDestroy(): void {
-    this.subs$.unsubscribe()
+    this.subs$?.unsubscribe()
   }
 
 
