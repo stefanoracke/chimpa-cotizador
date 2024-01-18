@@ -27,7 +27,6 @@ import { AccordionComboComponent } from './accordion-combo/accordion.component';
   declarations: [
     ListComponent,
     DownloadComponent,
-    
     CardPriceComponent,
     TimerComponent,
     NavbarpcComponent,

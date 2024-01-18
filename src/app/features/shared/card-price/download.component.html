@@ -74,7 +74,7 @@
       <div *ngIf="object?.functionality" class="funcionalidades">
         <h4 style="color: #01253B;  margin-top: 20px;">Funcionalidades:</h4>
         <ul>
-          <li *ngFor="let item of object?.functionality">{{item.description}}</li>
+          <li *ngFor="let item of object?.functionality" [innerHTML]="item.description"></li>
         </ul>
       </div>
       
@@ -94,14 +94,14 @@
       <div *ngIf="object?.include_svc" class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Servicios Incluidos:</h4>
         <ul>
-          <li *ngFor="let item of object?.include_svc">{{item.description}}</li>
+          <li *ngFor="let item of object?.include_svc" [innerHTML]="item.description"></li>
         </ul>
       </div>
     
       <div *ngIf="object?.notInclude_svc" class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Servicios No Incluidos:</h4>
         <ul>
-          <li *ngFor="let item of object?.notInclude_svc">{{item.description}}</li>
+          <li *ngFor="let item of object?.notInclude_svc" [innerHTML]="item.description"></li>
         </ul>
       </div>
     
@@ -137,7 +137,6 @@
             <br>
             <br>
             <p [innerHTML]="item.description" style="font-size: 13px;">
-              
             </p>
           </li>
         </ul>

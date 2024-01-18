@@ -1,6 +1,10 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { PropuestaService } from 'src/app/core/services/propuesta.service';
+import { AppState } from 'src/app/core/store/app.reducer';
+import { selectAllPropuesta, selectRegion, selectactalPrice } from 'src/app/core/store/selectors/prices.selector';
 
 export interface PromotionI {
   created_at: Date;
@@ -17,7 +21,7 @@ export interface PromotionI {
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.scss'],
 })
-export class TimerComponent implements OnInit {
+export class TimerComponent implements OnInit, OnDestroy {
   currentDate: any;
   date: Date = new Date();
 	precio!:number;
@@ -29,8 +33,11 @@ export class TimerComponent implements OnInit {
     seconds: '',
   };
   propuesta:any
-
-  constructor(private propService: PropuestaService) {
+  actualPrice$!:Subscription
+  apiCall!:Subscription
+  constructor(
+    private propService: PropuestaService, private store:Store<AppState>
+    ) {
     this.countDown();
   }
 
@@ -59,26 +66,34 @@ export class TimerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.propService.getPropuesta().subscribe((res) => {
+    
+    this.apiCall = this.store.select(selectAllPropuesta).subscribe((res) => {
       this.propuesta=res
       if(res.promotions[0].updated_at){
-
         let fecha = Date.parse(res.promotions[0].updated_at) 
         let evento = fecha + res.promotions[0]?.time_duration*1000 * 60 * 60   - this.date.getTime()
         this.timeLeftSeconds = Math.floor(((evento) ) / 1000);
-    
-    
-        if(res.clients.regions_id == 1){
-            let solidary_usd = res.solidarity_usd
-            this.precio=res.price*solidary_usd - (res.price*solidary_usd * (res.promotions[0].descont/100))
-            
-          }else{
-    
-            this.precio=res.price - (res.price * (res.promotions[0].descont/100))
-            
-          }
       }
-	  
     });
+    this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res => {
+      console.log('actual price',res)
+      this.store.select(selectRegion).subscribe(region=>{
+        console.log('region: ',region)
+        const descont = this.propuesta.promotions[0].descont/100
+        if(region.id == 1 && descont){
+          let solidary_usd = region.solidarity_usd
+          const precioActualArs=res.price*solidary_usd 
+          this.precio= precioActualArs- (precioActualArs * descont)
+        }else{
+          this.precio=res.price - (res.price * descont)
+        }
+      })
+      
+    }
+    )
+  }
+  ngOnDestroy(): void {
+      this.actualPrice$?.unsubscribe()
+      this.apiCall?.unsubscribe()
   }
 }
