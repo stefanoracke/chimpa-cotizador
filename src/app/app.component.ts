@@ -57,7 +57,6 @@ export class AppComponent implements OnInit, OnDestroy {
         this.apiRest.getDolars()
         .subscribe(dolar=>{
           this.store.dispatch(actionRegion({region: {...region,solidarity_usd:dolar.venta * 1.65}}))
-          console.log(dolar.venta * 1.65)
         })
         
       }
@@ -65,12 +64,12 @@ export class AppComponent implements OnInit, OnDestroy {
     this._allPr = this.store.select(selectAllPropuesta).subscribe((all)=>{
       if(this.subs2 && all){
         this.subs2 = false
-        console.log(all)
         this.apiRest.getDolars()
         .subscribe(dolar=>{
           this.store.dispatch(
-            actionPropuestaTotal({propuestaTotal:{...all,solidarity_usd:dolar.venta*1.65}}))
-            console.log('nueva', {...all,solidarity_usd:dolar.venta*1.65})
+            // antes se estaba usando el dolar solidario ahora se usa el dolar tarjeta
+            actionPropuestaTotal({propuestaTotal:{...all,solidarity_usd:dolar.venta}}))
+            console.log('nueva', {...all,solidarity_usd:dolar.venta})
         })
       }
     })
