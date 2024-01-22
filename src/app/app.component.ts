@@ -56,7 +56,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this.subs1 = false
         this.apiRest.getDolars()
         .subscribe(dolar=>{
-          this.store.dispatch(actionRegion({region: {...region,solidarity_usd:dolar.venta * 1.65}}))
+          this.store.dispatch(actionRegion({region: {...region,solidarity_usd:dolar.venta}}))
         })
         
       }
