@@ -23,7 +23,14 @@ export class PricesEffect{
             .pipe(
               mergeMap((data) => [
                 actionAumentarPropuesta({ aumentarPropuesta: data.services }),
-                actionOpciones({ opciones: [{name: data.title_option, description: data.description_option, payment_types:data.payment_types, price: data.price},...data.prices] }),
+                actionOpciones({ opciones: 
+                  [
+                    { 
+                      name: data.title_option, description: data.description_option, payment_types:data.payment_types,
+                      price: data.price,
+                      time_lapse : data.time_lapse
+                    },
+                    ...data.prices] }),
                 actionPropuestaTotal({ propuestaTotal: data }),
                 actionClientes({ client: data.clients }),
                 actionsFaqs({faqs: data.faqs}),
@@ -36,7 +43,8 @@ export class PricesEffect{
                     description: data.description_option, 
                     payment_types:data.payment_types, 
                     price: data.price,
-                    prop_price: data.price
+                    prop_price: data.price,
+                    time_lapse: data.time_lapse
                   }
                 }),
                 loadedDatos({loading:false})

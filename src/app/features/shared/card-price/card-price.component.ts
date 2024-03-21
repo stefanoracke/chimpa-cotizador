@@ -225,16 +225,19 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.added$ = this.store.select(selectAdded).subscribe(res => this.added = res)
     this.opcionesOb$ = this.store.select(selectOptions)
-    this.opciones$ = this.store.select(selectOptions).subscribe(res => this.opciones = res)
+    this.opciones$ = this.store.select(selectOptions).subscribe(res => {
+      this.opciones = res
+      console.log('opciones', res)
+    })
     this.actual$ = this.store.select(selectActual).subscribe(res => this.actual = res)
     this.region$ = this.store.select(selectRegion).subscribe(res => {
-       this.region = res 
-       console.log('region', res)
-       this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res => {
-         this.changeActualPrice(res)
-         this.actualPrice = res
-       }
-       )
+      this.region = res
+      console.log('region', res)
+      this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res => {
+        this.changeActualPrice(res)
+        this.actualPrice = res
+      }
+      )
     })
     this.propestaTotal$ = this.store.select(selectAllPropuesta).subscribe(res => this.propuesta = res)
     this.actualPriceOb$ = this.store.select(selectactalPrice)
