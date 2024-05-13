@@ -84,11 +84,12 @@
       </div>
       <div class="w-100 d-flex justify-content-end" style="gap:5px">
         <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
-          USD {{actualPrice?.price| milespipe: 2}}</span>
+          {{actualPrice?.price| milespipe: 2}}</span>
+        <span *ngIf="!this?.tasa">USD</span>
         <span *ngIf="region.id==1" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
-          USD {{precio_modificado / region.solidarity_usd | milespipe: 2}}
+           {{precio_modificado / region.solidarity_usd | milespipe: 2}}
         </span>
-        <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
+        <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: bold; bottom: -20px; right: 25px;">
           = USD {{(actualPrice?.price) - ( -precio_modificado / region.solidarity_usd) | milespipe: 2}}</span>
       </div>
 
