@@ -82,7 +82,7 @@
           <span class="iva" *ngIf="region.id==1">+IVA</span>
         </h3>
       </div>
-      <div class="w-100 d-flex justify-content-end" style="gap:5px">
+      <div class="w-100 d-flex justify-content-end" style="gap:5px" *ngIf="region.id!=1">
         <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
           {{actualPrice?.price| milespipe: 2}}</span>
         <span style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;" *ngIf="!this?.tasa">USD</span>
