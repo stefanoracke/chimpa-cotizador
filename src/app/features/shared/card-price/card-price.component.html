@@ -129,8 +129,8 @@
         <p class="aclaracion ">
           *Precio variable al alcance del proyecto.
           <br>
-          <span *ngIf="region.id==1">*Precio expresado en ARS <span>{{region?.solidarity_usd}}</span>
-            al dolar blue venta.</span>
+          <span *ngIf="region.id==1">*Precio expresado al dolar blue venta. Cotización del día: ARS <span>{{region?.solidarity_usd}}</span>
+            </span>
         </p>
         <p class="aclaracion">El tiempo empieza a correr una vez recibido el pago y toda la infomación.</p>
       </div>
@@ -181,5 +181,5 @@
 
 <div #dataToExport id="dataToExport">
 
-  <app-download class="d-none" [precios]="propuesta"></app-download>
+  <app-download class="" [precios]="propuesta"></app-download>
 </div>
