@@ -8,8 +8,8 @@ import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/core/store/app.reducer';
-import { selectAllPropuesta } from 'src/app/core/store/selectors/prices.selector';
-import { Subscription } from 'rxjs';
+import { selectAllPropuesta, selectAmentarPropuesta } from 'src/app/core/store/selectors/prices.selector';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-section1',
@@ -24,7 +24,8 @@ export class Section1Component implements OnInit, OnDestroy {
   public animationSpeed: number = 1;
   nameempresa!: any
   @Output() stopLoad = new EventEmitter<boolean>();
-
+  ampliar$?: Observable<any[] | undefined>
+  
   constructor(
     private store: Store<AppState>,
     private titleService: Title,
@@ -87,7 +88,7 @@ export class Section1Component implements OnInit, OnDestroy {
       autoplay: true,
       loop: true
     };
-
+    this.ampliar$ = this.store.select(selectAmentarPropuesta)
 
     this.sub$ = this.store.select(selectAllPropuesta).subscribe(res => {
       this.nameempresa = res.clients.business_name

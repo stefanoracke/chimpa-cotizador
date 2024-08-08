@@ -7,7 +7,7 @@
                     <h1 class="text-white">Hola <span class="text-yellow">{{nameempresa}}</span></h1>
 
                 </div>
-                <div  data-aos="fade-left" data-aos-duration="600">
+                <div data-aos="fade-left" data-aos-duration="600">
                     <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
                 </div>
             </div>
@@ -16,10 +16,10 @@
 
             </div>
         </div>
-        
+
     </div>
-    <div class="pt-[150px]" data-aos="fade-left" data-aos-duration="600">
-        <h2 class="text-white text-[42px] fw-medium text-center">Ampliar propuesta</h2>
+    <div *ngIf="ampliar$ | async as ampliar" class="pt-[150px]" data-aos="fade-left" data-aos-duration="600">
+        <h2 *ngIf="ampliar.length > 0" class="text-white text-[42px] fw-medium text-center">Ampliar propuesta</h2>
     </div>
 </div>
 <div class="container pt-5 text-white" data-aos="fade-left" data-aos-duration="600">

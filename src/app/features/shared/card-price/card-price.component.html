@@ -152,7 +152,6 @@
 </div>
 
 <div class="overlay" #dialog id="overlay">
-
   <article class="card position-relative p-5">
     <i role="button" class="far fa-window-close position-absolute fs-3" style="top:10px; right: 10px;"
       (click)="showModal()"></i>
@@ -174,12 +173,9 @@
       <button shareButton="telegram" class="btn btn-media bg-telegram text-white mx-2 d-flex d-md-none">
         <i class="fa-brands fa-telegram"></i>
       </button>
-
     </div>
   </article>
 </div>
-
 <div #dataToExport id="dataToExport">
-
   <app-download class="d-none" [precios]="propuesta"></app-download>
 </div>
