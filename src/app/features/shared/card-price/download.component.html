@@ -121,7 +121,7 @@
           <li *ngFor="let item of precios?.services">
             <label style="font-weight:bold; font-size:20px">{{item.name}}: </label> 
             <span>
-              <span *ngIf="precios?.clients.regions_id!=1">{{precios?.clients.regions_id}}  us</span>$ 
+              <span *ngIf="precios?.clients.regions_id!=1"> us</span>$ 
               {{item.price | download : precios?.solidarity_usd : precios?.clients?.regions_id : null : null | milespipe: precios?.clients.regions_id}}
 
             </span>
