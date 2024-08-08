@@ -44,7 +44,7 @@ export class PropuestaService {
   }
 
   getDolars():Observable<any>{
-    return this.http.get<any>('https://dolarapi.com/v1/dolares/tarjeta')
+    return this.http.get<any>('https://dolarapi.com/v1/dolares/blue')
   }
 
   getFaqs(): Observable<any> {
