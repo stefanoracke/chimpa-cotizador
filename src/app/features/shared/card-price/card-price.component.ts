@@ -127,6 +127,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   @Output() booleanEvent = new EventEmitter<boolean>();
 
   project_subscription!: Subscription;
+  precioSinModificacion!: any;
   precio!: number;
   show = 0;
   precio_modificado!: any;
@@ -204,6 +205,16 @@ export class CardPriceComponent implements OnInit, OnDestroy {
 
   changeActual(index: number) {
     this.store.dispatch(setActual({ actual: index }))
+
+    this.precioSinModificacion = 
+    this.region.id == 1 ? 
+    Number(this.opciones[index].price * this.region.solidarity_usd) : 
+    Number(this.opciones[index].price)
+    
+    //Seteando los valores a originales
+    this.show = 0
+    this.cuotas = undefined
+    this.tasa = undefined
     this.changePrice(this.opciones[index])
 
   }
@@ -239,7 +250,11 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       }
       )
     })
-    this.propestaTotal$ = this.store.select(selectAllPropuesta).subscribe(res => this.propuesta = res)
+    this.propestaTotal$ = this.store.select(selectAllPropuesta).subscribe(res => {
+      console.log("aqui trabajando", res)
+      this.propuesta = res
+      this.precioSinModificacion = res.region.id == 1 ? Number(res.price * res.solidarity_usd) : Number(res.price)
+    })
     this.actualPriceOb$ = this.store.select(selectactalPrice)
 
   }

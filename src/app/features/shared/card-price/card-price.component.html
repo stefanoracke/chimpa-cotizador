@@ -1,6 +1,7 @@
 <article class="card relative z-40">
   <div class="container">
     <h3>Propuesta <br>{{propuesta?.title}}</h3>
+    <!-- Cambio de opciones Aca se actualiza precio sin modificar -->
     <ng-container *ngIf="opcionesOb$ | async as opciones">
       <div *ngIf="opciones.length>1" class="flex gap-2 pt-2">
         <span *ngFor="opcion of opciones, let index = index" (click)="changeActual(index)"
@@ -60,7 +61,7 @@
 
       <!--  Precio   -->
 
-
+      <!--    Cuotas    -->
       <div *ngIf="cuotas!=undefined" class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">{{cuotas|cuotaspipe}} </h3>
         <div>
@@ -69,48 +70,65 @@
           </h3>
         </div>
       </div>
-      <div *ngIf="tasa!=undefined" class="d-flex justify-content-between align-items-center">
-        <h3 class="text_total">{{tasa|tasaspipe}} </h3>
-        <h3 class="text_total">${{precio_modificado| milespipe: region.id}} <span *ngIf="region.id!=1">USD</span> </h3>
+
+      <!-- Descuentos contenedor -->
+      <div *ngIf="tasa!=undefined">
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="text_total">Precio original</h3>
+          <h3 class="text_total">${{precioSinModificacion | milespipe: region.id}} <span *ngIf="region.id!=1">USD</span>
+          </h3>
+        </div>
+        <div class="d-flex justify-content-between align-items-center">
+          <h3 class="text_total">{{tasa|tasaspipe}} </h3>
+          <h3 class="text_total">${{precio_modificado| milespipe: region.id}} <span *ngIf="region.id!=1">USD</span>
+          </h3>
+        </div>
       </div>
 
+      <!-- Precio final -->
       <div class="d-flex justify-content-between align-items-center">
-        <h3 class="text_total">Total </h3>
-        <h3 class="precio_iva position-relative">
+        <h3 class="text_total text-green" style="font-size: 18px; font-weight: 700;">Precio final </h3>
+        <h3 class="text-green position-relative" style="font-size: 24px; font-weight:700">
           ${{precio_muestra| milespipe: region.id}}
           <span *ngIf="region.id!=1">USD</span>
-          <span class="iva" *ngIf="region.id==1">+IVA</span>
+          <span style="font-size:14px" *ngIf="region.id==1">+IVA</span>
         </h3>
       </div>
-      <div class="w-100 d-flex justify-content-end" style="gap:5px" *ngIf="region.id==1">
-        <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
-          {{actualPrice?.price| milespipe: 2}}</span>
-        <span style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;" *ngIf="!this?.tasa">USD</span>
-        <span *ngIf="region.id==1" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
-           {{precio_modificado / region.solidarity_usd | milespipe: 2}}
-        </span>
-        <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: bold; bottom: -20px; right: 25px;">
-          = USD {{(actualPrice?.price) - ( -precio_modificado / region.solidarity_usd) | milespipe: 2}}</span>
+      <!-- END Precio final -->
+
+      <div class="w-100 d-flex justify-content-between" style="gap:5px; color: #175B8C" *ngIf="region.id==1">
+        <div>Precio en dolares</div>
+        <div>
+          <small style="padding-right:8px; font-size: 10px;" *ngIf="cuotas!= undefined">{{cuotas}} cuotas de</small>
+          <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
+            {{actualPrice?.price| milespipe: 2}}</span>
+          <span style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;" *ngIf="!this?.tasa">USD</span>
+          <span *ngIf="region.id==1" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
+            {{precio_modificado / region.solidarity_usd | milespipe: 2}}
+          </span>
+          <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: bold; bottom: -20px; right: 25px;">
+            = USD {{(actualPrice?.price) - ( -precio_modificado / region.solidarity_usd) | milespipe: 2}}</span>
+        </div>
       </div>
 
 
       <hr class="mt-2">
-      <div class="d-flex justify-content-end">
-        <p class="aclaracion">
-          *Precio variable al alcance del proyecto.
-          <br>
 
-          <span *ngIf="region.id==1">*Precio expresado en ARS <span>{{region?.solidarity_usd}}</span>
-            al dolar tarjeta.</span>
-
-        </p>
-      </div>
       <div class="d-flex justify-content-between align-items-center">
         <h3 class="text_total">Plazos de entrega</h3>
         <h3 class="text_total">{{actualPrice?.time_lapse}}</h3>
       </div>
 
-      <p class="aclaracion mt-2">El tiempo empieza a correr una vez recibido el pago y toda la infomación.</p>
+      <!-- Observaciones -->
+      <div class="mt-2">
+        <p class="aclaracion ">
+          *Precio variable al alcance del proyecto.
+          <br>
+          <span *ngIf="region.id==1">*Precio expresado en ARS <span>{{region?.solidarity_usd}}</span>
+            al dolar tarjeta.</span>
+        </p>
+        <p class="aclaracion">El tiempo empieza a correr una vez recibido el pago y toda la infomación.</p>
+      </div>
     </div>
   </div>
 </article>
