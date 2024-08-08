@@ -66,11 +66,9 @@ export class AppComponent implements OnInit, OnDestroy {
         this.subs2 = false
         this.apiRest.getDolars()
           .subscribe(dolar => {
-            console.log("dolar", dolar)
             this.store.dispatch(
               // antes se estaba usando el dolar solidario ahora se usa el dolar tarjeta
               actionPropuestaTotal({ propuestaTotal: { ...all, solidarity_usd: dolar.venta } }))
-            console.log('nueva', { ...all, solidarity_usd: dolar.venta })
           })
       }
     })

@@ -76,9 +76,7 @@ export class TimerComponent implements OnInit, OnDestroy {
       }
     });
     this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res => {
-      console.log('actual price',res)
       this.store.select(selectRegion).subscribe(region=>{
-        console.log('region: ',region)
         const descont = this.propuesta.promotions[0].descont/100
         if(region.id == 1 && descont){
           let solidary_usd = region.solidarity_usd

@@ -73,7 +73,6 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   link = window.location.href
   scrollTo(id: string) {
     let element = document.getElementById(id)
-    console.log(element)
     if (element) {
       // Scroll to the element
       element.scrollIntoView({ behavior: 'smooth' });
@@ -206,11 +205,11 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   changeActual(index: number) {
     this.store.dispatch(setActual({ actual: index }))
 
-    this.precioSinModificacion = 
-    this.region.id == 1 ? 
-    Number(this.opciones[index].price * this.region.solidarity_usd) : 
-    Number(this.opciones[index].price)
-    
+    this.precioSinModificacion =
+      this.region.id == 1 ?
+        Number(this.opciones[index].price * this.region.solidarity_usd) :
+        Number(this.opciones[index].price)
+
     //Seteando los valores a originales
     this.show = 0
     this.cuotas = undefined
@@ -238,12 +237,10 @@ export class CardPriceComponent implements OnInit, OnDestroy {
     this.opcionesOb$ = this.store.select(selectOptions)
     this.opciones$ = this.store.select(selectOptions).subscribe(res => {
       this.opciones = res
-      console.log('opciones', res)
     })
     this.actual$ = this.store.select(selectActual).subscribe(res => this.actual = res)
     this.region$ = this.store.select(selectRegion).subscribe(res => {
       this.region = res
-      console.log('region', res)
       this.actualPrice$ = this.store.select(selectactalPrice).subscribe(res => {
         this.changeActualPrice(res)
         this.actualPrice = res
@@ -251,7 +248,6 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       )
     })
     this.propestaTotal$ = this.store.select(selectAllPropuesta).subscribe(res => {
-      console.log("aqui trabajando", res)
       this.propuesta = res
       this.precioSinModificacion = res.region.id == 1 ? Number(res.price * res.solidarity_usd) : Number(res.price)
     })
@@ -304,7 +300,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   templateUrl: './download.component.html',
   styleUrls: ['./card-price.component.scss'],
 })
-export class DownloadComponent implements OnInit, OnChanges {
+export class DownloadComponent implements OnChanges {
   @Input() precios!: any;
 
   displayedColumns: string[] = ['descuentos', 'name', 'cuotas', 'total'];
@@ -317,13 +313,12 @@ export class DownloadComponent implements OnInit, OnChanges {
     functionality: [],
   };
 
-  ngOnInit(): void {
-    console.log(this.precios.services)
-  }
+
 
   ngOnChanges() {
 
     this.updateValue(this.precios);
+    console.log("object", this.object)
   }
 
   updateValue(res: any) {
@@ -333,24 +328,34 @@ export class DownloadComponent implements OnInit, OnChanges {
 
         switch (element.features_types_id) {
           case 1:
-            // tecnicas
-            this.object.tecnicas.push(element);
+            // Técnicas
+            if (!this.object.tecnicas.some(el => el.id === element.id)) {
+              this.object.tecnicas.push(element);
+            }
             break;
           case 2:
             // Servicios incluidos
-            this.object.include_svc.push(element);
+            if (!this.object.include_svc.some(el => el.id === element.id)) {
+              this.object.include_svc.push(element);
+            }
             break;
           case 3:
             // Estructura
-            this.object.estructura.push(element);
+            if (!this.object.estructura.some(el => el.id === element.id)) {
+              this.object.estructura.push(element);
+            }
             break;
           case 4:
             // Funcionalidades
-            this.object.functionality.push(element);
+            if (!this.object.functionality.some(el => el.id === element.id)) {
+              this.object.functionality.push(element);
+            }
             break;
           case 5:
             // Servicios no incluidos
-            this.object.notInclude_svc.push(element);
+            if (!this.object.notInclude_svc.some(el => el.id === element.id)) {
+              this.object.notInclude_svc.push(element);
+            }
             break;
           default:
             break;
