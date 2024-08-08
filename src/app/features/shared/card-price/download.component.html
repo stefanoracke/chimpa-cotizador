@@ -74,34 +74,44 @@
       <div *ngIf="object?.functionality" class="funcionalidades">
         <h4 style="color: #01253B;  margin-top: 20px;">Funcionalidades:</h4>
         <ul>
-          <li *ngFor="let item of object?.functionality" [innerHTML]="item.description"></li>
+          <li *ngFor="let item of object?.functionality" >
+            <div [innerHTML]="item.description"></div>
+          </li>
         </ul>
       </div>
       
       <div *ngIf="object?.estructura" class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Estructura:</h4>
         <ul>
-          <li *ngFor="let item of object?.estructura" [innerHTML] = "item.description"></li>
+          <li *ngFor="let item of object?.estructura" >
+            <div [innerHTML] = "item.description"></div>
+          </li>
         </ul>
       </div>
       <div *ngIf="object?.tecnicas" class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Caracteristicas:</h4>
         <ul>
-          <li *ngFor="let item of object?.tecnicas" [innerHTML] = "item.description"></li>
+          <li *ngFor="let item of object?.tecnicas">
+            <div  [innerHTML] = "item.description"></div>
+          </li>
         </ul>
       </div>
  
       <div *ngIf="object?.include_svc" class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Servicios Incluidos:</h4>
         <ul>
-          <li *ngFor="let item of object?.include_svc" [innerHTML]="item.description"></li>
+          <li *ngFor="let item of object?.include_svc">
+            <div  [innerHTML]="item.description"></div>
+          </li>
         </ul>
       </div>
     
       <div *ngIf="object?.notInclude_svc" class="estructura">
         <h4 style="color: #01253B;  margin-top: 20px;">Servicios No Incluidos:</h4>
         <ul>
-          <li *ngFor="let item of object?.notInclude_svc" [innerHTML]="item.description"></li>
+          <li *ngFor="let item of object?.notInclude_svc" >
+            <div [innerHTML]="item.description"></div>
+          </li>
         </ul>
       </div>
     
@@ -117,9 +127,9 @@
             </span>
             <br>
             <br>
-            <p [innerHTML]="item.description" style="font-size: 13px;">
+            <div [innerHTML]="item.description" style="font-size: 13px;">
               
-            </p>
+            </div>
           </li>
         </ul>
       </div>
@@ -136,8 +146,8 @@
             </span>
             <br>
             <br>
-            <p [innerHTML]="item.description" style="font-size: 13px;">
-            </p>
+            <div [innerHTML]="item.description" style="font-size: 13px;">
+            </div>
           </li>
         </ul>
       </div>
