@@ -318,7 +318,6 @@ export class DownloadComponent implements OnChanges {
   ngOnChanges() {
 
     this.updateValue(this.precios);
-    console.log("object", this.object)
   }
 
   updateValue(res: any) {
