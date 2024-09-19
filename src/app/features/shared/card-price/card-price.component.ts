@@ -128,6 +128,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
   project_subscription!: Subscription;
   precioSinModificacion!: any;
   precio!: number;
+  precio_dolar!:number
   show = 0;
   precio_modificado!: any;
   precio_muestra!: number;
@@ -155,6 +156,12 @@ export class CardPriceComponent implements OnInit, OnDestroy {
 
   showFin(i: number) {
     this.show = i;
+    if(i == 0){
+      this.tasa = undefined;
+      this.cuotas = undefined
+      this.precio_muestra = this.precio;
+      return
+    }
     let element = this.actualPrice.payment_types.find((res: any) => i === res.id);
 
     if (element?.share) {
@@ -177,6 +184,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
       this.precio_modificado = (-this.precio * n) / 100;
       this.precio_muestra = (this.precio * x) / 100;
     }
+    
   }
   changePriceInclude() {
     let newPrecio = this.actualPrice
@@ -249,6 +257,7 @@ export class CardPriceComponent implements OnInit, OnDestroy {
     })
     this.propestaTotal$ = this.store.select(selectAllPropuesta).subscribe(res => {
       this.propuesta = res
+      this.precio_dolar = Number(res.price)
       this.precioSinModificacion = res.region.id == 1 ? Number(res.price * res.solidarity_usd) : Number(res.price)
     })
     this.actualPriceOb$ = this.store.select(selectactalPrice)
@@ -354,7 +363,7 @@ export class DownloadComponent implements OnChanges {
             // Servicios no incluidos
             if (!this.object.notInclude_svc.some(el => el.id === element.id)) {
               this.object.notInclude_svc.push(element);
-            }
+            } 
             break;
           default:
             break;

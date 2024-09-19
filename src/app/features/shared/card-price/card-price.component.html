@@ -15,7 +15,7 @@
     <h4 class="pt-1">Financiación</h4>
 
     <div class=" d-flex flex-column " *ngIf="actualPriceOb$ |async as actualPrice2">
-      <div class="d-flex flex-column  radio-buttons" >
+      <div class="d-flex flex-column  radio-buttons">
         <div class="d-flex mb-1 align-items-center mt-2 radio"><span (click)="showFin(0)"
             class="radio_button clickeable" [ngClass]="{'radio_button_active':show == 0}"></span><label
             class="clickeable" (click)="showFin(0)" for="">Precio original</label></div>
@@ -108,8 +108,11 @@
           <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
             {{actualPrice?.price| milespipe: 2}}</span>
           <span style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;" *ngIf="!this?.tasa">USD</span>
-          <span *ngIf="region.id==1" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
+          <span *ngIf="this.show!= 0" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
             {{precio_modificado / region.solidarity_usd | milespipe: 2}}
+          </span>
+          <span *ngIf="this.show== 0" style="font-size: 12px; font-weight: light; bottom: -20px; right: 25px;">
+            {{precio_dolar | milespipe: 2}}
           </span>
           <span *ngIf="this?.tasa" style="font-size: 12px; font-weight: bold; bottom: -20px; right: 25px;">
             = USD {{(actualPrice?.price) - ( -precio_modificado / region.solidarity_usd) | milespipe: 2}}</span>
@@ -129,8 +132,9 @@
         <p class="aclaracion ">
           *Precio variable al alcance del proyecto.
           <br>
-          <span *ngIf="region.id==1">*Precio expresado al dolar blue venta. Cotización del día: ARS <span>{{region?.solidarity_usd}}</span>
-            </span>
+          <span *ngIf="region.id==1">*Precio expresado al dolar blue venta. Cotización del día: ARS
+            <span>{{region?.solidarity_usd}}</span>
+          </span>
         </p>
         <p class="aclaracion">El tiempo empieza a correr una vez recibido el pago y toda la infomación.</p>
       </div>
