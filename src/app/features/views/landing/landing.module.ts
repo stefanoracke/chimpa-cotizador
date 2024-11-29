@@ -26,6 +26,7 @@ import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { MaterialModule } from 'src/app/core/modules/material/material.module';
 import { AmpliarPropuestaComponent } from './ampliar-propuesta/ampliar-propuesta.component';
+import { ScrollDownComponent } from '../../shared/scroll-down/scroll-down.component';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -58,6 +59,7 @@ export function playerFactory() {
     LottieModule.forRoot({ player: playerFactory }),
     DragScrollModule,
     MaterialModule,
+    ScrollDownComponent,
     YouTubePlayerModule
   ],
   exports: [

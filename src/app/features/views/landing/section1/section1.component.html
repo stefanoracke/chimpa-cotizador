@@ -11,7 +11,8 @@
                     <app-card-price (booleanEvent)="newEvent($event)"></app-card-price>
                 </div>
             </div>
-            <div class="col-md-6  prices-container cohete ">
+            <div class="col-md-6  prices-container cohete d-flex flex-col align-items-center justify-content-end items-center">
+                <chimpa-scroll-down text="Continúa navegando"></chimpa-scroll-down>
                 <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
 
             </div>
